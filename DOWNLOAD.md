@@ -12,6 +12,6 @@ Unity Hub에서 Unity **2022.3.62f1**로 ZIP 안의 `ProjectHINA` 폴더를 열�
 
 [아트 배치 예시](Unity/ArtReview/stage_1.png) · [소스 및 실행 안내](Unity/README.md) · [검증 기록](Unity/VALIDATION.json)
 
-파일 크기: 43,373,390 bytes. SHA-256: `d5f1598b22710c5a7072e46cfc6098440890842920d5e44321058938f22c90fe`.
+파일 크기: 43,373,421 bytes. SHA-256: `654e769a0cf784c54e0d6635e6d2dc284070ce6d7e1b51812a773c9f15d5d18c`.
 
 이전 ZIP도 downloads 폴더에 보존되어 있습니다. 체크섬 목록은 downloads/SHA256SUMS.txt에 있습니다.
