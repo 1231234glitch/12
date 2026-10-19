@@ -1,0 +1,891 @@
+{
+  "atlases": [
+    {
+      "id": "player",
+      "cellWidth": 128,
+      "cellHeight": 128,
+      "columns": 8,
+      "pivotX": 0.5,
+      "pivotY": 0.21875,
+      "frames": [
+        "air_00",
+        "air_01",
+        "air_02",
+        "air_03",
+        "air_04",
+        "air_05",
+        "air_06",
+        "air_07",
+        "air_08",
+        "air_09",
+        "air_10",
+        "air_11",
+        "air_12",
+        "air_13",
+        "air_14",
+        "air_15",
+        "ground_00",
+        "ground_01",
+        "ground_02",
+        "ground_03",
+        "ground_04",
+        "ground_05",
+        "ground_06",
+        "ground_07",
+        "ground_08",
+        "ground_09",
+        "ground_10",
+        "ground_12",
+        "ground_13",
+        "ground_14",
+        "ground_15",
+        "kick_00",
+        "kick_01",
+        "kick_02",
+        "kick_03",
+        "kick_04",
+        "kick_05",
+        "kick_06",
+        "kick_07"
+      ],
+      "provenance": "generated_placeholder"
+    },
+    {
+      "id": "enemies",
+      "cellWidth": 160,
+      "cellHeight": 96,
+      "columns": 8,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "frames": [
+        "helmet_idle_0",
+        "helmet_walk_0",
+        "helmet_walk_1",
+        "helmet_walk_2",
+        "helmet_walk_3",
+        "helmet_walk_4",
+        "helmet_walk_5",
+        "helmet_death_0",
+        "helmet_death_1",
+        "helmet_death_2",
+        "helmet_death_3",
+        "sukeban_idle_0",
+        "sukeban_walk_0",
+        "sukeban_walk_1",
+        "sukeban_walk_2",
+        "sukeban_walk_3",
+        "sukeban_walk_4",
+        "sukeban_walk_5",
+        "sukeban_death_0",
+        "sukeban_death_1",
+        "sukeban_death_2",
+        "sukeban_death_3",
+        "sniper_idle_0",
+        "sniper_walk_0",
+        "sniper_walk_1",
+        "sniper_walk_2",
+        "sniper_walk_3",
+        "sniper_walk_4",
+        "sniper_walk_5",
+        "sniper_death_0",
+        "sniper_death_1",
+        "sniper_death_2",
+        "sniper_death_3",
+        "shield_idle_0",
+        "shield_walk_0",
+        "shield_walk_1",
+        "shield_walk_2",
+        "shield_walk_3",
+        "shield_walk_4",
+        "shield_walk_5",
+        "shield_death_0",
+        "shield_death_1",
+        "shield_death_2",
+        "shield_death_3",
+        "military_idle_0",
+        "military_walk_0",
+        "military_walk_1",
+        "military_walk_2",
+        "military_walk_3",
+        "military_walk_4",
+        "military_walk_5",
+        "military_death_0",
+        "military_death_1",
+        "military_death_2",
+        "military_death_3",
+        "tank_idle_0",
+        "tank_walk_0",
+        "tank_walk_1",
+        "tank_walk_2",
+        "tank_walk_3",
+        "tank_walk_4",
+        "tank_walk_5",
+        "tank_death_0",
+        "tank_death_1",
+        "tank_death_2",
+        "tank_death_3",
+        "railgun_idle_0",
+        "railgun_walk_0",
+        "railgun_walk_1",
+        "railgun_walk_2",
+        "railgun_walk_3",
+        "railgun_walk_4",
+        "railgun_walk_5",
+        "railgun_death_0",
+        "railgun_death_1",
+        "railgun_death_2",
+        "railgun_death_3"
+      ],
+      "provenance": "generated_placeholder"
+    },
+    {
+      "id": "bosses",
+      "cellWidth": 256,
+      "cellHeight": 224,
+      "columns": 4,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "frames": [
+        "binah_idle_0",
+        "binah_idle_1",
+        "binah_idle_2",
+        "binah_idle_3",
+        "perorodzilla_idle_0",
+        "perorodzilla_idle_1",
+        "perorodzilla_idle_2",
+        "perorodzilla_idle_3",
+        "hod_idle_0",
+        "hod_idle_1",
+        "hod_idle_2",
+        "hod_idle_3",
+        "goz_idle_0",
+        "goz_idle_1",
+        "goz_idle_2",
+        "goz_idle_3",
+        "chesed_idle_0",
+        "chesed_idle_1",
+        "chesed_idle_2",
+        "chesed_idle_3"
+      ],
+      "provenance": "generated_placeholder"
+    },
+    {
+      "id": "props",
+      "cellWidth": 96,
+      "cellHeight": 64,
+      "columns": 4,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "frames": [
+        "prop_00",
+        "prop_01",
+        "prop_02",
+        "prop_03",
+        "prop_04",
+        "prop_05",
+        "prop_06",
+        "prop_07",
+        "prop_08",
+        "prop_09",
+        "prop_10",
+        "prop_11"
+      ],
+      "provenance": "generated_placeholder"
+    },
+    {
+      "id": "backgrounds",
+      "cellWidth": 1536,
+      "cellHeight": 310,
+      "columns": 1,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "frames": [
+        "stage_0",
+        "stage_1",
+        "stage_2",
+        "stage_3",
+        "stage_4"
+      ],
+      "provenance": "generated_placeholder"
+    },
+    {
+      "id": "ground",
+      "cellWidth": 768,
+      "cellHeight": 60,
+      "columns": 1,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "frames": [
+        "ground_0",
+        "ground_1",
+        "ground_2",
+        "ground_3",
+        "ground_4"
+      ],
+      "provenance": "generated_placeholder"
+    },
+    {
+      "id": "title",
+      "cellWidth": 640,
+      "cellHeight": 360,
+      "columns": 1,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "frames": [
+        "title"
+      ],
+      "provenance": "generated_placeholder"
+    },
+    {
+      "id": "effects",
+      "cellWidth": 64,
+      "cellHeight": 64,
+      "columns": 4,
+      "pivotX": 0.5,
+      "pivotY": 0.5,
+      "frames": [
+        "ex_0",
+        "ex_1",
+        "ex_2",
+        "ex_3"
+      ],
+      "provenance": "generated_placeholder"
+    },
+    {
+      "id": "items",
+      "cellWidth": 16,
+      "cellHeight": 16,
+      "columns": 4,
+      "pivotX": 0.5,
+      "pivotY": 0.5,
+      "frames": [
+        "friendly_bullet",
+        "enemy_bullet",
+        "score_pickup",
+        "special_pickup"
+      ],
+      "provenance": "generated_placeholder"
+    }
+  ],
+  "animations": [
+    {
+      "actor": "hina",
+      "state": "idle",
+      "atlas": "player",
+      "frames": [
+        "ground_08"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "actor": "hina",
+      "state": "walk",
+      "atlas": "player",
+      "frames": [
+        "ground_00",
+        "ground_01",
+        "ground_02",
+        "ground_03",
+        "ground_04",
+        "ground_05",
+        "ground_06",
+        "ground_07"
+      ],
+      "fps": 14,
+      "loop": true
+    },
+    {
+      "actor": "hina",
+      "state": "walk_shoot",
+      "atlas": "player",
+      "frames": [
+        "ground_00",
+        "ground_01",
+        "ground_02",
+        "ground_03",
+        "ground_04",
+        "ground_05",
+        "ground_06",
+        "ground_07"
+      ],
+      "fps": 14,
+      "loop": true
+    },
+    {
+      "actor": "hina",
+      "state": "jump",
+      "atlas": "player",
+      "frames": [
+        "air_00",
+        "air_01",
+        "air_02",
+        "air_03"
+      ],
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "actor": "hina",
+      "state": "jump_rise",
+      "atlas": "player",
+      "frames": [
+        "air_00",
+        "air_01",
+        "air_02",
+        "air_03"
+      ],
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "actor": "hina",
+      "state": "jump_apex",
+      "atlas": "player",
+      "frames": [
+        "air_00",
+        "air_01",
+        "air_02",
+        "air_03"
+      ],
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "actor": "hina",
+      "state": "fall",
+      "atlas": "player",
+      "frames": [
+        "air_00",
+        "air_01",
+        "air_02",
+        "air_03"
+      ],
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "actor": "hina",
+      "state": "land",
+      "atlas": "player",
+      "frames": [
+        "ground_10",
+        "ground_08"
+      ],
+      "fps": 18,
+      "loop": false
+    },
+    {
+      "actor": "hina",
+      "state": "shoot",
+      "atlas": "player",
+      "frames": [
+        "ground_08",
+        "ground_09"
+      ],
+      "fps": 16,
+      "loop": true
+    },
+    {
+      "actor": "hina",
+      "state": "crouch",
+      "atlas": "player",
+      "frames": [
+        "ground_10"
+      ],
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "actor": "hina",
+      "state": "crouch_shoot",
+      "atlas": "player",
+      "frames": [
+        "ground_10"
+      ],
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "actor": "hina",
+      "state": "shoot_up",
+      "atlas": "player",
+      "frames": [
+        "air_12",
+        "air_13"
+      ],
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "actor": "hina",
+      "state": "shoot_diagonal",
+      "atlas": "player",
+      "frames": [
+        "air_14",
+        "air_15"
+      ],
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "actor": "hina",
+      "state": "air_down",
+      "atlas": "player",
+      "frames": [
+        "air_04",
+        "air_05",
+        "air_06",
+        "air_07"
+      ],
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "actor": "hina",
+      "state": "air_shoot",
+      "atlas": "player",
+      "frames": [
+        "air_08",
+        "air_09",
+        "air_10",
+        "air_11"
+      ],
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "actor": "hina",
+      "state": "special",
+      "atlas": "player",
+      "frames": [
+        "ground_12",
+        "ground_12",
+        "ground_13",
+        "ground_13",
+        "ground_08"
+      ],
+      "fps": 6,
+      "loop": false
+    },
+    {
+      "actor": "hina",
+      "state": "hurt",
+      "atlas": "player",
+      "frames": [
+        "ground_14"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "hina",
+      "state": "down",
+      "atlas": "player",
+      "frames": [
+        "ground_15"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "hina",
+      "state": "getup",
+      "atlas": "player",
+      "frames": [
+        "ground_10",
+        "ground_08"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "hina",
+      "state": "death",
+      "atlas": "player",
+      "frames": [
+        "ground_14",
+        "ground_15"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "hina",
+      "state": "kick",
+      "atlas": "player",
+      "frames": [
+        "kick_00",
+        "kick_01",
+        "kick_02",
+        "kick_02",
+        "kick_03",
+        "kick_04",
+        "kick_05"
+      ],
+      "fps": 16,
+      "loop": false
+    },
+    {
+      "actor": "hina",
+      "state": "air_kick",
+      "atlas": "player",
+      "frames": [
+        "kick_06",
+        "kick_06",
+        "kick_07",
+        "kick_07",
+        "kick_06",
+        "kick_06",
+        "kick_05"
+      ],
+      "fps": 16,
+      "loop": false
+    },
+    {
+      "actor": "helmet",
+      "state": "idle",
+      "atlas": "enemies",
+      "frames": [
+        "helmet_idle_0"
+      ],
+      "fps": 10,
+      "loop": true
+    },
+    {
+      "actor": "helmet",
+      "state": "walk",
+      "atlas": "enemies",
+      "frames": [
+        "helmet_walk_0",
+        "helmet_walk_1",
+        "helmet_walk_2",
+        "helmet_walk_3",
+        "helmet_walk_4",
+        "helmet_walk_5"
+      ],
+      "fps": 10,
+      "loop": true
+    },
+    {
+      "actor": "helmet",
+      "state": "death",
+      "atlas": "enemies",
+      "frames": [
+        "helmet_death_0",
+        "helmet_death_1",
+        "helmet_death_2",
+        "helmet_death_3"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "sukeban",
+      "state": "idle",
+      "atlas": "enemies",
+      "frames": [
+        "sukeban_idle_0"
+      ],
+      "fps": 10,
+      "loop": true
+    },
+    {
+      "actor": "sukeban",
+      "state": "walk",
+      "atlas": "enemies",
+      "frames": [
+        "sukeban_walk_0",
+        "sukeban_walk_1",
+        "sukeban_walk_2",
+        "sukeban_walk_3",
+        "sukeban_walk_4",
+        "sukeban_walk_5"
+      ],
+      "fps": 10,
+      "loop": true
+    },
+    {
+      "actor": "sukeban",
+      "state": "death",
+      "atlas": "enemies",
+      "frames": [
+        "sukeban_death_0",
+        "sukeban_death_1",
+        "sukeban_death_2",
+        "sukeban_death_3"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "sniper",
+      "state": "idle",
+      "atlas": "enemies",
+      "frames": [
+        "sniper_idle_0"
+      ],
+      "fps": 10,
+      "loop": true
+    },
+    {
+      "actor": "sniper",
+      "state": "walk",
+      "atlas": "enemies",
+      "frames": [
+        "sniper_walk_0",
+        "sniper_walk_1",
+        "sniper_walk_2",
+        "sniper_walk_3",
+        "sniper_walk_4",
+        "sniper_walk_5"
+      ],
+      "fps": 10,
+      "loop": true
+    },
+    {
+      "actor": "sniper",
+      "state": "death",
+      "atlas": "enemies",
+      "frames": [
+        "sniper_death_0",
+        "sniper_death_1",
+        "sniper_death_2",
+        "sniper_death_3"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "shield",
+      "state": "idle",
+      "atlas": "enemies",
+      "frames": [
+        "shield_idle_0"
+      ],
+      "fps": 10,
+      "loop": true
+    },
+    {
+      "actor": "shield",
+      "state": "walk",
+      "atlas": "enemies",
+      "frames": [
+        "shield_walk_0",
+        "shield_walk_1",
+        "shield_walk_2",
+        "shield_walk_3",
+        "shield_walk_4",
+        "shield_walk_5"
+      ],
+      "fps": 10,
+      "loop": true
+    },
+    {
+      "actor": "shield",
+      "state": "death",
+      "atlas": "enemies",
+      "frames": [
+        "shield_death_0",
+        "shield_death_1",
+        "shield_death_2",
+        "shield_death_3"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "military",
+      "state": "idle",
+      "atlas": "enemies",
+      "frames": [
+        "military_idle_0"
+      ],
+      "fps": 10,
+      "loop": true
+    },
+    {
+      "actor": "military",
+      "state": "walk",
+      "atlas": "enemies",
+      "frames": [
+        "military_walk_0",
+        "military_walk_1",
+        "military_walk_2",
+        "military_walk_3",
+        "military_walk_4",
+        "military_walk_5"
+      ],
+      "fps": 10,
+      "loop": true
+    },
+    {
+      "actor": "military",
+      "state": "death",
+      "atlas": "enemies",
+      "frames": [
+        "military_death_0",
+        "military_death_1",
+        "military_death_2",
+        "military_death_3"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "tank",
+      "state": "idle",
+      "atlas": "enemies",
+      "frames": [
+        "tank_idle_0"
+      ],
+      "fps": 10,
+      "loop": true
+    },
+    {
+      "actor": "tank",
+      "state": "walk",
+      "atlas": "enemies",
+      "frames": [
+        "tank_walk_0",
+        "tank_walk_1",
+        "tank_walk_2",
+        "tank_walk_3",
+        "tank_walk_4",
+        "tank_walk_5"
+      ],
+      "fps": 10,
+      "loop": true
+    },
+    {
+      "actor": "tank",
+      "state": "death",
+      "atlas": "enemies",
+      "frames": [
+        "tank_death_0",
+        "tank_death_1",
+        "tank_death_2",
+        "tank_death_3"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "railgun",
+      "state": "idle",
+      "atlas": "enemies",
+      "frames": [
+        "railgun_idle_0"
+      ],
+      "fps": 10,
+      "loop": true
+    },
+    {
+      "actor": "railgun",
+      "state": "walk",
+      "atlas": "enemies",
+      "frames": [
+        "railgun_walk_0",
+        "railgun_walk_1",
+        "railgun_walk_2",
+        "railgun_walk_3",
+        "railgun_walk_4",
+        "railgun_walk_5"
+      ],
+      "fps": 10,
+      "loop": true
+    },
+    {
+      "actor": "railgun",
+      "state": "death",
+      "atlas": "enemies",
+      "frames": [
+        "railgun_death_0",
+        "railgun_death_1",
+        "railgun_death_2",
+        "railgun_death_3"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "binah",
+      "state": "idle",
+      "atlas": "bosses",
+      "frames": [
+        "binah_idle_0",
+        "binah_idle_1",
+        "binah_idle_2",
+        "binah_idle_3"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "actor": "perorodzilla",
+      "state": "idle",
+      "atlas": "bosses",
+      "frames": [
+        "perorodzilla_idle_0",
+        "perorodzilla_idle_1",
+        "perorodzilla_idle_2",
+        "perorodzilla_idle_3"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "actor": "hod",
+      "state": "idle",
+      "atlas": "bosses",
+      "frames": [
+        "hod_idle_0",
+        "hod_idle_1",
+        "hod_idle_2",
+        "hod_idle_3"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "actor": "goz",
+      "state": "idle",
+      "atlas": "bosses",
+      "frames": [
+        "goz_idle_0",
+        "goz_idle_1",
+        "goz_idle_2",
+        "goz_idle_3"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "actor": "chesed",
+      "state": "idle",
+      "atlas": "bosses",
+      "frames": [
+        "chesed_idle_0",
+        "chesed_idle_1",
+        "chesed_idle_2",
+        "chesed_idle_3"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "actor": "effects",
+      "state": "explosion",
+      "atlas": "effects",
+      "frames": [
+        "ex_0",
+        "ex_1",
+        "ex_2",
+        "ex_3"
+      ],
+      "fps": 10,
+      "loop": false
+    }
+  ],
+  "original_assets_complete": false
+}

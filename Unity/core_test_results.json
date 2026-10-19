@@ -1,0 +1,234 @@
+{
+  "checks": 57,
+  "failures": 0,
+  "results": [
+    {
+      "name": "initial_lives_special_stock",
+      "passed": true
+    },
+    {
+      "name": "movement_180_pixels_second",
+      "passed": true
+    },
+    {
+      "name": "immediate_stop",
+      "passed": true
+    },
+    {
+      "name": "jump_rise",
+      "passed": true
+    },
+    {
+      "name": "jump_landing",
+      "passed": true
+    },
+    {
+      "name": "vertical_fire",
+      "passed": true
+    },
+    {
+      "name": "diagonal_fire",
+      "passed": true
+    },
+    {
+      "name": "air_down_fire",
+      "passed": true
+    },
+    {
+      "name": "crouch_blocks_movement",
+      "passed": true
+    },
+    {
+      "name": "bullets_hit_enemy",
+      "passed": true
+    },
+    {
+      "name": "kill_reward_once",
+      "passed": true
+    },
+    {
+      "name": "close_attack_auto_kick",
+      "passed": true
+    },
+    {
+      "name": "tank_survives_one_hit",
+      "passed": true
+    },
+    {
+      "name": "tank_dies_at_zero",
+      "passed": true
+    },
+    {
+      "name": "one_hit_life_loss",
+      "passed": true
+    },
+    {
+      "name": "duplicate_death_guard",
+      "passed": true
+    },
+    {
+      "name": "respawn_same_actor_invulnerability",
+      "passed": true
+    },
+    {
+      "name": "last_life_countdown",
+      "passed": true
+    },
+    {
+      "name": "continue_freezes_world",
+      "passed": true
+    },
+    {
+      "name": "coin_continues_preserving_progress",
+      "passed": true
+    },
+    {
+      "name": "continue_expires",
+      "passed": true
+    },
+    {
+      "name": "coin_after_gameover_restarts",
+      "passed": true
+    },
+    {
+      "name": "pause_freezes_simulation",
+      "passed": true
+    },
+    {
+      "name": "coin_during_pause",
+      "passed": true
+    },
+    {
+      "name": "special_consumes_stock",
+      "passed": true
+    },
+    {
+      "name": "special_area_attack_and_invulnerability",
+      "passed": true
+    },
+    {
+      "name": "empty_special_blocked",
+      "passed": true
+    },
+    {
+      "name": "waves_trigger_once",
+      "passed": true
+    },
+    {
+      "name": "bullet_hits_prop",
+      "passed": true
+    },
+    {
+      "name": "bullet_terrain_collision",
+      "passed": true
+    },
+    {
+      "name": "stage_0_data",
+      "passed": true
+    },
+    {
+      "name": "stage_0_boss_activation",
+      "passed": true
+    },
+    {
+      "name": "stage_0_warning_before_attack",
+      "passed": true
+    },
+    {
+      "name": "stage_1_data",
+      "passed": true
+    },
+    {
+      "name": "stage_1_boss_activation",
+      "passed": true
+    },
+    {
+      "name": "stage_1_warning_before_attack",
+      "passed": true
+    },
+    {
+      "name": "stage_2_data",
+      "passed": true
+    },
+    {
+      "name": "stage_2_boss_activation",
+      "passed": true
+    },
+    {
+      "name": "stage_2_warning_before_attack",
+      "passed": true
+    },
+    {
+      "name": "stage_3_data",
+      "passed": true
+    },
+    {
+      "name": "stage_3_boss_activation",
+      "passed": true
+    },
+    {
+      "name": "stage_3_warning_before_attack",
+      "passed": true
+    },
+    {
+      "name": "stage_4_data",
+      "passed": true
+    },
+    {
+      "name": "stage_4_boss_activation",
+      "passed": true
+    },
+    {
+      "name": "stage_4_warning_before_attack",
+      "passed": true
+    },
+    {
+      "name": "hod_pillars_block_boss_damage",
+      "passed": true
+    },
+    {
+      "name": "hod_vulnerable_after_pillars",
+      "passed": true
+    },
+    {
+      "name": "chesed_closed_core_blocks_damage",
+      "passed": true
+    },
+    {
+      "name": "chesed_wave_0_targets",
+      "passed": true
+    },
+    {
+      "name": "chesed_wave_1_targets",
+      "passed": true
+    },
+    {
+      "name": "chesed_wave_2_targets",
+      "passed": true
+    },
+    {
+      "name": "chesed_wave_3_targets",
+      "passed": true
+    },
+    {
+      "name": "chesed_core_opens_after_four_waves",
+      "passed": true
+    },
+    {
+      "name": "chesed_open_core_multiplier",
+      "passed": true
+    },
+    {
+      "name": "boss_defeat_clear_unlock",
+      "passed": true
+    },
+    {
+      "name": "clear_next_stage_transition",
+      "passed": true
+    },
+    {
+      "name": "final_stage_completion",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+﻿id,blue_archive_identity,atlas,required_animations,original_source_reference,original_asset_status,runtime_asset_status
+hina,소라사키 히나 / Sorasaki Hina,player,"idle,walk,shoot,crouch,jump,air_shoot,air_down,kick,special,hurt,death",07c7b83a-1d98-4df3-b916-7f1b3f28ad06.png (not supplied),MISSING,GENERATED_PLACEHOLDER
+helmet,헬멧단,enemies,"idle,walk,attack,hurt,death",,MISSING,GENERATED_PLACEHOLDER
+sukeban,스케반,enemies,"idle,walk,attack,hurt,death",,MISSING,GENERATED_PLACEHOLDER
+sniper,스케반 저격병 (원본 확인 필요),enemies,"idle,walk,attack,hurt,death",,MISSING,GENERATED_PLACEHOLDER
+shield,카이저 방패 자동기계,enemies,"idle,walk,attack,hurt,death",,MISSING,GENERATED_PLACEHOLDER
+military,카이저 자동기계,enemies,"idle,walk,attack,hurt,death",,MISSING,GENERATED_PLACEHOLDER
+tank,카이저 전차,enemies,"idle,walk,attack,hurt,death",,MISSING,GENERATED_PLACEHOLDER
+railgun,카이저 레일건 전차 (원본 확인 필요),enemies,"idle,walk,attack,hurt,death",,MISSING,GENERATED_PLACEHOLDER
+binah,비나,bosses,"intro,idle,attack,phase2,weak_point,defeat",,MISSING,GENERATED_PLACEHOLDER
+perorodzilla,페로로지라,bosses,"intro,idle,attack,phase2,weak_point,defeat",,MISSING,GENERATED_PLACEHOLDER
+hod,호드,bosses,"intro,idle,attack,phase2,weak_point,defeat",,MISSING,GENERATED_PLACEHOLDER
+goz,고즈,bosses,"intro,idle,attack,phase2,weak_point,defeat",,MISSING,GENERATED_PLACEHOLDER
+chesed,헤세드,bosses,"intro,idle,attack,phase2,weak_point,defeat",,MISSING,GENERATED_PLACEHOLDER
+prop_00,보급 상자 (블루 아카이브 원본 지정 필요),props,"intact,damaged,destroyed",,MISSING,GENERATED_PLACEHOLDER
+prop_01,폭발 드럼통 (블루 아카이브 원본 지정 필요),props,"intact,damaged,destroyed",,MISSING,GENERATED_PLACEHOLDER
+prop_02,군용 엄폐물 (블루 아카이브 원본 지정 필요),props,"intact,damaged,destroyed",,MISSING,GENERATED_PLACEHOLDER
+prop_03,금속 상자 (블루 아카이브 원본 지정 필요),props,"intact,damaged,destroyed",,MISSING,GENERATED_PLACEHOLDER
+prop_04,철도 발판 (블루 아카이브 원본 지정 필요),props,"intact,damaged,destroyed",,MISSING,GENERATED_PLACEHOLDER
+prop_05,부두 발판 (블루 아카이브 원본 지정 필요),props,"intact,damaged,destroyed",,MISSING,GENERATED_PLACEHOLDER
+prop_06,보급 장비 (블루 아카이브 원본 지정 필요),props,"intact,damaged,destroyed",,MISSING,GENERATED_PLACEHOLDER
+prop_07,유적 발판 (블루 아카이브 원본 지정 필요),props,"intact,damaged,destroyed",,MISSING,GENERATED_PLACEHOLDER
+prop_08,군수 시설 (블루 아카이브 원본 지정 필요),props,"intact,damaged,destroyed",,MISSING,GENERATED_PLACEHOLDER
+prop_09,방벽 (블루 아카이브 원본 지정 필요),props,"intact,damaged,destroyed",,MISSING,GENERATED_PLACEHOLDER
+prop_10,시설 장치 (블루 아카이브 원본 지정 필요),props,"intact,damaged,destroyed",,MISSING,GENERATED_PLACEHOLDER
+prop_11,파괴 잔해 (블루 아카이브 원본 지정 필요),props,"intact,damaged,destroyed",,MISSING,GENERATED_PLACEHOLDER
+friendly_bullet,블루 아카이브 friendly_bullet 원본 지정 필요,items,idle,,MISSING,GENERATED_PLACEHOLDER
+enemy_bullet,블루 아카이브 enemy_bullet 원본 지정 필요,items,idle,,MISSING,GENERATED_PLACEHOLDER
+score_pickup,블루 아카이브 score_pickup 원본 지정 필요,items,idle,,MISSING,GENERATED_PLACEHOLDER
+special_pickup,블루 아카이브 special_pickup 원본 지정 필요,items,idle,,MISSING,GENERATED_PLACEHOLDER
+background_1,스테이지 1 블루 아카이브 배경·지형 원본 지정 필요,"backgrounds,ground",static/tile,,MISSING,GENERATED_PLACEHOLDER
+background_2,스테이지 2 블루 아카이브 배경·지형 원본 지정 필요,"backgrounds,ground",static/tile,,MISSING,GENERATED_PLACEHOLDER
+background_3,스테이지 3 블루 아카이브 배경·지형 원본 지정 필요,"backgrounds,ground",static/tile,,MISSING,GENERATED_PLACEHOLDER
+background_4,스테이지 4 블루 아카이브 배경·지형 원본 지정 필요,"backgrounds,ground",static/tile,,MISSING,GENERATED_PLACEHOLDER
+background_5,스테이지 5 블루 아카이브 배경·지형 원본 지정 필요,"backgrounds,ground",static/tile,,MISSING,GENERATED_PLACEHOLDER
+effects,블루 아카이브 사격·폭발·히나 EX 이펙트,effects,"muzzle,impact,explosion,special",,MISSING,GENERATED_PLACEHOLDER

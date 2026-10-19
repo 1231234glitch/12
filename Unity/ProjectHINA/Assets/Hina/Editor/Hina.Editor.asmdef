@@ -1,0 +1,1 @@
+{"name":"Hina.Editor","rootNamespace":"Hina.Editor","references":["Hina.Core","Hina.Unity"],"includePlatforms":["Editor"]}

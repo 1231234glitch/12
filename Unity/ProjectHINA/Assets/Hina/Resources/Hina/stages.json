@@ -1,0 +1,1395 @@
+{
+  "stages": [
+    {
+      "id": 1,
+      "name": "COASTAL LANDING",
+      "length": 4620,
+      "boss": "binah",
+      "platforms": [
+        {
+          "x": 650,
+          "y": 274,
+          "width": 128,
+          "height": 36
+        },
+        {
+          "x": 1160,
+          "y": 262,
+          "width": 160,
+          "height": 48
+        },
+        {
+          "x": 1670,
+          "y": 270,
+          "width": 144,
+          "height": 40
+        },
+        {
+          "x": 2180,
+          "y": 274,
+          "width": 128,
+          "height": 36
+        },
+        {
+          "x": 2690,
+          "y": 262,
+          "width": 160,
+          "height": 48
+        },
+        {
+          "x": 3200,
+          "y": 270,
+          "width": 144,
+          "height": 40
+        },
+        {
+          "x": 3710,
+          "y": 274,
+          "width": 128,
+          "height": 36
+        }
+      ],
+      "waves": [
+        {
+          "trigger": 420,
+          "spawn_x": 800,
+          "kinds": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "trigger": 930,
+          "spawn_x": 1310,
+          "kinds": [
+            1,
+            2,
+            4
+          ]
+        },
+        {
+          "trigger": 1440,
+          "spawn_x": 1820,
+          "kinds": [
+            2,
+            4,
+            8
+          ]
+        },
+        {
+          "trigger": 1950,
+          "spawn_x": 2330,
+          "kinds": [
+            4,
+            8,
+            0
+          ]
+        },
+        {
+          "trigger": 2460,
+          "spawn_x": 2840,
+          "kinds": [
+            8,
+            0,
+            1
+          ]
+        },
+        {
+          "trigger": 2970,
+          "spawn_x": 3350,
+          "kinds": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "trigger": 3480,
+          "spawn_x": 3860,
+          "kinds": [
+            1,
+            2,
+            4
+          ]
+        }
+      ],
+      "background": "assets/backgrounds_v6/stage_0.png",
+      "music": "coast",
+      "opening": [
+        0,
+        1,
+        2
+      ],
+      "props": [
+        {
+          "x": 846,
+          "style": 0,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 1388,
+          "style": 1,
+          "width": 28,
+          "height": 38
+        },
+        {
+          "x": 1882,
+          "style": 0,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 2376,
+          "style": 0,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 2918,
+          "style": 1,
+          "width": 28,
+          "height": 38
+        },
+        {
+          "x": 3412,
+          "style": 0,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 3906,
+          "style": 0,
+          "width": 38,
+          "height": 32
+        }
+      ],
+      "decor": [
+        {
+          "x": 490,
+          "style": 3,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 1000,
+          "style": 6,
+          "width": 96,
+          "height": 44,
+          "baseline": 302
+        },
+        {
+          "x": 1510,
+          "style": 10,
+          "width": 96,
+          "height": 100,
+          "baseline": 302
+        },
+        {
+          "x": 2020,
+          "style": 3,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 2530,
+          "style": 6,
+          "width": 96,
+          "height": 44,
+          "baseline": 302
+        },
+        {
+          "x": 3040,
+          "style": 10,
+          "width": 96,
+          "height": 100,
+          "baseline": 302
+        },
+        {
+          "x": 3550,
+          "style": 3,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        }
+      ],
+      "section_markers": [
+        {
+          "x": 250,
+          "name": "SECTOR 01"
+        },
+        {
+          "x": 1780,
+          "name": "SECTOR 02"
+        },
+        {
+          "x": 3310,
+          "name": "SECTOR 03"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "DESERT RELIC",
+      "length": 5150,
+      "boss": "perorodzilla",
+      "platforms": [
+        {
+          "x": 650,
+          "y": 262,
+          "width": 128,
+          "height": 48
+        },
+        {
+          "x": 1160,
+          "y": 270,
+          "width": 160,
+          "height": 40
+        },
+        {
+          "x": 1670,
+          "y": 274,
+          "width": 144,
+          "height": 36
+        },
+        {
+          "x": 2180,
+          "y": 262,
+          "width": 128,
+          "height": 48
+        },
+        {
+          "x": 2690,
+          "y": 270,
+          "width": 160,
+          "height": 40
+        },
+        {
+          "x": 3200,
+          "y": 274,
+          "width": 144,
+          "height": 36
+        },
+        {
+          "x": 3710,
+          "y": 262,
+          "width": 128,
+          "height": 48
+        },
+        {
+          "x": 4220,
+          "y": 270,
+          "width": 160,
+          "height": 40
+        }
+      ],
+      "waves": [
+        {
+          "trigger": 420,
+          "spawn_x": 800,
+          "kinds": [
+            1,
+            2,
+            4
+          ]
+        },
+        {
+          "trigger": 930,
+          "spawn_x": 1310,
+          "kinds": [
+            2,
+            4,
+            8
+          ]
+        },
+        {
+          "trigger": 1440,
+          "spawn_x": 1820,
+          "kinds": [
+            4,
+            8,
+            0
+          ]
+        },
+        {
+          "trigger": 1950,
+          "spawn_x": 2330,
+          "kinds": [
+            8,
+            0,
+            1
+          ]
+        },
+        {
+          "trigger": 2460,
+          "spawn_x": 2840,
+          "kinds": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "trigger": 2970,
+          "spawn_x": 3350,
+          "kinds": [
+            1,
+            2,
+            4
+          ]
+        },
+        {
+          "trigger": 3480,
+          "spawn_x": 3860,
+          "kinds": [
+            2,
+            4,
+            8
+          ]
+        },
+        {
+          "trigger": 3990,
+          "spawn_x": 4370,
+          "kinds": [
+            4,
+            8,
+            0
+          ]
+        }
+      ],
+      "background": "assets/backgrounds_v6/stage_1.png",
+      "music": "desert",
+      "opening": [
+        1,
+        2,
+        4
+      ],
+      "props": [
+        {
+          "x": 846,
+          "style": 0,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 1388,
+          "style": 1,
+          "width": 28,
+          "height": 38
+        },
+        {
+          "x": 1882,
+          "style": 0,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 2376,
+          "style": 0,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 2918,
+          "style": 1,
+          "width": 28,
+          "height": 38
+        },
+        {
+          "x": 3412,
+          "style": 0,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 3906,
+          "style": 0,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 4448,
+          "style": 1,
+          "width": 28,
+          "height": 38
+        }
+      ],
+      "decor": [
+        {
+          "x": 490,
+          "style": 7,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 1000,
+          "style": 3,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 1510,
+          "style": 11,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 2020,
+          "style": 7,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 2530,
+          "style": 3,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 3040,
+          "style": 11,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 3550,
+          "style": 7,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 4060,
+          "style": 3,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        }
+      ],
+      "section_markers": [
+        {
+          "x": 250,
+          "name": "SECTOR 01"
+        },
+        {
+          "x": 1780,
+          "name": "SECTOR 02"
+        },
+        {
+          "x": 3310,
+          "name": "SECTOR 03"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "IRON RAILWAY",
+      "length": 5680,
+      "boss": "hod",
+      "platforms": [
+        {
+          "x": 650,
+          "y": 270,
+          "width": 128,
+          "height": 40
+        },
+        {
+          "x": 1160,
+          "y": 274,
+          "width": 160,
+          "height": 36
+        },
+        {
+          "x": 1670,
+          "y": 262,
+          "width": 144,
+          "height": 48
+        },
+        {
+          "x": 2180,
+          "y": 270,
+          "width": 128,
+          "height": 40
+        },
+        {
+          "x": 2690,
+          "y": 274,
+          "width": 160,
+          "height": 36
+        },
+        {
+          "x": 3200,
+          "y": 262,
+          "width": 144,
+          "height": 48
+        },
+        {
+          "x": 3710,
+          "y": 270,
+          "width": 128,
+          "height": 40
+        },
+        {
+          "x": 4220,
+          "y": 274,
+          "width": 160,
+          "height": 36
+        },
+        {
+          "x": 4730,
+          "y": 262,
+          "width": 144,
+          "height": 48
+        }
+      ],
+      "waves": [
+        {
+          "trigger": 420,
+          "spawn_x": 800,
+          "kinds": [
+            4,
+            3,
+            6
+          ]
+        },
+        {
+          "trigger": 930,
+          "spawn_x": 1310,
+          "kinds": [
+            3,
+            6,
+            8
+          ]
+        },
+        {
+          "trigger": 1440,
+          "spawn_x": 1820,
+          "kinds": [
+            6,
+            8,
+            9
+          ]
+        },
+        {
+          "trigger": 1950,
+          "spawn_x": 2330,
+          "kinds": [
+            8,
+            9,
+            4
+          ]
+        },
+        {
+          "trigger": 2460,
+          "spawn_x": 2840,
+          "kinds": [
+            9,
+            4,
+            3
+          ]
+        },
+        {
+          "trigger": 2970,
+          "spawn_x": 3350,
+          "kinds": [
+            4,
+            3,
+            6
+          ]
+        },
+        {
+          "trigger": 3480,
+          "spawn_x": 3860,
+          "kinds": [
+            3,
+            6,
+            8
+          ]
+        },
+        {
+          "trigger": 3990,
+          "spawn_x": 4370,
+          "kinds": [
+            6,
+            8,
+            9
+          ]
+        },
+        {
+          "trigger": 4500,
+          "spawn_x": 4880,
+          "kinds": [
+            8,
+            9,
+            4
+          ]
+        }
+      ],
+      "background": "assets/backgrounds_v6/stage_2.png",
+      "music": "rail",
+      "opening": [
+        4,
+        3,
+        6
+      ],
+      "props": [
+        {
+          "x": 846,
+          "style": 2,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 1388,
+          "style": 1,
+          "width": 28,
+          "height": 38
+        },
+        {
+          "x": 1882,
+          "style": 2,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 2376,
+          "style": 2,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 2918,
+          "style": 1,
+          "width": 28,
+          "height": 38
+        },
+        {
+          "x": 3412,
+          "style": 2,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 3906,
+          "style": 2,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 4448,
+          "style": 1,
+          "width": 28,
+          "height": 38
+        },
+        {
+          "x": 4942,
+          "style": 2,
+          "width": 38,
+          "height": 32
+        }
+      ],
+      "decor": [
+        {
+          "x": 490,
+          "style": 8,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 1000,
+          "style": 9,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 1510,
+          "style": 10,
+          "width": 96,
+          "height": 100,
+          "baseline": 302
+        },
+        {
+          "x": 2020,
+          "style": 8,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 2530,
+          "style": 9,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 3040,
+          "style": 10,
+          "width": 96,
+          "height": 100,
+          "baseline": 302
+        },
+        {
+          "x": 3550,
+          "style": 8,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 4060,
+          "style": 9,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 4570,
+          "style": 10,
+          "width": 96,
+          "height": 100,
+          "baseline": 302
+        }
+      ],
+      "section_markers": [
+        {
+          "x": 250,
+          "name": "SECTOR 01"
+        },
+        {
+          "x": 1780,
+          "name": "SECTOR 02"
+        },
+        {
+          "x": 3310,
+          "name": "SECTOR 03"
+        },
+        {
+          "x": 4840,
+          "name": "SECTOR 04"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "length": 5970,
+      "platforms": [
+        {
+          "x": 650,
+          "y": 274,
+          "width": 128,
+          "height": 36
+        },
+        {
+          "x": 1160,
+          "y": 262,
+          "width": 160,
+          "height": 48
+        },
+        {
+          "x": 1670,
+          "y": 270,
+          "width": 144,
+          "height": 40
+        },
+        {
+          "x": 2180,
+          "y": 274,
+          "width": 128,
+          "height": 36
+        },
+        {
+          "x": 2690,
+          "y": 262,
+          "width": 160,
+          "height": 48
+        },
+        {
+          "x": 3200,
+          "y": 270,
+          "width": 144,
+          "height": 40
+        },
+        {
+          "x": 3710,
+          "y": 274,
+          "width": 128,
+          "height": 36
+        },
+        {
+          "x": 4220,
+          "y": 262,
+          "width": 160,
+          "height": 48
+        },
+        {
+          "x": 4730,
+          "y": 270,
+          "width": 144,
+          "height": 40
+        }
+      ],
+      "name": "NIGHT GEHENNA",
+      "boss": "goz",
+      "background": "assets/backgrounds_v6/stage_3.png",
+      "music": "night",
+      "opening": [
+        1,
+        2,
+        0
+      ],
+      "waves": [
+        {
+          "trigger": 420,
+          "spawn_x": 800,
+          "kinds": [
+            1,
+            2,
+            0
+          ]
+        },
+        {
+          "trigger": 930,
+          "spawn_x": 1310,
+          "kinds": [
+            2,
+            0,
+            3
+          ]
+        },
+        {
+          "trigger": 1440,
+          "spawn_x": 1820,
+          "kinds": [
+            0,
+            3,
+            9
+          ]
+        },
+        {
+          "trigger": 1950,
+          "spawn_x": 2330,
+          "kinds": [
+            3,
+            9,
+            1
+          ]
+        },
+        {
+          "trigger": 2460,
+          "spawn_x": 2840,
+          "kinds": [
+            9,
+            1,
+            2
+          ]
+        },
+        {
+          "trigger": 2970,
+          "spawn_x": 3350,
+          "kinds": [
+            1,
+            2,
+            0
+          ]
+        },
+        {
+          "trigger": 3480,
+          "spawn_x": 3860,
+          "kinds": [
+            2,
+            0,
+            3
+          ]
+        },
+        {
+          "trigger": 3990,
+          "spawn_x": 4370,
+          "kinds": [
+            0,
+            3,
+            9
+          ]
+        },
+        {
+          "trigger": 4500,
+          "spawn_x": 4880,
+          "kinds": [
+            3,
+            9,
+            1
+          ]
+        }
+      ],
+      "props": [
+        {
+          "x": 846,
+          "style": 2,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 1388,
+          "style": 1,
+          "width": 28,
+          "height": 38
+        },
+        {
+          "x": 1882,
+          "style": 2,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 2376,
+          "style": 2,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 2918,
+          "style": 1,
+          "width": 28,
+          "height": 38
+        },
+        {
+          "x": 3412,
+          "style": 2,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 3906,
+          "style": 2,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 4448,
+          "style": 1,
+          "width": 28,
+          "height": 38
+        },
+        {
+          "x": 4942,
+          "style": 2,
+          "width": 38,
+          "height": 32
+        }
+      ],
+      "decor": [
+        {
+          "x": 490,
+          "style": 7,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 1000,
+          "style": 10,
+          "width": 96,
+          "height": 100,
+          "baseline": 302
+        },
+        {
+          "x": 1510,
+          "style": 11,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 2020,
+          "style": 7,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 2530,
+          "style": 10,
+          "width": 96,
+          "height": 100,
+          "baseline": 302
+        },
+        {
+          "x": 3040,
+          "style": 11,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 3550,
+          "style": 7,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 4060,
+          "style": 10,
+          "width": 96,
+          "height": 100,
+          "baseline": 302
+        },
+        {
+          "x": 4570,
+          "style": 11,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        }
+      ],
+      "section_markers": [
+        {
+          "x": 250,
+          "name": "SECTOR 01"
+        },
+        {
+          "x": 1780,
+          "name": "SECTOR 02"
+        },
+        {
+          "x": 3310,
+          "name": "SECTOR 03"
+        },
+        {
+          "x": 4840,
+          "name": "SECTOR 04"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "length": 6270,
+      "platforms": [
+        {
+          "x": 650,
+          "y": 262,
+          "width": 128,
+          "height": 48
+        },
+        {
+          "x": 1160,
+          "y": 270,
+          "width": 160,
+          "height": 40
+        },
+        {
+          "x": 1670,
+          "y": 274,
+          "width": 144,
+          "height": 36
+        },
+        {
+          "x": 2180,
+          "y": 262,
+          "width": 128,
+          "height": 48
+        },
+        {
+          "x": 2690,
+          "y": 270,
+          "width": 160,
+          "height": 40
+        },
+        {
+          "x": 3200,
+          "y": 274,
+          "width": 144,
+          "height": 36
+        },
+        {
+          "x": 3710,
+          "y": 262,
+          "width": 128,
+          "height": 48
+        },
+        {
+          "x": 4220,
+          "y": 270,
+          "width": 160,
+          "height": 40
+        },
+        {
+          "x": 4730,
+          "y": 274,
+          "width": 144,
+          "height": 36
+        },
+        {
+          "x": 5240,
+          "y": 262,
+          "width": 128,
+          "height": 48
+        }
+      ],
+      "name": "REACTOR ABYSS",
+      "boss": "chesed",
+      "background": "assets/backgrounds_v6/stage_4.png",
+      "music": "reactor",
+      "opening": [
+        4,
+        5,
+        6
+      ],
+      "waves": [
+        {
+          "trigger": 420,
+          "spawn_x": 800,
+          "kinds": [
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "trigger": 930,
+          "spawn_x": 1310,
+          "kinds": [
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "trigger": 1440,
+          "spawn_x": 1820,
+          "kinds": [
+            6,
+            7,
+            9
+          ]
+        },
+        {
+          "trigger": 1950,
+          "spawn_x": 2330,
+          "kinds": [
+            7,
+            9,
+            4
+          ]
+        },
+        {
+          "trigger": 2460,
+          "spawn_x": 2840,
+          "kinds": [
+            9,
+            4,
+            5
+          ]
+        },
+        {
+          "trigger": 2970,
+          "spawn_x": 3350,
+          "kinds": [
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "trigger": 3480,
+          "spawn_x": 3860,
+          "kinds": [
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "trigger": 3990,
+          "spawn_x": 4370,
+          "kinds": [
+            6,
+            7,
+            9
+          ]
+        },
+        {
+          "trigger": 4500,
+          "spawn_x": 4880,
+          "kinds": [
+            7,
+            9,
+            4
+          ]
+        },
+        {
+          "trigger": 5010,
+          "spawn_x": 5390,
+          "kinds": [
+            9,
+            4,
+            5
+          ]
+        }
+      ],
+      "props": [
+        {
+          "x": 846,
+          "style": 2,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 1388,
+          "style": 1,
+          "width": 28,
+          "height": 38
+        },
+        {
+          "x": 1882,
+          "style": 2,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 2376,
+          "style": 2,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 2918,
+          "style": 1,
+          "width": 28,
+          "height": 38
+        },
+        {
+          "x": 3412,
+          "style": 2,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 3906,
+          "style": 2,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 4448,
+          "style": 1,
+          "width": 28,
+          "height": 38
+        },
+        {
+          "x": 4942,
+          "style": 2,
+          "width": 38,
+          "height": 32
+        },
+        {
+          "x": 5436,
+          "style": 2,
+          "width": 38,
+          "height": 32
+        }
+      ],
+      "decor": [
+        {
+          "x": 490,
+          "style": 8,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 1000,
+          "style": 9,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 1510,
+          "style": 10,
+          "width": 96,
+          "height": 100,
+          "baseline": 302
+        },
+        {
+          "x": 2020,
+          "style": 8,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 2530,
+          "style": 9,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 3040,
+          "style": 10,
+          "width": 96,
+          "height": 100,
+          "baseline": 302
+        },
+        {
+          "x": 3550,
+          "style": 8,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 4060,
+          "style": 9,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        },
+        {
+          "x": 4570,
+          "style": 10,
+          "width": 96,
+          "height": 100,
+          "baseline": 302
+        },
+        {
+          "x": 5080,
+          "style": 8,
+          "width": 60,
+          "height": 32,
+          "baseline": 302
+        }
+      ],
+      "section_markers": [
+        {
+          "x": 250,
+          "name": "SECTOR 01"
+        },
+        {
+          "x": 1780,
+          "name": "SECTOR 02"
+        },
+        {
+          "x": 3310,
+          "name": "SECTOR 03"
+        },
+        {
+          "x": 4840,
+          "name": "SECTOR 04"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "status": "UNITY_PROJECT_DRAFT_ORIGINAL_ART_PENDING",
+  "core_checks_passed": 57,
+  "core_checks_failed": 0,
+  "atlas_and_stage_checks_passed": 63,
+  "atlas_count": 9,
+  "animation_mapping_count": 49,
+  "required_asset_groups": 35,
+  "original_asset_groups_applied": 0,
+  "unity_editor_executed": false,
+  "unity_api_compilation_verified": false,
+  "unity_runtime_verified": false,
+  "unity_executable_built": false,
+  "csharp_syntax": {
+    "files": 6,
+    "passed": true,
+    "parser": "Roslyn C# 9",
+    "unity_api_compilation_performed": false
+  },
+  "blocking_requirements": [
+    "Original character/enemy/boss/object reference images or source sprite assets",
+    "Unity Editor 2022.3.62f1 with activated license and target build modules for editor validation/export"
+  ]
+}

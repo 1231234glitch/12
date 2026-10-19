@@ -1,3 +1,13 @@
+# Unity 전환 프로젝트 — 원본 아트 적용 대기
+
+[Unity 프로젝트 ZIP 다운로드](https://github.com/1231234glitch/12/raw/refs/heads/main/downloads/Project_HINA_Unity_Project_Draft.zip)
+
+Unity 2022.3.62f1용 C# 프로젝트 초안입니다. 스프라이트 시트 9개, 애니메이션 매핑 49개, 에셋 요구사항 CSV를 포함합니다. 게임 코어 검사 57개 통과. **현재 그림은 대체 리소스이며 블루 아카이브 원본 아트 적용은 미완료입니다. Unity 에디터 실행·API 컴파일·EXE/WebGL 빌드는 이 환경에서 미검증입니다.** ZIP의 README.md와 VALIDATION.json을 확인하세요.
+
+아래는 이전 Godot 빌드입니다.
+
+---
+
 # Project HINA 통합 다운로드
 
 [통합 ZIP 다운로드](https://github.com/1231234glitch/12/raw/refs/heads/main/downloads/Project_HINA_All_In_One.zip)

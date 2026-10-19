@@ -1,0 +1,6 @@
+{
+  "files": 6,
+  "passed": true,
+  "parser": "Roslyn C# 9",
+  "unity_api_compilation_performed": false
+}
