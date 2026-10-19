@@ -1,0 +1,16 @@
+{
+  "ready": true,
+  "atlases": 5,
+  "animations": 146,
+  "cards": 38,
+  "stage": 4,
+  "stages_checked": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "browser_errors": [],
+  "passed": true
+}

@@ -1,270 +1,2530 @@
 {
+  "design_assets_complete": true,
+  "official_assets_used": false,
+  "style_constraint": "No pixel-art requirement; retain full-resolution full-color RGBA images",
   "atlases": [
     {
       "id": "player",
-      "cellWidth": 128,
-      "cellHeight": 128,
+      "cellWidth": 0,
+      "cellHeight": 0,
       "columns": 8,
       "pivotX": 0.5,
-      "pivotY": 0.21875,
+      "pivotY": 0,
+      "pixelsPerUnit": 128,
+      "smoothFiltering": true,
       "frames": [
-        "air_00",
-        "air_01",
-        "air_02",
-        "air_03",
-        "air_04",
-        "air_05",
-        "air_06",
-        "air_07",
-        "air_08",
-        "air_09",
-        "air_10",
-        "air_11",
-        "air_12",
-        "air_13",
-        "air_14",
-        "air_15",
-        "ground_00",
-        "ground_01",
-        "ground_02",
-        "ground_03",
-        "ground_04",
-        "ground_05",
-        "ground_06",
-        "ground_07",
-        "ground_08",
-        "ground_09",
-        "ground_10",
-        "ground_12",
-        "ground_13",
-        "ground_14",
-        "ground_15",
-        "kick_00",
-        "kick_01",
-        "kick_02",
-        "kick_03",
-        "kick_04",
-        "kick_05",
-        "kick_06",
-        "kick_07"
+        "hina_0_0",
+        "hina_0_1",
+        "hina_0_2",
+        "hina_0_3",
+        "hina_0_4",
+        "hina_0_5",
+        "hina_0_6",
+        "hina_0_7",
+        "hina_1_0",
+        "hina_1_1",
+        "hina_1_2",
+        "hina_1_3",
+        "hina_1_4",
+        "hina_1_5",
+        "hina_1_6",
+        "hina_1_7",
+        "hina_2_0",
+        "hina_2_1",
+        "hina_2_2",
+        "hina_2_3",
+        "hina_2_4",
+        "hina_2_5",
+        "hina_2_6",
+        "hina_2_7",
+        "hina_3_0",
+        "hina_3_1",
+        "hina_3_2",
+        "hina_3_3",
+        "hina_3_4",
+        "hina_3_5",
+        "hina_3_6",
+        "hina_3_7",
+        "hina_4_0",
+        "hina_4_1",
+        "hina_4_2",
+        "hina_4_3",
+        "hina_4_4",
+        "hina_4_5",
+        "hina_4_6",
+        "hina_4_7",
+        "hina_5_0",
+        "hina_5_1",
+        "hina_5_2",
+        "hina_5_3",
+        "hina_5_4",
+        "hina_5_5",
+        "hina_5_6",
+        "hina_5_7",
+        "hina_6_0",
+        "hina_6_1",
+        "hina_6_2",
+        "hina_6_3",
+        "hina_6_4",
+        "hina_6_5",
+        "hina_6_6",
+        "hina_6_7",
+        "hina_7_0",
+        "hina_7_1",
+        "hina_7_2",
+        "hina_7_3",
+        "hina_7_4",
+        "hina_7_5",
+        "hina_7_6",
+        "hina_7_7"
       ],
-      "provenance": "generated_placeholder"
+      "frameRects": [
+        {
+          "x": 0,
+          "y": 1104,
+          "width": 157,
+          "height": 150,
+          "pivotX": 0.59,
+          "pivotY": 0.02
+        },
+        {
+          "x": 157,
+          "y": 1104,
+          "width": 157,
+          "height": 150,
+          "pivotX": 0.59,
+          "pivotY": 0.006666666666666667
+        },
+        {
+          "x": 314,
+          "y": 1104,
+          "width": 156,
+          "height": 150,
+          "pivotX": 0.59,
+          "pivotY": 0.006666666666666667
+        },
+        {
+          "x": 470,
+          "y": 1104,
+          "width": 157,
+          "height": 150,
+          "pivotX": 0.59,
+          "pivotY": 0.013333333333333334
+        },
+        {
+          "x": 627,
+          "y": 1104,
+          "width": 157,
+          "height": 150,
+          "pivotX": 0.59,
+          "pivotY": 0.006666666666666667
+        },
+        {
+          "x": 784,
+          "y": 1104,
+          "width": 156,
+          "height": 150,
+          "pivotX": 0.59,
+          "pivotY": 0.006666666666666667
+        },
+        {
+          "x": 940,
+          "y": 1104,
+          "width": 157,
+          "height": 150,
+          "pivotX": 0.59,
+          "pivotY": 0.013333333333333334
+        },
+        {
+          "x": 1097,
+          "y": 1104,
+          "width": 157,
+          "height": 150,
+          "pivotX": 0.59,
+          "pivotY": 0.006666666666666667
+        },
+        {
+          "x": 0,
+          "y": 951,
+          "width": 157,
+          "height": 153,
+          "pivotX": 0.59,
+          "pivotY": 0.06535947712418301
+        },
+        {
+          "x": 157,
+          "y": 951,
+          "width": 157,
+          "height": 153,
+          "pivotX": 0.59,
+          "pivotY": 0.08496732026143791
+        },
+        {
+          "x": 314,
+          "y": 951,
+          "width": 156,
+          "height": 153,
+          "pivotX": 0.59,
+          "pivotY": 0.058823529411764705
+        },
+        {
+          "x": 470,
+          "y": 951,
+          "width": 157,
+          "height": 153,
+          "pivotX": 0.59,
+          "pivotY": 0.0718954248366013
+        },
+        {
+          "x": 627,
+          "y": 951,
+          "width": 157,
+          "height": 153,
+          "pivotX": 0.59,
+          "pivotY": 0.006535947712418301
+        },
+        {
+          "x": 784,
+          "y": 951,
+          "width": 156,
+          "height": 153,
+          "pivotX": 0.59,
+          "pivotY": 0.006535947712418301
+        },
+        {
+          "x": 940,
+          "y": 951,
+          "width": 157,
+          "height": 153,
+          "pivotX": 0.59,
+          "pivotY": 0.0392156862745098
+        },
+        {
+          "x": 1097,
+          "y": 951,
+          "width": 157,
+          "height": 153,
+          "pivotX": 0.59,
+          "pivotY": 0.0718954248366013
+        },
+        {
+          "x": 0,
+          "y": 781,
+          "width": 157,
+          "height": 170,
+          "pivotX": 0.59,
+          "pivotY": 0.1411764705882353
+        },
+        {
+          "x": 157,
+          "y": 781,
+          "width": 157,
+          "height": 170,
+          "pivotX": 0.59,
+          "pivotY": 0.13529411764705881
+        },
+        {
+          "x": 314,
+          "y": 781,
+          "width": 156,
+          "height": 170,
+          "pivotX": 0.59,
+          "pivotY": 0.1411764705882353
+        },
+        {
+          "x": 470,
+          "y": 781,
+          "width": 157,
+          "height": 170,
+          "pivotX": 0.59,
+          "pivotY": 0.13529411764705881
+        },
+        {
+          "x": 627,
+          "y": 781,
+          "width": 157,
+          "height": 170,
+          "pivotX": 0.59,
+          "pivotY": 0.041176470588235294
+        },
+        {
+          "x": 784,
+          "y": 781,
+          "width": 156,
+          "height": 170,
+          "pivotX": 0.59,
+          "pivotY": 0.0058823529411764705
+        },
+        {
+          "x": 940,
+          "y": 781,
+          "width": 157,
+          "height": 170,
+          "pivotX": 0.59,
+          "pivotY": 0.03529411764705882
+        },
+        {
+          "x": 1097,
+          "y": 781,
+          "width": 157,
+          "height": 170,
+          "pivotX": 0.59,
+          "pivotY": 0.03529411764705882
+        },
+        {
+          "x": 0,
+          "y": 630,
+          "width": 157,
+          "height": 151,
+          "pivotX": 0.59,
+          "pivotY": 0.013245033112582781
+        },
+        {
+          "x": 157,
+          "y": 630,
+          "width": 157,
+          "height": 151,
+          "pivotX": 0.59,
+          "pivotY": 0.013245033112582781
+        },
+        {
+          "x": 314,
+          "y": 630,
+          "width": 156,
+          "height": 151,
+          "pivotX": 0.59,
+          "pivotY": 0.013245033112582781
+        },
+        {
+          "x": 470,
+          "y": 630,
+          "width": 157,
+          "height": 151,
+          "pivotX": 0.59,
+          "pivotY": 0.013245033112582781
+        },
+        {
+          "x": 627,
+          "y": 630,
+          "width": 157,
+          "height": 151,
+          "pivotX": 0.59,
+          "pivotY": 0.013245033112582781
+        },
+        {
+          "x": 784,
+          "y": 630,
+          "width": 156,
+          "height": 151,
+          "pivotX": 0.59,
+          "pivotY": 0.006622516556291391
+        },
+        {
+          "x": 940,
+          "y": 630,
+          "width": 157,
+          "height": 151,
+          "pivotX": 0.59,
+          "pivotY": 0.033112582781456956
+        },
+        {
+          "x": 1097,
+          "y": 630,
+          "width": 157,
+          "height": 151,
+          "pivotX": 0.59,
+          "pivotY": 0.013245033112582781
+        },
+        {
+          "x": 0,
+          "y": 479,
+          "width": 157,
+          "height": 151,
+          "pivotX": 0.59,
+          "pivotY": 0.006622516556291391
+        },
+        {
+          "x": 157,
+          "y": 479,
+          "width": 157,
+          "height": 151,
+          "pivotX": 0.59,
+          "pivotY": 0.006622516556291391
+        },
+        {
+          "x": 314,
+          "y": 479,
+          "width": 156,
+          "height": 151,
+          "pivotX": 0.59,
+          "pivotY": 0.006622516556291391
+        },
+        {
+          "x": 470,
+          "y": 479,
+          "width": 157,
+          "height": 151,
+          "pivotX": 0.59,
+          "pivotY": 0.013245033112582781
+        },
+        {
+          "x": 627,
+          "y": 479,
+          "width": 157,
+          "height": 151,
+          "pivotX": 0.59,
+          "pivotY": 0.006622516556291391
+        },
+        {
+          "x": 784,
+          "y": 479,
+          "width": 156,
+          "height": 151,
+          "pivotX": 0.59,
+          "pivotY": 0.006622516556291391
+        },
+        {
+          "x": 940,
+          "y": 479,
+          "width": 157,
+          "height": 151,
+          "pivotX": 0.59,
+          "pivotY": 0.006622516556291391
+        },
+        {
+          "x": 1097,
+          "y": 479,
+          "width": 157,
+          "height": 151,
+          "pivotX": 0.59,
+          "pivotY": 0.0728476821192053
+        },
+        {
+          "x": 0,
+          "y": 321,
+          "width": 157,
+          "height": 158,
+          "pivotX": 0.59,
+          "pivotY": 0.012658227848101266
+        },
+        {
+          "x": 157,
+          "y": 321,
+          "width": 157,
+          "height": 158,
+          "pivotX": 0.59,
+          "pivotY": 0.012658227848101266
+        },
+        {
+          "x": 314,
+          "y": 321,
+          "width": 156,
+          "height": 158,
+          "pivotX": 0.59,
+          "pivotY": 0.006329113924050633
+        },
+        {
+          "x": 470,
+          "y": 321,
+          "width": 157,
+          "height": 158,
+          "pivotX": 0.59,
+          "pivotY": 0.012658227848101266
+        },
+        {
+          "x": 627,
+          "y": 321,
+          "width": 157,
+          "height": 158,
+          "pivotX": 0.59,
+          "pivotY": 0.012658227848101266
+        },
+        {
+          "x": 784,
+          "y": 321,
+          "width": 156,
+          "height": 158,
+          "pivotX": 0.59,
+          "pivotY": 0.012658227848101266
+        },
+        {
+          "x": 940,
+          "y": 321,
+          "width": 157,
+          "height": 158,
+          "pivotX": 0.59,
+          "pivotY": 0.012658227848101266
+        },
+        {
+          "x": 1097,
+          "y": 321,
+          "width": 157,
+          "height": 158,
+          "pivotX": 0.59,
+          "pivotY": 0.0189873417721519
+        },
+        {
+          "x": 0,
+          "y": 171,
+          "width": 157,
+          "height": 150,
+          "pivotX": 0.59,
+          "pivotY": 0.013333333333333334
+        },
+        {
+          "x": 157,
+          "y": 171,
+          "width": 157,
+          "height": 150,
+          "pivotX": 0.59,
+          "pivotY": 0.013333333333333334
+        },
+        {
+          "x": 314,
+          "y": 171,
+          "width": 156,
+          "height": 150,
+          "pivotX": 0.59,
+          "pivotY": 0.013333333333333334
+        },
+        {
+          "x": 470,
+          "y": 171,
+          "width": 157,
+          "height": 150,
+          "pivotX": 0.59,
+          "pivotY": 0.013333333333333334
+        },
+        {
+          "x": 627,
+          "y": 171,
+          "width": 157,
+          "height": 150,
+          "pivotX": 0.59,
+          "pivotY": 0.02
+        },
+        {
+          "x": 784,
+          "y": 171,
+          "width": 156,
+          "height": 150,
+          "pivotX": 0.59,
+          "pivotY": 0.02
+        },
+        {
+          "x": 940,
+          "y": 171,
+          "width": 157,
+          "height": 150,
+          "pivotX": 0.59,
+          "pivotY": 0.02
+        },
+        {
+          "x": 1097,
+          "y": 171,
+          "width": 157,
+          "height": 150,
+          "pivotX": 0.59,
+          "pivotY": 0.02666666666666667
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "width": 157,
+          "height": 171,
+          "pivotX": 0.59,
+          "pivotY": 0.11695906432748537
+        },
+        {
+          "x": 157,
+          "y": 0,
+          "width": 157,
+          "height": 171,
+          "pivotX": 0.59,
+          "pivotY": 0.1111111111111111
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 156,
+          "height": 171,
+          "pivotX": 0.59,
+          "pivotY": 0.1286549707602339
+        },
+        {
+          "x": 470,
+          "y": 0,
+          "width": 157,
+          "height": 171,
+          "pivotX": 0.59,
+          "pivotY": 0.12280701754385964
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 157,
+          "height": 171,
+          "pivotX": 0.59,
+          "pivotY": 0.1111111111111111
+        },
+        {
+          "x": 784,
+          "y": 0,
+          "width": 156,
+          "height": 171,
+          "pivotX": 0.59,
+          "pivotY": 0.1111111111111111
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 157,
+          "height": 171,
+          "pivotX": 0.59,
+          "pivotY": 0.1111111111111111
+        },
+        {
+          "x": 1097,
+          "y": 0,
+          "width": 157,
+          "height": 171,
+          "pivotX": 0.59,
+          "pivotY": 0.1111111111111111
+        }
+      ],
+      "provenance": "new_reference_based_design"
     },
     {
       "id": "enemies",
-      "cellWidth": 160,
-      "cellHeight": 96,
+      "cellWidth": 0,
+      "cellHeight": 0,
       "columns": 8,
       "pivotX": 0.5,
       "pivotY": 0,
+      "pixelsPerUnit": 128,
+      "smoothFiltering": true,
       "frames": [
-        "helmet_idle_0",
-        "helmet_walk_0",
-        "helmet_walk_1",
-        "helmet_walk_2",
-        "helmet_walk_3",
-        "helmet_walk_4",
-        "helmet_walk_5",
-        "helmet_death_0",
-        "helmet_death_1",
-        "helmet_death_2",
-        "helmet_death_3",
-        "sukeban_idle_0",
-        "sukeban_walk_0",
-        "sukeban_walk_1",
-        "sukeban_walk_2",
-        "sukeban_walk_3",
-        "sukeban_walk_4",
-        "sukeban_walk_5",
-        "sukeban_death_0",
-        "sukeban_death_1",
-        "sukeban_death_2",
-        "sukeban_death_3",
-        "sniper_idle_0",
-        "sniper_walk_0",
-        "sniper_walk_1",
-        "sniper_walk_2",
-        "sniper_walk_3",
-        "sniper_walk_4",
-        "sniper_walk_5",
-        "sniper_death_0",
-        "sniper_death_1",
-        "sniper_death_2",
-        "sniper_death_3",
-        "shield_idle_0",
-        "shield_walk_0",
-        "shield_walk_1",
-        "shield_walk_2",
-        "shield_walk_3",
-        "shield_walk_4",
-        "shield_walk_5",
-        "shield_death_0",
-        "shield_death_1",
-        "shield_death_2",
-        "shield_death_3",
-        "military_idle_0",
-        "military_walk_0",
-        "military_walk_1",
-        "military_walk_2",
-        "military_walk_3",
-        "military_walk_4",
-        "military_walk_5",
-        "military_death_0",
-        "military_death_1",
-        "military_death_2",
-        "military_death_3",
-        "tank_idle_0",
-        "tank_walk_0",
-        "tank_walk_1",
-        "tank_walk_2",
-        "tank_walk_3",
-        "tank_walk_4",
-        "tank_walk_5",
-        "tank_death_0",
-        "tank_death_1",
-        "tank_death_2",
-        "tank_death_3",
-        "railgun_idle_0",
-        "railgun_walk_0",
-        "railgun_walk_1",
-        "railgun_walk_2",
-        "railgun_walk_3",
-        "railgun_walk_4",
-        "railgun_walk_5",
-        "railgun_death_0",
-        "railgun_death_1",
-        "railgun_death_2",
-        "railgun_death_3"
+        "helmet_0",
+        "helmet_1",
+        "helmet_2",
+        "helmet_3",
+        "helmet_4",
+        "helmet_5",
+        "helmet_6",
+        "helmet_7",
+        "sukeban_0",
+        "sukeban_1",
+        "sukeban_2",
+        "sukeban_3",
+        "sukeban_4",
+        "sukeban_5",
+        "sukeban_6",
+        "sukeban_7",
+        "sniper_0",
+        "sniper_1",
+        "sniper_2",
+        "sniper_3",
+        "sniper_4",
+        "sniper_5",
+        "sniper_6",
+        "sniper_7",
+        "shield_0",
+        "shield_1",
+        "shield_2",
+        "shield_3",
+        "shield_4",
+        "shield_5",
+        "shield_6",
+        "shield_7",
+        "military_0",
+        "military_1",
+        "military_2",
+        "military_3",
+        "military_4",
+        "military_5",
+        "military_6",
+        "military_7",
+        "tank_0",
+        "tank_1",
+        "tank_2",
+        "tank_3",
+        "tank_4",
+        "tank_5",
+        "tank_6",
+        "tank_7",
+        "railgun_0",
+        "railgun_1",
+        "railgun_2",
+        "railgun_3",
+        "railgun_4",
+        "railgun_5",
+        "railgun_6",
+        "railgun_7"
       ],
-      "provenance": "generated_placeholder"
+      "frameRects": [
+        {
+          "x": 0,
+          "y": 1087,
+          "width": 158,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.01875
+        },
+        {
+          "x": 158,
+          "y": 1087,
+          "width": 157,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.01875
+        },
+        {
+          "x": 315,
+          "y": 1087,
+          "width": 158,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.0125
+        },
+        {
+          "x": 473,
+          "y": 1087,
+          "width": 157,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.01875
+        },
+        {
+          "x": 630,
+          "y": 1087,
+          "width": 158,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.01875
+        },
+        {
+          "x": 788,
+          "y": 1087,
+          "width": 158,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.0125
+        },
+        {
+          "x": 946,
+          "y": 1087,
+          "width": 157,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.0125
+        },
+        {
+          "x": 1103,
+          "y": 1087,
+          "width": 158,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.00625
+        },
+        {
+          "x": 0,
+          "y": 927,
+          "width": 158,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.0125
+        },
+        {
+          "x": 158,
+          "y": 927,
+          "width": 157,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.0125
+        },
+        {
+          "x": 315,
+          "y": 927,
+          "width": 158,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.0125
+        },
+        {
+          "x": 473,
+          "y": 927,
+          "width": 157,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.0125
+        },
+        {
+          "x": 630,
+          "y": 927,
+          "width": 158,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.0125
+        },
+        {
+          "x": 788,
+          "y": 927,
+          "width": 158,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.0125
+        },
+        {
+          "x": 946,
+          "y": 927,
+          "width": 157,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.0125
+        },
+        {
+          "x": 1103,
+          "y": 927,
+          "width": 158,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.00625
+        },
+        {
+          "x": 0,
+          "y": 777,
+          "width": 158,
+          "height": 150,
+          "pivotX": 0.5,
+          "pivotY": 0.013333333333333334
+        },
+        {
+          "x": 158,
+          "y": 777,
+          "width": 157,
+          "height": 150,
+          "pivotX": 0.5,
+          "pivotY": 0.013333333333333334
+        },
+        {
+          "x": 315,
+          "y": 777,
+          "width": 158,
+          "height": 150,
+          "pivotX": 0.5,
+          "pivotY": 0.013333333333333334
+        },
+        {
+          "x": 473,
+          "y": 777,
+          "width": 157,
+          "height": 150,
+          "pivotX": 0.5,
+          "pivotY": 0.013333333333333334
+        },
+        {
+          "x": 630,
+          "y": 777,
+          "width": 158,
+          "height": 150,
+          "pivotX": 0.5,
+          "pivotY": 0.013333333333333334
+        },
+        {
+          "x": 788,
+          "y": 777,
+          "width": 158,
+          "height": 150,
+          "pivotX": 0.5,
+          "pivotY": 0.013333333333333334
+        },
+        {
+          "x": 946,
+          "y": 777,
+          "width": 157,
+          "height": 150,
+          "pivotX": 0.5,
+          "pivotY": 0.013333333333333334
+        },
+        {
+          "x": 1103,
+          "y": 777,
+          "width": 158,
+          "height": 150,
+          "pivotX": 0.5,
+          "pivotY": 0.006666666666666667
+        },
+        {
+          "x": 0,
+          "y": 617,
+          "width": 158,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.01875
+        },
+        {
+          "x": 158,
+          "y": 617,
+          "width": 157,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.01875
+        },
+        {
+          "x": 315,
+          "y": 617,
+          "width": 158,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.025
+        },
+        {
+          "x": 473,
+          "y": 617,
+          "width": 157,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.01875
+        },
+        {
+          "x": 630,
+          "y": 617,
+          "width": 158,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.01875
+        },
+        {
+          "x": 788,
+          "y": 617,
+          "width": 158,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.01875
+        },
+        {
+          "x": 946,
+          "y": 617,
+          "width": 157,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.01875
+        },
+        {
+          "x": 1103,
+          "y": 617,
+          "width": 158,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.00625
+        },
+        {
+          "x": 0,
+          "y": 464,
+          "width": 158,
+          "height": 153,
+          "pivotX": 0.5,
+          "pivotY": 0.013071895424836602
+        },
+        {
+          "x": 158,
+          "y": 464,
+          "width": 157,
+          "height": 153,
+          "pivotX": 0.5,
+          "pivotY": 0.006535947712418301
+        },
+        {
+          "x": 315,
+          "y": 464,
+          "width": 158,
+          "height": 153,
+          "pivotX": 0.5,
+          "pivotY": 0.013071895424836602
+        },
+        {
+          "x": 473,
+          "y": 464,
+          "width": 157,
+          "height": 153,
+          "pivotX": 0.5,
+          "pivotY": 0.013071895424836602
+        },
+        {
+          "x": 630,
+          "y": 464,
+          "width": 158,
+          "height": 153,
+          "pivotX": 0.5,
+          "pivotY": 0.013071895424836602
+        },
+        {
+          "x": 788,
+          "y": 464,
+          "width": 158,
+          "height": 153,
+          "pivotX": 0.5,
+          "pivotY": 0.006535947712418301
+        },
+        {
+          "x": 946,
+          "y": 464,
+          "width": 157,
+          "height": 153,
+          "pivotX": 0.5,
+          "pivotY": 0.013071895424836602
+        },
+        {
+          "x": 1103,
+          "y": 464,
+          "width": 158,
+          "height": 153,
+          "pivotX": 0.5,
+          "pivotY": 0.006535947712418301
+        },
+        {
+          "x": 0,
+          "y": 323,
+          "width": 158,
+          "height": 141,
+          "pivotX": 0.5,
+          "pivotY": 0.05673758865248227
+        },
+        {
+          "x": 158,
+          "y": 323,
+          "width": 157,
+          "height": 141,
+          "pivotX": 0.5,
+          "pivotY": 0.06382978723404255
+        },
+        {
+          "x": 315,
+          "y": 323,
+          "width": 158,
+          "height": 141,
+          "pivotX": 0.5,
+          "pivotY": 0.06382978723404255
+        },
+        {
+          "x": 473,
+          "y": 323,
+          "width": 157,
+          "height": 141,
+          "pivotX": 0.5,
+          "pivotY": 0.05673758865248227
+        },
+        {
+          "x": 630,
+          "y": 323,
+          "width": 158,
+          "height": 141,
+          "pivotX": 0.5,
+          "pivotY": 0.06382978723404255
+        },
+        {
+          "x": 788,
+          "y": 323,
+          "width": 158,
+          "height": 141,
+          "pivotX": 0.5,
+          "pivotY": 0.05673758865248227
+        },
+        {
+          "x": 946,
+          "y": 323,
+          "width": 157,
+          "height": 141,
+          "pivotX": 0.5,
+          "pivotY": 0.0425531914893617
+        },
+        {
+          "x": 1103,
+          "y": 323,
+          "width": 158,
+          "height": 141,
+          "pivotX": 0.5,
+          "pivotY": 0.0070921985815602835
+        },
+        {
+          "x": 0,
+          "y": 175,
+          "width": 158,
+          "height": 148,
+          "pivotX": 0.5,
+          "pivotY": 0.033783783783783786
+        },
+        {
+          "x": 158,
+          "y": 175,
+          "width": 157,
+          "height": 148,
+          "pivotX": 0.5,
+          "pivotY": 0.033783783783783786
+        },
+        {
+          "x": 315,
+          "y": 175,
+          "width": 158,
+          "height": 148,
+          "pivotX": 0.5,
+          "pivotY": 0.033783783783783786
+        },
+        {
+          "x": 473,
+          "y": 175,
+          "width": 157,
+          "height": 148,
+          "pivotX": 0.5,
+          "pivotY": 0.033783783783783786
+        },
+        {
+          "x": 630,
+          "y": 175,
+          "width": 158,
+          "height": 148,
+          "pivotX": 0.5,
+          "pivotY": 0.033783783783783786
+        },
+        {
+          "x": 788,
+          "y": 175,
+          "width": 158,
+          "height": 148,
+          "pivotX": 0.5,
+          "pivotY": 0.033783783783783786
+        },
+        {
+          "x": 946,
+          "y": 175,
+          "width": 157,
+          "height": 148,
+          "pivotX": 0.5,
+          "pivotY": 0.033783783783783786
+        },
+        {
+          "x": 1103,
+          "y": 175,
+          "width": 158,
+          "height": 148,
+          "pivotX": 0.5,
+          "pivotY": 0.006756756756756757
+        }
+      ],
+      "provenance": "new_reference_based_design"
     },
     {
       "id": "bosses",
-      "cellWidth": 256,
-      "cellHeight": 224,
-      "columns": 4,
+      "cellWidth": 0,
+      "cellHeight": 0,
+      "columns": 8,
       "pivotX": 0.5,
       "pivotY": 0,
+      "pixelsPerUnit": 64,
+      "smoothFiltering": true,
       "frames": [
-        "binah_idle_0",
-        "binah_idle_1",
-        "binah_idle_2",
-        "binah_idle_3",
-        "perorodzilla_idle_0",
-        "perorodzilla_idle_1",
-        "perorodzilla_idle_2",
-        "perorodzilla_idle_3",
-        "hod_idle_0",
-        "hod_idle_1",
-        "hod_idle_2",
-        "hod_idle_3",
-        "goz_idle_0",
-        "goz_idle_1",
-        "goz_idle_2",
-        "goz_idle_3",
-        "chesed_idle_0",
-        "chesed_idle_1",
-        "chesed_idle_2",
-        "chesed_idle_3"
+        "binah_0",
+        "binah_1",
+        "binah_2",
+        "binah_3",
+        "binah_4",
+        "binah_5",
+        "binah_6",
+        "binah_7",
+        "perorodzilla_0",
+        "perorodzilla_1",
+        "perorodzilla_2",
+        "perorodzilla_3",
+        "perorodzilla_4",
+        "perorodzilla_5",
+        "perorodzilla_6",
+        "perorodzilla_7",
+        "hod_0",
+        "hod_1",
+        "hod_2",
+        "hod_3",
+        "hod_4",
+        "hod_5",
+        "hod_6",
+        "hod_7",
+        "goz_0",
+        "goz_1",
+        "goz_2",
+        "goz_3",
+        "goz_4",
+        "goz_5",
+        "goz_6",
+        "goz_7",
+        "chesed_0",
+        "chesed_1",
+        "chesed_2",
+        "chesed_3",
+        "chesed_4",
+        "chesed_5",
+        "chesed_6",
+        "chesed_7",
+        "peroro_0",
+        "peroro_1",
+        "peroro_2",
+        "peroro_3",
+        "peroro_4",
+        "pillar_0",
+        "pillar_1",
+        "pillar_2",
+        "pillar_3",
+        "goz_clone_0",
+        "goz_clone_1",
+        "goz_clone_2",
+        "goz_clone_3",
+        "goz_clone_4",
+        "chesed_drone_0",
+        "chesed_drone_1",
+        "chesed_drone_2",
+        "chesed_drone_3",
+        "raid_fx_0",
+        "raid_fx_1",
+        "raid_fx_2",
+        "raid_fx_3",
+        "raid_fx_4",
+        "raid_fx_5",
+        "raid_fx_6",
+        "raid_fx_7"
       ],
-      "provenance": "generated_placeholder"
+      "frameRects": [
+        {
+          "x": 0,
+          "y": 962,
+          "width": 175,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.00625
+        },
+        {
+          "x": 175,
+          "y": 962,
+          "width": 175,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.00625
+        },
+        {
+          "x": 350,
+          "y": 962,
+          "width": 176,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.0125
+        },
+        {
+          "x": 526,
+          "y": 962,
+          "width": 175,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.00625
+        },
+        {
+          "x": 701,
+          "y": 962,
+          "width": 175,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.00625
+        },
+        {
+          "x": 876,
+          "y": 962,
+          "width": 176,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.00625
+        },
+        {
+          "x": 1052,
+          "y": 962,
+          "width": 175,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.01875
+        },
+        {
+          "x": 1227,
+          "y": 962,
+          "width": 175,
+          "height": 160,
+          "pivotX": 0.5,
+          "pivotY": 0.0125
+        },
+        {
+          "x": 0,
+          "y": 808,
+          "width": 175,
+          "height": 154,
+          "pivotX": 0.5,
+          "pivotY": 0.012987012987012988
+        },
+        {
+          "x": 175,
+          "y": 808,
+          "width": 175,
+          "height": 154,
+          "pivotX": 0.5,
+          "pivotY": 0.012987012987012988
+        },
+        {
+          "x": 350,
+          "y": 808,
+          "width": 176,
+          "height": 154,
+          "pivotX": 0.5,
+          "pivotY": 0.006493506493506494
+        },
+        {
+          "x": 526,
+          "y": 808,
+          "width": 175,
+          "height": 154,
+          "pivotX": 0.5,
+          "pivotY": 0.012987012987012988
+        },
+        {
+          "x": 701,
+          "y": 808,
+          "width": 175,
+          "height": 154,
+          "pivotX": 0.5,
+          "pivotY": 0.006493506493506494
+        },
+        {
+          "x": 876,
+          "y": 808,
+          "width": 176,
+          "height": 154,
+          "pivotX": 0.5,
+          "pivotY": 0.012987012987012988
+        },
+        {
+          "x": 1052,
+          "y": 808,
+          "width": 175,
+          "height": 154,
+          "pivotX": 0.5,
+          "pivotY": 0.012987012987012988
+        },
+        {
+          "x": 1227,
+          "y": 808,
+          "width": 175,
+          "height": 154,
+          "pivotX": 0.5,
+          "pivotY": 0.012987012987012988
+        },
+        {
+          "x": 0,
+          "y": 649,
+          "width": 175,
+          "height": 159,
+          "pivotX": 0.5,
+          "pivotY": 0.012578616352201259
+        },
+        {
+          "x": 175,
+          "y": 649,
+          "width": 175,
+          "height": 159,
+          "pivotX": 0.5,
+          "pivotY": 0.012578616352201259
+        },
+        {
+          "x": 350,
+          "y": 649,
+          "width": 176,
+          "height": 159,
+          "pivotX": 0.5,
+          "pivotY": 0.012578616352201259
+        },
+        {
+          "x": 526,
+          "y": 649,
+          "width": 175,
+          "height": 159,
+          "pivotX": 0.5,
+          "pivotY": 0.006289308176100629
+        },
+        {
+          "x": 701,
+          "y": 649,
+          "width": 175,
+          "height": 159,
+          "pivotX": 0.5,
+          "pivotY": 0.018867924528301886
+        },
+        {
+          "x": 876,
+          "y": 649,
+          "width": 176,
+          "height": 159,
+          "pivotX": 0.5,
+          "pivotY": 0.012578616352201259
+        },
+        {
+          "x": 1052,
+          "y": 649,
+          "width": 175,
+          "height": 159,
+          "pivotX": 0.5,
+          "pivotY": 0.018867924528301886
+        },
+        {
+          "x": 1227,
+          "y": 649,
+          "width": 175,
+          "height": 159,
+          "pivotX": 0.5,
+          "pivotY": 0.012578616352201259
+        },
+        {
+          "x": 0,
+          "y": 494,
+          "width": 175,
+          "height": 155,
+          "pivotX": 0.5,
+          "pivotY": 0.03225806451612903
+        },
+        {
+          "x": 175,
+          "y": 494,
+          "width": 175,
+          "height": 155,
+          "pivotX": 0.5,
+          "pivotY": 0.03870967741935484
+        },
+        {
+          "x": 350,
+          "y": 494,
+          "width": 176,
+          "height": 155,
+          "pivotX": 0.5,
+          "pivotY": 0.03225806451612903
+        },
+        {
+          "x": 526,
+          "y": 494,
+          "width": 175,
+          "height": 155,
+          "pivotX": 0.5,
+          "pivotY": 0.03225806451612903
+        },
+        {
+          "x": 701,
+          "y": 494,
+          "width": 175,
+          "height": 155,
+          "pivotX": 0.5,
+          "pivotY": 0.0064516129032258064
+        },
+        {
+          "x": 876,
+          "y": 494,
+          "width": 176,
+          "height": 155,
+          "pivotX": 0.5,
+          "pivotY": 0.03870967741935484
+        },
+        {
+          "x": 1052,
+          "y": 494,
+          "width": 175,
+          "height": 155,
+          "pivotX": 0.5,
+          "pivotY": 0.03870967741935484
+        },
+        {
+          "x": 1227,
+          "y": 494,
+          "width": 175,
+          "height": 155,
+          "pivotX": 0.5,
+          "pivotY": 0.025806451612903226
+        },
+        {
+          "x": 0,
+          "y": 339,
+          "width": 175,
+          "height": 155,
+          "pivotX": 0.5,
+          "pivotY": 0.025806451612903226
+        },
+        {
+          "x": 175,
+          "y": 339,
+          "width": 175,
+          "height": 155,
+          "pivotX": 0.5,
+          "pivotY": 0.025806451612903226
+        },
+        {
+          "x": 350,
+          "y": 339,
+          "width": 176,
+          "height": 155,
+          "pivotX": 0.5,
+          "pivotY": 0.01935483870967742
+        },
+        {
+          "x": 526,
+          "y": 339,
+          "width": 175,
+          "height": 155,
+          "pivotX": 0.5,
+          "pivotY": 0.0064516129032258064
+        },
+        {
+          "x": 701,
+          "y": 339,
+          "width": 175,
+          "height": 155,
+          "pivotX": 0.5,
+          "pivotY": 0.03225806451612903
+        },
+        {
+          "x": 876,
+          "y": 339,
+          "width": 176,
+          "height": 155,
+          "pivotX": 0.5,
+          "pivotY": 0.01935483870967742
+        },
+        {
+          "x": 1052,
+          "y": 339,
+          "width": 175,
+          "height": 155,
+          "pivotX": 0.5,
+          "pivotY": 0.03225806451612903
+        },
+        {
+          "x": 1227,
+          "y": 339,
+          "width": 175,
+          "height": 155,
+          "pivotX": 0.5,
+          "pivotY": 0.025806451612903226
+        },
+        {
+          "x": 0,
+          "y": 242,
+          "width": 156,
+          "height": 97,
+          "pivotX": 0.5,
+          "pivotY": 0.09278350515463918
+        },
+        {
+          "x": 156,
+          "y": 242,
+          "width": 156,
+          "height": 97,
+          "pivotX": 0.5,
+          "pivotY": 0.09278350515463918
+        },
+        {
+          "x": 312,
+          "y": 242,
+          "width": 155,
+          "height": 97,
+          "pivotX": 0.5,
+          "pivotY": 0.09278350515463918
+        },
+        {
+          "x": 467,
+          "y": 242,
+          "width": 156,
+          "height": 97,
+          "pivotX": 0.5,
+          "pivotY": 0.12371134020618557
+        },
+        {
+          "x": 623,
+          "y": 242,
+          "width": 156,
+          "height": 97,
+          "pivotX": 0.5,
+          "pivotY": 0.030927835051546393
+        },
+        {
+          "x": 779,
+          "y": 242,
+          "width": 156,
+          "height": 97,
+          "pivotX": 0.5,
+          "pivotY": 0.020618556701030927
+        },
+        {
+          "x": 935,
+          "y": 242,
+          "width": 155,
+          "height": 97,
+          "pivotX": 0.5,
+          "pivotY": 0.020618556701030927
+        },
+        {
+          "x": 1090,
+          "y": 242,
+          "width": 156,
+          "height": 97,
+          "pivotX": 0.5,
+          "pivotY": 0.030927835051546393
+        },
+        {
+          "x": 1246,
+          "y": 242,
+          "width": 156,
+          "height": 97,
+          "pivotX": 0.5,
+          "pivotY": 0.05154639175257732
+        },
+        {
+          "x": 0,
+          "y": 143,
+          "width": 156,
+          "height": 99,
+          "pivotX": 0.5,
+          "pivotY": 0.020202020202020204
+        },
+        {
+          "x": 156,
+          "y": 143,
+          "width": 156,
+          "height": 99,
+          "pivotX": 0.5,
+          "pivotY": 0.020202020202020204
+        },
+        {
+          "x": 312,
+          "y": 143,
+          "width": 155,
+          "height": 99,
+          "pivotX": 0.5,
+          "pivotY": 0.020202020202020204
+        },
+        {
+          "x": 467,
+          "y": 143,
+          "width": 156,
+          "height": 99,
+          "pivotX": 0.5,
+          "pivotY": 0.020202020202020204
+        },
+        {
+          "x": 623,
+          "y": 143,
+          "width": 156,
+          "height": 99,
+          "pivotX": 0.5,
+          "pivotY": 0.020202020202020204
+        },
+        {
+          "x": 779,
+          "y": 143,
+          "width": 156,
+          "height": 99,
+          "pivotX": 0.5,
+          "pivotY": 0.020202020202020204
+        },
+        {
+          "x": 935,
+          "y": 143,
+          "width": 155,
+          "height": 99,
+          "pivotX": 0.5,
+          "pivotY": 0.04040404040404041
+        },
+        {
+          "x": 1090,
+          "y": 143,
+          "width": 156,
+          "height": 99,
+          "pivotX": 0.5,
+          "pivotY": 0.04040404040404041
+        },
+        {
+          "x": 1246,
+          "y": 143,
+          "width": 156,
+          "height": 99,
+          "pivotX": 0.5,
+          "pivotY": 0.04040404040404041
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "width": 175,
+          "height": 143,
+          "pivotX": 0.5,
+          "pivotY": 0.06993006993006994
+        },
+        {
+          "x": 175,
+          "y": 0,
+          "width": 175,
+          "height": 143,
+          "pivotX": 0.5,
+          "pivotY": 0.06293706293706294
+        },
+        {
+          "x": 350,
+          "y": 0,
+          "width": 176,
+          "height": 143,
+          "pivotX": 0.5,
+          "pivotY": 0.055944055944055944
+        },
+        {
+          "x": 526,
+          "y": 0,
+          "width": 175,
+          "height": 143,
+          "pivotX": 0.5,
+          "pivotY": 0.06293706293706294
+        },
+        {
+          "x": 701,
+          "y": 0,
+          "width": 175,
+          "height": 143,
+          "pivotX": 0.5,
+          "pivotY": 0.06993006993006994
+        },
+        {
+          "x": 876,
+          "y": 0,
+          "width": 176,
+          "height": 143,
+          "pivotX": 0.5,
+          "pivotY": 0.06293706293706294
+        },
+        {
+          "x": 1052,
+          "y": 0,
+          "width": 175,
+          "height": 143,
+          "pivotX": 0.5,
+          "pivotY": 0.04895104895104895
+        },
+        {
+          "x": 1227,
+          "y": 0,
+          "width": 175,
+          "height": 143,
+          "pivotX": 0.5,
+          "pivotY": 0.06293706293706294
+        }
+      ],
+      "provenance": "new_reference_based_design"
     },
     {
       "id": "props",
-      "cellWidth": 96,
-      "cellHeight": 64,
-      "columns": 4,
+      "cellWidth": 0,
+      "cellHeight": 0,
+      "columns": 8,
       "pivotX": 0.5,
       "pivotY": 0,
+      "pixelsPerUnit": 128,
+      "smoothFiltering": true,
       "frames": [
+        "prop_00_0",
+        "prop_00_1",
+        "prop_00_2",
+        "prop_00_3",
         "prop_00",
+        "prop_01_0",
+        "prop_01_1",
+        "prop_01_2",
+        "prop_01_3",
         "prop_01",
+        "prop_02_0",
+        "prop_02_1",
+        "prop_02_2",
+        "prop_02_3",
         "prop_02",
+        "prop_03_0",
+        "prop_03_1",
+        "prop_03_2",
+        "prop_03_3",
         "prop_03",
+        "prop_04_0",
+        "prop_04_1",
+        "prop_04_2",
+        "prop_04_3",
         "prop_04",
+        "prop_05_0",
+        "prop_05_1",
+        "prop_05_2",
+        "prop_05_3",
         "prop_05",
+        "prop_06_0",
+        "prop_06_1",
+        "prop_06_2",
+        "prop_06_3",
         "prop_06",
+        "prop_07_0",
+        "prop_07_1",
+        "prop_07_2",
+        "prop_07_3",
         "prop_07",
+        "prop_08_0",
+        "prop_08_1",
+        "prop_08_2",
+        "prop_08_3",
         "prop_08",
+        "prop_09_0",
+        "prop_09_1",
+        "prop_09_2",
+        "prop_09_3",
         "prop_09",
+        "prop_10_0",
+        "prop_10_1",
+        "prop_10_2",
+        "prop_10_3",
         "prop_10",
-        "prop_11"
-      ],
-      "provenance": "generated_placeholder"
-    },
-    {
-      "id": "backgrounds",
-      "cellWidth": 1536,
-      "cellHeight": 310,
-      "columns": 1,
-      "pivotX": 0.5,
-      "pivotY": 0,
-      "frames": [
-        "stage_0",
-        "stage_1",
-        "stage_2",
-        "stage_3",
-        "stage_4"
-      ],
-      "provenance": "generated_placeholder"
-    },
-    {
-      "id": "ground",
-      "cellWidth": 768,
-      "cellHeight": 60,
-      "columns": 1,
-      "pivotX": 0.5,
-      "pivotY": 0,
-      "frames": [
-        "ground_0",
-        "ground_1",
-        "ground_2",
-        "ground_3",
-        "ground_4"
-      ],
-      "provenance": "generated_placeholder"
-    },
-    {
-      "id": "title",
-      "cellWidth": 640,
-      "cellHeight": 360,
-      "columns": 1,
-      "pivotX": 0.5,
-      "pivotY": 0,
-      "frames": [
-        "title"
-      ],
-      "provenance": "generated_placeholder"
-    },
-    {
-      "id": "effects",
-      "cellWidth": 64,
-      "cellHeight": 64,
-      "columns": 4,
-      "pivotX": 0.5,
-      "pivotY": 0.5,
-      "frames": [
+        "prop_11_0",
+        "prop_11_1",
+        "prop_11_2",
+        "prop_11_3",
+        "prop_11",
+        "score_pickup",
+        "special_pickup",
+        "friendly_bullet",
+        "enemy_bullet",
+        "robot_bullet",
+        "special_bullet",
+        "muzzle",
+        "hit",
         "ex_0",
         "ex_1",
         "ex_2",
-        "ex_3"
+        "ex_3",
+        "ex_4",
+        "ex_5",
+        "ex_6",
+        "ex_7"
       ],
-      "provenance": "generated_placeholder"
+      "frameRects": [
+        {
+          "x": 0,
+          "y": 960,
+          "width": 175,
+          "height": 162,
+          "pivotX": 0.5,
+          "pivotY": 0.08024691358024691
+        },
+        {
+          "x": 175,
+          "y": 960,
+          "width": 175,
+          "height": 162,
+          "pivotX": 0.5,
+          "pivotY": 0.08024691358024691
+        },
+        {
+          "x": 350,
+          "y": 960,
+          "width": 176,
+          "height": 162,
+          "pivotX": 0.5,
+          "pivotY": 0.06172839506172839
+        },
+        {
+          "x": 526,
+          "y": 960,
+          "width": 175,
+          "height": 162,
+          "pivotX": 0.5,
+          "pivotY": 0.043209876543209874
+        },
+        {
+          "x": 0,
+          "y": 960,
+          "width": 175,
+          "height": 162,
+          "pivotX": 0.5,
+          "pivotY": 0.08024691358024691
+        },
+        {
+          "x": 701,
+          "y": 960,
+          "width": 175,
+          "height": 162,
+          "pivotX": 0.5,
+          "pivotY": 0.024691358024691357
+        },
+        {
+          "x": 876,
+          "y": 960,
+          "width": 176,
+          "height": 162,
+          "pivotX": 0.5,
+          "pivotY": 0.024691358024691357
+        },
+        {
+          "x": 1052,
+          "y": 960,
+          "width": 175,
+          "height": 162,
+          "pivotX": 0.5,
+          "pivotY": 0.006172839506172839
+        },
+        {
+          "x": 1227,
+          "y": 960,
+          "width": 175,
+          "height": 162,
+          "pivotX": 0.5,
+          "pivotY": 0.006172839506172839
+        },
+        {
+          "x": 701,
+          "y": 960,
+          "width": 175,
+          "height": 162,
+          "pivotX": 0.5,
+          "pivotY": 0.024691358024691357
+        },
+        {
+          "x": 0,
+          "y": 814,
+          "width": 175,
+          "height": 146,
+          "pivotX": 0.5,
+          "pivotY": 0.0547945205479452
+        },
+        {
+          "x": 175,
+          "y": 814,
+          "width": 175,
+          "height": 146,
+          "pivotX": 0.5,
+          "pivotY": 0.0547945205479452
+        },
+        {
+          "x": 350,
+          "y": 814,
+          "width": 176,
+          "height": 146,
+          "pivotX": 0.5,
+          "pivotY": 0.0273972602739726
+        },
+        {
+          "x": 526,
+          "y": 814,
+          "width": 175,
+          "height": 146,
+          "pivotX": 0.5,
+          "pivotY": 0.0273972602739726
+        },
+        {
+          "x": 0,
+          "y": 814,
+          "width": 175,
+          "height": 146,
+          "pivotX": 0.5,
+          "pivotY": 0.0547945205479452
+        },
+        {
+          "x": 701,
+          "y": 814,
+          "width": 175,
+          "height": 146,
+          "pivotX": 0.5,
+          "pivotY": 0.02054794520547945
+        },
+        {
+          "x": 876,
+          "y": 814,
+          "width": 176,
+          "height": 146,
+          "pivotX": 0.5,
+          "pivotY": 0.0136986301369863
+        },
+        {
+          "x": 1052,
+          "y": 814,
+          "width": 175,
+          "height": 146,
+          "pivotX": 0.5,
+          "pivotY": 0.0136986301369863
+        },
+        {
+          "x": 1227,
+          "y": 814,
+          "width": 175,
+          "height": 146,
+          "pivotX": 0.5,
+          "pivotY": 0.00684931506849315
+        },
+        {
+          "x": 701,
+          "y": 814,
+          "width": 175,
+          "height": 146,
+          "pivotX": 0.5,
+          "pivotY": 0.02054794520547945
+        },
+        {
+          "x": 0,
+          "y": 675,
+          "width": 175,
+          "height": 139,
+          "pivotX": 0.5,
+          "pivotY": 0.007194244604316547
+        },
+        {
+          "x": 175,
+          "y": 675,
+          "width": 175,
+          "height": 139,
+          "pivotX": 0.5,
+          "pivotY": 0.007194244604316547
+        },
+        {
+          "x": 350,
+          "y": 675,
+          "width": 176,
+          "height": 139,
+          "pivotX": 0.5,
+          "pivotY": 0.007194244604316547
+        },
+        {
+          "x": 526,
+          "y": 675,
+          "width": 175,
+          "height": 139,
+          "pivotX": 0.5,
+          "pivotY": 0.10071942446043165
+        },
+        {
+          "x": 0,
+          "y": 675,
+          "width": 175,
+          "height": 139,
+          "pivotX": 0.5,
+          "pivotY": 0.007194244604316547
+        },
+        {
+          "x": 701,
+          "y": 675,
+          "width": 175,
+          "height": 139,
+          "pivotX": 0.5,
+          "pivotY": 0.007194244604316547
+        },
+        {
+          "x": 876,
+          "y": 675,
+          "width": 176,
+          "height": 139,
+          "pivotX": 0.5,
+          "pivotY": 0.007194244604316547
+        },
+        {
+          "x": 1052,
+          "y": 675,
+          "width": 175,
+          "height": 139,
+          "pivotX": 0.5,
+          "pivotY": 0.007194244604316547
+        },
+        {
+          "x": 1227,
+          "y": 675,
+          "width": 175,
+          "height": 139,
+          "pivotX": 0.5,
+          "pivotY": 0.050359712230215826
+        },
+        {
+          "x": 701,
+          "y": 675,
+          "width": 175,
+          "height": 139,
+          "pivotX": 0.5,
+          "pivotY": 0.007194244604316547
+        },
+        {
+          "x": 0,
+          "y": 525,
+          "width": 175,
+          "height": 150,
+          "pivotX": 0.5,
+          "pivotY": 0.05333333333333334
+        },
+        {
+          "x": 175,
+          "y": 525,
+          "width": 175,
+          "height": 150,
+          "pivotX": 0.5,
+          "pivotY": 0.07333333333333333
+        },
+        {
+          "x": 350,
+          "y": 525,
+          "width": 176,
+          "height": 150,
+          "pivotX": 0.5,
+          "pivotY": 0.006666666666666667
+        },
+        {
+          "x": 526,
+          "y": 525,
+          "width": 175,
+          "height": 150,
+          "pivotX": 0.5,
+          "pivotY": 0.03333333333333333
+        },
+        {
+          "x": 0,
+          "y": 525,
+          "width": 175,
+          "height": 150,
+          "pivotX": 0.5,
+          "pivotY": 0.05333333333333334
+        },
+        {
+          "x": 701,
+          "y": 525,
+          "width": 175,
+          "height": 150,
+          "pivotX": 0.5,
+          "pivotY": 0.14
+        },
+        {
+          "x": 876,
+          "y": 525,
+          "width": 176,
+          "height": 150,
+          "pivotX": 0.5,
+          "pivotY": 0.13333333333333333
+        },
+        {
+          "x": 1052,
+          "y": 525,
+          "width": 175,
+          "height": 150,
+          "pivotX": 0.5,
+          "pivotY": 0.09333333333333334
+        },
+        {
+          "x": 1227,
+          "y": 525,
+          "width": 175,
+          "height": 150,
+          "pivotX": 0.5,
+          "pivotY": 0.05333333333333334
+        },
+        {
+          "x": 701,
+          "y": 525,
+          "width": 175,
+          "height": 150,
+          "pivotX": 0.5,
+          "pivotY": 0.14
+        },
+        {
+          "x": 0,
+          "y": 384,
+          "width": 175,
+          "height": 141,
+          "pivotX": 0.5,
+          "pivotY": 0.11347517730496454
+        },
+        {
+          "x": 175,
+          "y": 384,
+          "width": 175,
+          "height": 141,
+          "pivotX": 0.5,
+          "pivotY": 0.10638297872340426
+        },
+        {
+          "x": 350,
+          "y": 384,
+          "width": 176,
+          "height": 141,
+          "pivotX": 0.5,
+          "pivotY": 0.11347517730496454
+        },
+        {
+          "x": 526,
+          "y": 384,
+          "width": 175,
+          "height": 141,
+          "pivotX": 0.5,
+          "pivotY": 0.05673758865248227
+        },
+        {
+          "x": 0,
+          "y": 384,
+          "width": 175,
+          "height": 141,
+          "pivotX": 0.5,
+          "pivotY": 0.11347517730496454
+        },
+        {
+          "x": 701,
+          "y": 384,
+          "width": 175,
+          "height": 141,
+          "pivotX": 0.5,
+          "pivotY": 0.02127659574468085
+        },
+        {
+          "x": 876,
+          "y": 384,
+          "width": 176,
+          "height": 141,
+          "pivotX": 0.5,
+          "pivotY": 0.0070921985815602835
+        },
+        {
+          "x": 1052,
+          "y": 384,
+          "width": 175,
+          "height": 141,
+          "pivotX": 0.5,
+          "pivotY": 0.014184397163120567
+        },
+        {
+          "x": 1227,
+          "y": 384,
+          "width": 175,
+          "height": 141,
+          "pivotX": 0.5,
+          "pivotY": 0.0070921985815602835
+        },
+        {
+          "x": 701,
+          "y": 384,
+          "width": 175,
+          "height": 141,
+          "pivotX": 0.5,
+          "pivotY": 0.02127659574468085
+        },
+        {
+          "x": 0,
+          "y": 235,
+          "width": 175,
+          "height": 149,
+          "pivotX": 0.5,
+          "pivotY": 0.10067114093959731
+        },
+        {
+          "x": 175,
+          "y": 235,
+          "width": 175,
+          "height": 149,
+          "pivotX": 0.5,
+          "pivotY": 0.10067114093959731
+        },
+        {
+          "x": 350,
+          "y": 235,
+          "width": 176,
+          "height": 149,
+          "pivotX": 0.5,
+          "pivotY": 0.08053691275167785
+        },
+        {
+          "x": 526,
+          "y": 235,
+          "width": 175,
+          "height": 149,
+          "pivotX": 0.5,
+          "pivotY": 0.053691275167785234
+        },
+        {
+          "x": 0,
+          "y": 235,
+          "width": 175,
+          "height": 149,
+          "pivotX": 0.5,
+          "pivotY": 0.10067114093959731
+        },
+        {
+          "x": 701,
+          "y": 235,
+          "width": 175,
+          "height": 149,
+          "pivotX": 0.5,
+          "pivotY": 0.020134228187919462
+        },
+        {
+          "x": 876,
+          "y": 235,
+          "width": 176,
+          "height": 149,
+          "pivotX": 0.5,
+          "pivotY": 0.026845637583892617
+        },
+        {
+          "x": 1052,
+          "y": 235,
+          "width": 175,
+          "height": 149,
+          "pivotX": 0.5,
+          "pivotY": 0.006711409395973154
+        },
+        {
+          "x": 1227,
+          "y": 235,
+          "width": 175,
+          "height": 149,
+          "pivotX": 0.5,
+          "pivotY": 0.013422818791946308
+        },
+        {
+          "x": 701,
+          "y": 235,
+          "width": 175,
+          "height": 149,
+          "pivotX": 0.5,
+          "pivotY": 0.020134228187919462
+        },
+        {
+          "x": 0,
+          "y": 151,
+          "width": 175,
+          "height": 84,
+          "pivotX": 0.5,
+          "pivotY": 0.047619047619047616
+        },
+        {
+          "x": 175,
+          "y": 151,
+          "width": 175,
+          "height": 84,
+          "pivotX": 0.5,
+          "pivotY": 0.011904761904761904
+        },
+        {
+          "x": 350,
+          "y": 151,
+          "width": 176,
+          "height": 84,
+          "pivotX": 0.5,
+          "pivotY": 0.2976190476190476
+        },
+        {
+          "x": 526,
+          "y": 151,
+          "width": 175,
+          "height": 84,
+          "pivotX": 0.5,
+          "pivotY": 0.16666666666666666
+        },
+        {
+          "x": 701,
+          "y": 151,
+          "width": 175,
+          "height": 84,
+          "pivotX": 0.5,
+          "pivotY": 0.21428571428571427
+        },
+        {
+          "x": 876,
+          "y": 151,
+          "width": 176,
+          "height": 84,
+          "pivotX": 0.5,
+          "pivotY": 0.14285714285714285
+        },
+        {
+          "x": 1052,
+          "y": 151,
+          "width": 175,
+          "height": 84,
+          "pivotX": 0.5,
+          "pivotY": 0.09523809523809523
+        },
+        {
+          "x": 1227,
+          "y": 151,
+          "width": 175,
+          "height": 84,
+          "pivotX": 0.5,
+          "pivotY": 0.07142857142857142
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "width": 175,
+          "height": 151,
+          "pivotX": 0.5,
+          "pivotY": 0.1390728476821192
+        },
+        {
+          "x": 175,
+          "y": 0,
+          "width": 175,
+          "height": 151,
+          "pivotX": 0.5,
+          "pivotY": 0.11920529801324503
+        },
+        {
+          "x": 350,
+          "y": 0,
+          "width": 176,
+          "height": 151,
+          "pivotX": 0.5,
+          "pivotY": 0.13245033112582782
+        },
+        {
+          "x": 526,
+          "y": 0,
+          "width": 175,
+          "height": 151,
+          "pivotX": 0.5,
+          "pivotY": 0.1390728476821192
+        },
+        {
+          "x": 701,
+          "y": 0,
+          "width": 175,
+          "height": 151,
+          "pivotX": 0.5,
+          "pivotY": 0.13245033112582782
+        },
+        {
+          "x": 876,
+          "y": 0,
+          "width": 176,
+          "height": 151,
+          "pivotX": 0.5,
+          "pivotY": 0.13245033112582782
+        },
+        {
+          "x": 1052,
+          "y": 0,
+          "width": 175,
+          "height": 151,
+          "pivotX": 0.5,
+          "pivotY": 0.13245033112582782
+        },
+        {
+          "x": 1227,
+          "y": 0,
+          "width": 175,
+          "height": 151,
+          "pivotX": 0.5,
+          "pivotY": 0.2185430463576159
+        }
+      ],
+      "provenance": "new_reference_based_design"
     },
     {
-      "id": "items",
-      "cellWidth": 16,
-      "cellHeight": 16,
-      "columns": 4,
+      "id": "backgrounds",
+      "cellWidth": 0,
+      "cellHeight": 0,
+      "columns": 8,
       "pivotX": 0.5,
-      "pivotY": 0.5,
+      "pivotY": 0,
+      "pixelsPerUnit": 64,
+      "smoothFiltering": true,
       "frames": [
-        "friendly_bullet",
-        "enemy_bullet",
-        "score_pickup",
-        "special_pickup"
+        "stage_0",
+        "ground_0",
+        "stage_1",
+        "ground_1",
+        "stage_2",
+        "ground_2",
+        "stage_3",
+        "ground_3",
+        "stage_4",
+        "ground_4"
       ],
-      "provenance": "generated_placeholder"
+      "frameRects": [
+        {
+          "x": 0,
+          "y": 814,
+          "width": 1536,
+          "height": 210,
+          "pivotX": 0.5,
+          "pivotY": 0.004761904761904762
+        },
+        {
+          "x": 0,
+          "y": 814,
+          "width": 1536,
+          "height": 32,
+          "pivotX": 0.5,
+          "pivotY": 0
+        },
+        {
+          "x": 0,
+          "y": 606,
+          "width": 1536,
+          "height": 208,
+          "pivotX": 0.5,
+          "pivotY": 0.004807692307692308
+        },
+        {
+          "x": 0,
+          "y": 606,
+          "width": 1536,
+          "height": 32,
+          "pivotX": 0.5,
+          "pivotY": 0
+        },
+        {
+          "x": 0,
+          "y": 416,
+          "width": 1536,
+          "height": 190,
+          "pivotX": 0.5,
+          "pivotY": 0.005263157894736842
+        },
+        {
+          "x": 0,
+          "y": 416,
+          "width": 1536,
+          "height": 32,
+          "pivotX": 0.5,
+          "pivotY": 0
+        },
+        {
+          "x": 0,
+          "y": 212,
+          "width": 1536,
+          "height": 204,
+          "pivotX": 0.5,
+          "pivotY": 0.004901960784313725
+        },
+        {
+          "x": 0,
+          "y": 212,
+          "width": 1536,
+          "height": 32,
+          "pivotX": 0.5,
+          "pivotY": 0
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "width": 1536,
+          "height": 212,
+          "pivotX": 0.5,
+          "pivotY": 0.0047169811320754715
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "width": 1536,
+          "height": 32,
+          "pivotX": 0.5,
+          "pivotY": 0
+        }
+      ],
+      "provenance": "new_reference_based_design"
     }
   ],
   "animations": [
@@ -273,9 +2533,16 @@
       "state": "idle",
       "atlas": "player",
       "frames": [
-        "ground_08"
+        "hina_5_0",
+        "hina_5_1",
+        "hina_5_2",
+        "hina_5_3",
+        "hina_5_4",
+        "hina_5_5",
+        "hina_5_6",
+        "hina_5_7"
       ],
-      "fps": 4,
+      "fps": 5,
       "loop": true
     },
     {
@@ -283,16 +2550,16 @@
       "state": "walk",
       "atlas": "player",
       "frames": [
-        "ground_00",
-        "ground_01",
-        "ground_02",
-        "ground_03",
-        "ground_04",
-        "ground_05",
-        "ground_06",
-        "ground_07"
+        "hina_0_0",
+        "hina_0_1",
+        "hina_0_2",
+        "hina_0_3",
+        "hina_0_4",
+        "hina_0_5",
+        "hina_0_6",
+        "hina_0_7"
       ],
-      "fps": 14,
+      "fps": 13,
       "loop": true
     },
     {
@@ -300,29 +2567,33 @@
       "state": "walk_shoot",
       "atlas": "player",
       "frames": [
-        "ground_00",
-        "ground_01",
-        "ground_02",
-        "ground_03",
-        "ground_04",
-        "ground_05",
-        "ground_06",
-        "ground_07"
+        "hina_0_0",
+        "hina_0_1",
+        "hina_0_2",
+        "hina_0_3",
+        "hina_0_4",
+        "hina_0_5",
+        "hina_0_6",
+        "hina_0_7"
       ],
-      "fps": 14,
+      "fps": 13,
       "loop": true
     },
     {
       "actor": "hina",
-      "state": "jump",
+      "state": "shoot",
       "atlas": "player",
       "frames": [
-        "air_00",
-        "air_01",
-        "air_02",
-        "air_03"
+        "hina_6_0",
+        "hina_6_1",
+        "hina_6_2",
+        "hina_6_3",
+        "hina_6_4",
+        "hina_6_5",
+        "hina_6_6",
+        "hina_6_7"
       ],
-      "fps": 12,
+      "fps": 14,
       "loop": true
     },
     {
@@ -330,25 +2601,21 @@
       "state": "jump_rise",
       "atlas": "player",
       "frames": [
-        "air_00",
-        "air_01",
-        "air_02",
-        "air_03"
+        "hina_1_0",
+        "hina_1_1"
       ],
-      "fps": 12,
-      "loop": true
+      "fps": 9,
+      "loop": false
     },
     {
       "actor": "hina",
       "state": "jump_apex",
       "atlas": "player",
       "frames": [
-        "air_00",
-        "air_01",
-        "air_02",
-        "air_03"
+        "hina_1_2",
+        "hina_1_3"
       ],
-      "fps": 12,
+      "fps": 8,
       "loop": true
     },
     {
@@ -356,74 +2623,21 @@
       "state": "fall",
       "atlas": "player",
       "frames": [
-        "air_00",
-        "air_01",
-        "air_02",
-        "air_03"
+        "hina_1_2",
+        "hina_1_3"
       ],
-      "fps": 12,
+      "fps": 8,
       "loop": true
     },
     {
       "actor": "hina",
-      "state": "land",
+      "state": "air_shoot",
       "atlas": "player",
       "frames": [
-        "ground_10",
-        "ground_08"
-      ],
-      "fps": 18,
-      "loop": false
-    },
-    {
-      "actor": "hina",
-      "state": "shoot",
-      "atlas": "player",
-      "frames": [
-        "ground_08",
-        "ground_09"
-      ],
-      "fps": 16,
-      "loop": true
-    },
-    {
-      "actor": "hina",
-      "state": "crouch",
-      "atlas": "player",
-      "frames": [
-        "ground_10"
-      ],
-      "fps": 12,
-      "loop": true
-    },
-    {
-      "actor": "hina",
-      "state": "crouch_shoot",
-      "atlas": "player",
-      "frames": [
-        "ground_10"
-      ],
-      "fps": 12,
-      "loop": true
-    },
-    {
-      "actor": "hina",
-      "state": "shoot_up",
-      "atlas": "player",
-      "frames": [
-        "air_12",
-        "air_13"
-      ],
-      "fps": 12,
-      "loop": true
-    },
-    {
-      "actor": "hina",
-      "state": "shoot_diagonal",
-      "atlas": "player",
-      "frames": [
-        "air_14",
-        "air_15"
+        "hina_2_0",
+        "hina_2_1",
+        "hina_2_2",
+        "hina_2_3"
       ],
       "fps": 12,
       "loop": true
@@ -433,97 +2647,69 @@
       "state": "air_down",
       "atlas": "player",
       "frames": [
-        "air_04",
-        "air_05",
-        "air_06",
-        "air_07"
+        "hina_1_4",
+        "hina_1_5",
+        "hina_1_6",
+        "hina_1_7"
       ],
       "fps": 12,
       "loop": true
     },
     {
       "actor": "hina",
-      "state": "air_shoot",
+      "state": "shoot_up",
       "atlas": "player",
       "frames": [
-        "air_08",
-        "air_09",
-        "air_10",
-        "air_11"
+        "hina_2_4",
+        "hina_2_5"
       ],
-      "fps": 12,
+      "fps": 10,
       "loop": true
     },
     {
       "actor": "hina",
-      "state": "special",
+      "state": "shoot_diagonal",
       "atlas": "player",
       "frames": [
-        "ground_12",
-        "ground_12",
-        "ground_13",
-        "ground_13",
-        "ground_08"
+        "hina_2_6",
+        "hina_2_7"
       ],
-      "fps": 6,
-      "loop": false
+      "fps": 10,
+      "loop": true
     },
     {
       "actor": "hina",
-      "state": "hurt",
+      "state": "crouch",
       "atlas": "player",
       "frames": [
-        "ground_14"
+        "hina_3_2"
       ],
       "fps": 8,
-      "loop": false
+      "loop": true
     },
     {
       "actor": "hina",
-      "state": "down",
+      "state": "crouch_shoot",
       "atlas": "player",
       "frames": [
-        "ground_15"
+        "hina_3_2"
       ],
       "fps": 8,
-      "loop": false
-    },
-    {
-      "actor": "hina",
-      "state": "getup",
-      "atlas": "player",
-      "frames": [
-        "ground_10",
-        "ground_08"
-      ],
-      "fps": 8,
-      "loop": false
-    },
-    {
-      "actor": "hina",
-      "state": "death",
-      "atlas": "player",
-      "frames": [
-        "ground_14",
-        "ground_15"
-      ],
-      "fps": 8,
-      "loop": false
+      "loop": true
     },
     {
       "actor": "hina",
       "state": "kick",
       "atlas": "player",
       "frames": [
-        "kick_00",
-        "kick_01",
-        "kick_02",
-        "kick_02",
-        "kick_03",
-        "kick_04",
-        "kick_05"
+        "hina_4_0",
+        "hina_4_1",
+        "hina_4_2",
+        "hina_4_3",
+        "hina_4_4",
+        "hina_4_5"
       ],
-      "fps": 16,
+      "fps": 15,
       "loop": false
     },
     {
@@ -531,15 +2717,60 @@
       "state": "air_kick",
       "atlas": "player",
       "frames": [
-        "kick_06",
-        "kick_06",
-        "kick_07",
-        "kick_07",
-        "kick_06",
-        "kick_06",
-        "kick_05"
+        "hina_4_6",
+        "hina_4_7",
+        "hina_4_4",
+        "hina_4_5"
       ],
-      "fps": 16,
+      "fps": 12,
+      "loop": false
+    },
+    {
+      "actor": "hina",
+      "state": "special",
+      "atlas": "player",
+      "frames": [
+        "hina_7_0",
+        "hina_7_1",
+        "hina_7_2",
+        "hina_7_3",
+        "hina_7_4",
+        "hina_7_5",
+        "hina_7_6",
+        "hina_7_7"
+      ],
+      "fps": 5,
+      "loop": false
+    },
+    {
+      "actor": "hina",
+      "state": "hurt",
+      "atlas": "player",
+      "frames": [
+        "hina_3_5"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "hina",
+      "state": "death",
+      "atlas": "player",
+      "frames": [
+        "hina_3_6"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "hina",
+      "state": "land",
+      "atlas": "player",
+      "frames": [
+        "hina_3_7",
+        "hina_3_0"
+      ],
+      "fps": 14,
       "loop": false
     },
     {
@@ -547,7 +2778,7 @@
       "state": "idle",
       "atlas": "enemies",
       "frames": [
-        "helmet_idle_0"
+        "helmet_0"
       ],
       "fps": 10,
       "loop": true
@@ -557,27 +2788,44 @@
       "state": "walk",
       "atlas": "enemies",
       "frames": [
-        "helmet_walk_0",
-        "helmet_walk_1",
-        "helmet_walk_2",
-        "helmet_walk_3",
-        "helmet_walk_4",
-        "helmet_walk_5"
+        "helmet_1",
+        "helmet_2",
+        "helmet_3",
+        "helmet_4"
       ],
       "fps": 10,
       "loop": true
     },
     {
       "actor": "helmet",
+      "state": "attack",
+      "atlas": "enemies",
+      "frames": [
+        "helmet_5"
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    {
+      "actor": "helmet",
+      "state": "hurt",
+      "atlas": "enemies",
+      "frames": [
+        "helmet_6"
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    {
+      "actor": "helmet",
       "state": "death",
       "atlas": "enemies",
       "frames": [
-        "helmet_death_0",
-        "helmet_death_1",
-        "helmet_death_2",
-        "helmet_death_3"
+        "helmet_6",
+        "helmet_7",
+        "helmet_7"
       ],
-      "fps": 8,
+      "fps": 10,
       "loop": false
     },
     {
@@ -585,7 +2833,7 @@
       "state": "idle",
       "atlas": "enemies",
       "frames": [
-        "sukeban_idle_0"
+        "sukeban_0"
       ],
       "fps": 10,
       "loop": true
@@ -595,27 +2843,44 @@
       "state": "walk",
       "atlas": "enemies",
       "frames": [
-        "sukeban_walk_0",
-        "sukeban_walk_1",
-        "sukeban_walk_2",
-        "sukeban_walk_3",
-        "sukeban_walk_4",
-        "sukeban_walk_5"
+        "sukeban_1",
+        "sukeban_2",
+        "sukeban_3",
+        "sukeban_4"
       ],
       "fps": 10,
       "loop": true
     },
     {
       "actor": "sukeban",
+      "state": "attack",
+      "atlas": "enemies",
+      "frames": [
+        "sukeban_5"
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    {
+      "actor": "sukeban",
+      "state": "hurt",
+      "atlas": "enemies",
+      "frames": [
+        "sukeban_6"
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    {
+      "actor": "sukeban",
       "state": "death",
       "atlas": "enemies",
       "frames": [
-        "sukeban_death_0",
-        "sukeban_death_1",
-        "sukeban_death_2",
-        "sukeban_death_3"
+        "sukeban_6",
+        "sukeban_7",
+        "sukeban_7"
       ],
-      "fps": 8,
+      "fps": 10,
       "loop": false
     },
     {
@@ -623,7 +2888,7 @@
       "state": "idle",
       "atlas": "enemies",
       "frames": [
-        "sniper_idle_0"
+        "sniper_0"
       ],
       "fps": 10,
       "loop": true
@@ -633,27 +2898,44 @@
       "state": "walk",
       "atlas": "enemies",
       "frames": [
-        "sniper_walk_0",
-        "sniper_walk_1",
-        "sniper_walk_2",
-        "sniper_walk_3",
-        "sniper_walk_4",
-        "sniper_walk_5"
+        "sniper_1",
+        "sniper_2",
+        "sniper_3",
+        "sniper_4"
       ],
       "fps": 10,
       "loop": true
     },
     {
       "actor": "sniper",
+      "state": "attack",
+      "atlas": "enemies",
+      "frames": [
+        "sniper_5"
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    {
+      "actor": "sniper",
+      "state": "hurt",
+      "atlas": "enemies",
+      "frames": [
+        "sniper_6"
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    {
+      "actor": "sniper",
       "state": "death",
       "atlas": "enemies",
       "frames": [
-        "sniper_death_0",
-        "sniper_death_1",
-        "sniper_death_2",
-        "sniper_death_3"
+        "sniper_6",
+        "sniper_7",
+        "sniper_7"
       ],
-      "fps": 8,
+      "fps": 10,
       "loop": false
     },
     {
@@ -661,7 +2943,7 @@
       "state": "idle",
       "atlas": "enemies",
       "frames": [
-        "shield_idle_0"
+        "shield_0"
       ],
       "fps": 10,
       "loop": true
@@ -671,27 +2953,44 @@
       "state": "walk",
       "atlas": "enemies",
       "frames": [
-        "shield_walk_0",
-        "shield_walk_1",
-        "shield_walk_2",
-        "shield_walk_3",
-        "shield_walk_4",
-        "shield_walk_5"
+        "shield_1",
+        "shield_2",
+        "shield_3",
+        "shield_4"
       ],
       "fps": 10,
       "loop": true
     },
     {
       "actor": "shield",
+      "state": "attack",
+      "atlas": "enemies",
+      "frames": [
+        "shield_5"
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    {
+      "actor": "shield",
+      "state": "hurt",
+      "atlas": "enemies",
+      "frames": [
+        "shield_6"
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    {
+      "actor": "shield",
       "state": "death",
       "atlas": "enemies",
       "frames": [
-        "shield_death_0",
-        "shield_death_1",
-        "shield_death_2",
-        "shield_death_3"
+        "shield_6",
+        "shield_7",
+        "shield_7"
       ],
-      "fps": 8,
+      "fps": 10,
       "loop": false
     },
     {
@@ -699,7 +2998,7 @@
       "state": "idle",
       "atlas": "enemies",
       "frames": [
-        "military_idle_0"
+        "military_0"
       ],
       "fps": 10,
       "loop": true
@@ -709,27 +3008,44 @@
       "state": "walk",
       "atlas": "enemies",
       "frames": [
-        "military_walk_0",
-        "military_walk_1",
-        "military_walk_2",
-        "military_walk_3",
-        "military_walk_4",
-        "military_walk_5"
+        "military_1",
+        "military_2",
+        "military_3",
+        "military_4"
       ],
       "fps": 10,
       "loop": true
     },
     {
       "actor": "military",
+      "state": "attack",
+      "atlas": "enemies",
+      "frames": [
+        "military_5"
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    {
+      "actor": "military",
+      "state": "hurt",
+      "atlas": "enemies",
+      "frames": [
+        "military_6"
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    {
+      "actor": "military",
       "state": "death",
       "atlas": "enemies",
       "frames": [
-        "military_death_0",
-        "military_death_1",
-        "military_death_2",
-        "military_death_3"
+        "military_6",
+        "military_7",
+        "military_7"
       ],
-      "fps": 8,
+      "fps": 10,
       "loop": false
     },
     {
@@ -737,7 +3053,7 @@
       "state": "idle",
       "atlas": "enemies",
       "frames": [
-        "tank_idle_0"
+        "tank_0"
       ],
       "fps": 10,
       "loop": true
@@ -747,27 +3063,44 @@
       "state": "walk",
       "atlas": "enemies",
       "frames": [
-        "tank_walk_0",
-        "tank_walk_1",
-        "tank_walk_2",
-        "tank_walk_3",
-        "tank_walk_4",
-        "tank_walk_5"
+        "tank_1",
+        "tank_2",
+        "tank_3",
+        "tank_4"
       ],
       "fps": 10,
       "loop": true
     },
     {
       "actor": "tank",
+      "state": "attack",
+      "atlas": "enemies",
+      "frames": [
+        "tank_5"
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    {
+      "actor": "tank",
+      "state": "hurt",
+      "atlas": "enemies",
+      "frames": [
+        "tank_6"
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    {
+      "actor": "tank",
       "state": "death",
       "atlas": "enemies",
       "frames": [
-        "tank_death_0",
-        "tank_death_1",
-        "tank_death_2",
-        "tank_death_3"
+        "tank_6",
+        "tank_7",
+        "tank_7"
       ],
-      "fps": 8,
+      "fps": 10,
       "loop": false
     },
     {
@@ -775,7 +3108,7 @@
       "state": "idle",
       "atlas": "enemies",
       "frames": [
-        "railgun_idle_0"
+        "railgun_0"
       ],
       "fps": 10,
       "loop": true
@@ -785,27 +3118,44 @@
       "state": "walk",
       "atlas": "enemies",
       "frames": [
-        "railgun_walk_0",
-        "railgun_walk_1",
-        "railgun_walk_2",
-        "railgun_walk_3",
-        "railgun_walk_4",
-        "railgun_walk_5"
+        "railgun_1",
+        "railgun_2",
+        "railgun_3",
+        "railgun_4"
       ],
       "fps": 10,
       "loop": true
     },
     {
       "actor": "railgun",
+      "state": "attack",
+      "atlas": "enemies",
+      "frames": [
+        "railgun_5"
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    {
+      "actor": "railgun",
+      "state": "hurt",
+      "atlas": "enemies",
+      "frames": [
+        "railgun_6"
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    {
+      "actor": "railgun",
       "state": "death",
       "atlas": "enemies",
       "frames": [
-        "railgun_death_0",
-        "railgun_death_1",
-        "railgun_death_2",
-        "railgun_death_3"
+        "railgun_6",
+        "railgun_7",
+        "railgun_7"
       ],
-      "fps": 8,
+      "fps": 10,
       "loop": false
     },
     {
@@ -813,79 +3163,948 @@
       "state": "idle",
       "atlas": "bosses",
       "frames": [
-        "binah_idle_0",
-        "binah_idle_1",
-        "binah_idle_2",
-        "binah_idle_3"
+        "binah_0",
+        "binah_1"
       ],
-      "fps": 4,
+      "fps": 5,
       "loop": true
+    },
+    {
+      "actor": "binah",
+      "state": "warn",
+      "atlas": "bosses",
+      "frames": [
+        "binah_2"
+      ],
+      "fps": 5,
+      "loop": false
+    },
+    {
+      "actor": "binah",
+      "state": "attack",
+      "atlas": "bosses",
+      "frames": [
+        "binah_3"
+      ],
+      "fps": 5,
+      "loop": false
+    },
+    {
+      "actor": "binah",
+      "state": "phase2",
+      "atlas": "bosses",
+      "frames": [
+        "binah_4"
+      ],
+      "fps": 5,
+      "loop": true
+    },
+    {
+      "actor": "binah",
+      "state": "hurt",
+      "atlas": "bosses",
+      "frames": [
+        "binah_5"
+      ],
+      "fps": 5,
+      "loop": false
+    },
+    {
+      "actor": "binah",
+      "state": "death",
+      "atlas": "bosses",
+      "frames": [
+        "binah_6",
+        "binah_7"
+      ],
+      "fps": 5,
+      "loop": false
     },
     {
       "actor": "perorodzilla",
       "state": "idle",
       "atlas": "bosses",
       "frames": [
-        "perorodzilla_idle_0",
-        "perorodzilla_idle_1",
-        "perorodzilla_idle_2",
-        "perorodzilla_idle_3"
+        "perorodzilla_0",
+        "perorodzilla_1"
       ],
-      "fps": 4,
+      "fps": 5,
       "loop": true
+    },
+    {
+      "actor": "perorodzilla",
+      "state": "warn",
+      "atlas": "bosses",
+      "frames": [
+        "perorodzilla_2"
+      ],
+      "fps": 5,
+      "loop": false
+    },
+    {
+      "actor": "perorodzilla",
+      "state": "attack",
+      "atlas": "bosses",
+      "frames": [
+        "perorodzilla_3"
+      ],
+      "fps": 5,
+      "loop": false
+    },
+    {
+      "actor": "perorodzilla",
+      "state": "phase2",
+      "atlas": "bosses",
+      "frames": [
+        "perorodzilla_4"
+      ],
+      "fps": 5,
+      "loop": true
+    },
+    {
+      "actor": "perorodzilla",
+      "state": "hurt",
+      "atlas": "bosses",
+      "frames": [
+        "perorodzilla_5"
+      ],
+      "fps": 5,
+      "loop": false
+    },
+    {
+      "actor": "perorodzilla",
+      "state": "death",
+      "atlas": "bosses",
+      "frames": [
+        "perorodzilla_6",
+        "perorodzilla_7"
+      ],
+      "fps": 5,
+      "loop": false
     },
     {
       "actor": "hod",
       "state": "idle",
       "atlas": "bosses",
       "frames": [
-        "hod_idle_0",
-        "hod_idle_1",
-        "hod_idle_2",
-        "hod_idle_3"
+        "hod_0",
+        "hod_1"
       ],
-      "fps": 4,
+      "fps": 5,
       "loop": true
+    },
+    {
+      "actor": "hod",
+      "state": "warn",
+      "atlas": "bosses",
+      "frames": [
+        "hod_2"
+      ],
+      "fps": 5,
+      "loop": false
+    },
+    {
+      "actor": "hod",
+      "state": "attack",
+      "atlas": "bosses",
+      "frames": [
+        "hod_3"
+      ],
+      "fps": 5,
+      "loop": false
+    },
+    {
+      "actor": "hod",
+      "state": "phase2",
+      "atlas": "bosses",
+      "frames": [
+        "hod_4"
+      ],
+      "fps": 5,
+      "loop": true
+    },
+    {
+      "actor": "hod",
+      "state": "hurt",
+      "atlas": "bosses",
+      "frames": [
+        "hod_5"
+      ],
+      "fps": 5,
+      "loop": false
+    },
+    {
+      "actor": "hod",
+      "state": "death",
+      "atlas": "bosses",
+      "frames": [
+        "hod_6",
+        "hod_7"
+      ],
+      "fps": 5,
+      "loop": false
     },
     {
       "actor": "goz",
       "state": "idle",
       "atlas": "bosses",
       "frames": [
-        "goz_idle_0",
-        "goz_idle_1",
-        "goz_idle_2",
-        "goz_idle_3"
+        "goz_0",
+        "goz_1"
       ],
-      "fps": 4,
+      "fps": 5,
       "loop": true
+    },
+    {
+      "actor": "goz",
+      "state": "warn",
+      "atlas": "bosses",
+      "frames": [
+        "goz_2"
+      ],
+      "fps": 5,
+      "loop": false
+    },
+    {
+      "actor": "goz",
+      "state": "attack",
+      "atlas": "bosses",
+      "frames": [
+        "goz_3"
+      ],
+      "fps": 5,
+      "loop": false
+    },
+    {
+      "actor": "goz",
+      "state": "phase2",
+      "atlas": "bosses",
+      "frames": [
+        "goz_4"
+      ],
+      "fps": 5,
+      "loop": true
+    },
+    {
+      "actor": "goz",
+      "state": "hurt",
+      "atlas": "bosses",
+      "frames": [
+        "goz_5"
+      ],
+      "fps": 5,
+      "loop": false
+    },
+    {
+      "actor": "goz",
+      "state": "death",
+      "atlas": "bosses",
+      "frames": [
+        "goz_6",
+        "goz_7"
+      ],
+      "fps": 5,
+      "loop": false
     },
     {
       "actor": "chesed",
       "state": "idle",
       "atlas": "bosses",
       "frames": [
-        "chesed_idle_0",
-        "chesed_idle_1",
-        "chesed_idle_2",
-        "chesed_idle_3"
+        "chesed_0",
+        "chesed_1"
       ],
-      "fps": 4,
+      "fps": 5,
       "loop": true
+    },
+    {
+      "actor": "chesed",
+      "state": "warn",
+      "atlas": "bosses",
+      "frames": [
+        "chesed_2"
+      ],
+      "fps": 5,
+      "loop": false
+    },
+    {
+      "actor": "chesed",
+      "state": "attack",
+      "atlas": "bosses",
+      "frames": [
+        "chesed_3"
+      ],
+      "fps": 5,
+      "loop": false
+    },
+    {
+      "actor": "chesed",
+      "state": "phase2",
+      "atlas": "bosses",
+      "frames": [
+        "chesed_4"
+      ],
+      "fps": 5,
+      "loop": true
+    },
+    {
+      "actor": "chesed",
+      "state": "hurt",
+      "atlas": "bosses",
+      "frames": [
+        "chesed_5"
+      ],
+      "fps": 5,
+      "loop": false
+    },
+    {
+      "actor": "chesed",
+      "state": "death",
+      "atlas": "bosses",
+      "frames": [
+        "chesed_6",
+        "chesed_7"
+      ],
+      "fps": 5,
+      "loop": false
+    },
+    {
+      "actor": "peroro",
+      "state": "idle",
+      "atlas": "bosses",
+      "frames": [
+        "peroro_0",
+        "peroro_1"
+      ],
+      "fps": 5,
+      "loop": true
+    },
+    {
+      "actor": "peroro",
+      "state": "attack",
+      "atlas": "bosses",
+      "frames": [
+        "peroro_2"
+      ],
+      "fps": 7,
+      "loop": false
+    },
+    {
+      "actor": "peroro",
+      "state": "death",
+      "atlas": "bosses",
+      "frames": [
+        "peroro_4"
+      ],
+      "fps": 7,
+      "loop": false
+    },
+    {
+      "actor": "pillar",
+      "state": "idle",
+      "atlas": "bosses",
+      "frames": [
+        "pillar_0",
+        "pillar_1"
+      ],
+      "fps": 5,
+      "loop": true
+    },
+    {
+      "actor": "pillar",
+      "state": "attack",
+      "atlas": "bosses",
+      "frames": [
+        "pillar_2"
+      ],
+      "fps": 7,
+      "loop": false
+    },
+    {
+      "actor": "pillar",
+      "state": "death",
+      "atlas": "bosses",
+      "frames": [
+        "pillar_3"
+      ],
+      "fps": 7,
+      "loop": false
+    },
+    {
+      "actor": "goz_clone",
+      "state": "idle",
+      "atlas": "bosses",
+      "frames": [
+        "goz_clone_0",
+        "goz_clone_1"
+      ],
+      "fps": 5,
+      "loop": true
+    },
+    {
+      "actor": "goz_clone",
+      "state": "attack",
+      "atlas": "bosses",
+      "frames": [
+        "goz_clone_2"
+      ],
+      "fps": 7,
+      "loop": false
+    },
+    {
+      "actor": "goz_clone",
+      "state": "death",
+      "atlas": "bosses",
+      "frames": [
+        "goz_clone_4"
+      ],
+      "fps": 7,
+      "loop": false
+    },
+    {
+      "actor": "chesed_drone",
+      "state": "idle",
+      "atlas": "bosses",
+      "frames": [
+        "chesed_drone_0",
+        "chesed_drone_1"
+      ],
+      "fps": 5,
+      "loop": true
+    },
+    {
+      "actor": "chesed_drone",
+      "state": "attack",
+      "atlas": "bosses",
+      "frames": [
+        "chesed_drone_2"
+      ],
+      "fps": 7,
+      "loop": false
+    },
+    {
+      "actor": "chesed_drone",
+      "state": "death",
+      "atlas": "bosses",
+      "frames": [
+        "chesed_drone_3"
+      ],
+      "fps": 7,
+      "loop": false
+    },
+    {
+      "actor": "effects",
+      "state": "special",
+      "atlas": "bosses",
+      "frames": [
+        "raid_fx_0",
+        "raid_fx_1",
+        "raid_fx_2",
+        "raid_fx_3",
+        "raid_fx_4",
+        "raid_fx_5",
+        "raid_fx_6",
+        "raid_fx_7"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_00",
+      "state": "intact",
+      "atlas": "props",
+      "frames": [
+        "prop_00_0"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_00",
+      "state": "damaged",
+      "atlas": "props",
+      "frames": [
+        "prop_00_1"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_00",
+      "state": "breaking",
+      "atlas": "props",
+      "frames": [
+        "prop_00_2"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_00",
+      "state": "destroyed",
+      "atlas": "props",
+      "frames": [
+        "prop_00_3"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_01",
+      "state": "intact",
+      "atlas": "props",
+      "frames": [
+        "prop_01_0"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_01",
+      "state": "damaged",
+      "atlas": "props",
+      "frames": [
+        "prop_01_1"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_01",
+      "state": "breaking",
+      "atlas": "props",
+      "frames": [
+        "prop_01_2"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_01",
+      "state": "destroyed",
+      "atlas": "props",
+      "frames": [
+        "prop_01_3"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_02",
+      "state": "intact",
+      "atlas": "props",
+      "frames": [
+        "prop_02_0"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_02",
+      "state": "damaged",
+      "atlas": "props",
+      "frames": [
+        "prop_02_1"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_02",
+      "state": "breaking",
+      "atlas": "props",
+      "frames": [
+        "prop_02_2"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_02",
+      "state": "destroyed",
+      "atlas": "props",
+      "frames": [
+        "prop_02_3"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_03",
+      "state": "intact",
+      "atlas": "props",
+      "frames": [
+        "prop_03_0"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_03",
+      "state": "damaged",
+      "atlas": "props",
+      "frames": [
+        "prop_03_1"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_03",
+      "state": "breaking",
+      "atlas": "props",
+      "frames": [
+        "prop_03_2"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_03",
+      "state": "destroyed",
+      "atlas": "props",
+      "frames": [
+        "prop_03_3"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_04",
+      "state": "intact",
+      "atlas": "props",
+      "frames": [
+        "prop_04_0"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_04",
+      "state": "damaged",
+      "atlas": "props",
+      "frames": [
+        "prop_04_1"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_04",
+      "state": "breaking",
+      "atlas": "props",
+      "frames": [
+        "prop_04_2"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_04",
+      "state": "destroyed",
+      "atlas": "props",
+      "frames": [
+        "prop_04_3"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_05",
+      "state": "intact",
+      "atlas": "props",
+      "frames": [
+        "prop_05_0"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_05",
+      "state": "damaged",
+      "atlas": "props",
+      "frames": [
+        "prop_05_1"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_05",
+      "state": "breaking",
+      "atlas": "props",
+      "frames": [
+        "prop_05_2"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_05",
+      "state": "destroyed",
+      "atlas": "props",
+      "frames": [
+        "prop_05_3"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_06",
+      "state": "intact",
+      "atlas": "props",
+      "frames": [
+        "prop_06_0"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_06",
+      "state": "damaged",
+      "atlas": "props",
+      "frames": [
+        "prop_06_1"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_06",
+      "state": "breaking",
+      "atlas": "props",
+      "frames": [
+        "prop_06_2"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_06",
+      "state": "destroyed",
+      "atlas": "props",
+      "frames": [
+        "prop_06_3"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_07",
+      "state": "intact",
+      "atlas": "props",
+      "frames": [
+        "prop_07_0"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_07",
+      "state": "damaged",
+      "atlas": "props",
+      "frames": [
+        "prop_07_1"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_07",
+      "state": "breaking",
+      "atlas": "props",
+      "frames": [
+        "prop_07_2"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_07",
+      "state": "destroyed",
+      "atlas": "props",
+      "frames": [
+        "prop_07_3"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_08",
+      "state": "intact",
+      "atlas": "props",
+      "frames": [
+        "prop_08_0"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_08",
+      "state": "damaged",
+      "atlas": "props",
+      "frames": [
+        "prop_08_1"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_08",
+      "state": "breaking",
+      "atlas": "props",
+      "frames": [
+        "prop_08_2"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_08",
+      "state": "destroyed",
+      "atlas": "props",
+      "frames": [
+        "prop_08_3"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_09",
+      "state": "intact",
+      "atlas": "props",
+      "frames": [
+        "prop_09_0"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_09",
+      "state": "damaged",
+      "atlas": "props",
+      "frames": [
+        "prop_09_1"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_09",
+      "state": "breaking",
+      "atlas": "props",
+      "frames": [
+        "prop_09_2"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_09",
+      "state": "destroyed",
+      "atlas": "props",
+      "frames": [
+        "prop_09_3"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_10",
+      "state": "intact",
+      "atlas": "props",
+      "frames": [
+        "prop_10_0"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_10",
+      "state": "damaged",
+      "atlas": "props",
+      "frames": [
+        "prop_10_1"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_10",
+      "state": "breaking",
+      "atlas": "props",
+      "frames": [
+        "prop_10_2"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_10",
+      "state": "destroyed",
+      "atlas": "props",
+      "frames": [
+        "prop_10_3"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_11",
+      "state": "intact",
+      "atlas": "props",
+      "frames": [
+        "prop_11_0"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_11",
+      "state": "damaged",
+      "atlas": "props",
+      "frames": [
+        "prop_11_1"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_11",
+      "state": "breaking",
+      "atlas": "props",
+      "frames": [
+        "prop_11_2"
+      ],
+      "fps": 8,
+      "loop": false
+    },
+    {
+      "actor": "prop_11",
+      "state": "destroyed",
+      "atlas": "props",
+      "frames": [
+        "prop_11_3"
+      ],
+      "fps": 8,
+      "loop": false
     },
     {
       "actor": "effects",
       "state": "explosion",
-      "atlas": "effects",
+      "atlas": "props",
       "frames": [
         "ex_0",
         "ex_1",
         "ex_2",
-        "ex_3"
+        "ex_3",
+        "ex_4",
+        "ex_5",
+        "ex_6",
+        "ex_7"
       ],
-      "fps": 10,
+      "fps": 16,
       "loop": false
     }
-  ],
-  "original_assets_complete": false
+  ]
 }

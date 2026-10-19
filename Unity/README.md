@@ -1,64 +1,63 @@
-# Project HINA — Unity 2D 전환 프로젝트
+# PROJECT HINA — VIOLET BREAKWATER / Unity 2D
 
-**상태: Unity 프로젝트 초안 / 원본 아트 적용 대기 / Unity 에디터 실행·빌드 미검증.**
+블루 아카이브의 캐릭터·세력·레이드 설정을 참고해 **주인공, 잡몹, 전차, 보스, 소환체, 맵 오브젝트, 아이템, 효과와 배경을 새로 디자인한** Unity 2D 프로젝트입니다. 공식 그림 파일이나 추출 모델을 사용한 빌드가 아닙니다. 원본 파일 제공을 전제로 하지 않습니다.
 
-이 프로젝트는 Godot로 실행하지 않습니다. C# 게임 로직과 Unity SpriteRenderer, TextureImporter, Resources, AudioSource로 다시 작성했습니다. 게임 코드가 원본과 기능·연출까지 완전히 동일한 포트는 아닙니다.
+## 새 디자인 적용
 
-## 현재 구현
+- 히나: 은발, 보라색 눈, 뿔, 후광, 날개와 군복 계열 실루엣을 참고한 새 전투 디자인 및 동작 프레임
+- 일반 적: 헬멧단, 스케반, 저격병, 카이저 방패/보병 자동기계, 일반/레일건 전차의 새 복장·무장·차체
+- 보스: 비나의 금색 기계 뱀, 페로로지라의 거대 페로로, 호드의 신경 기계탑, 고즈의 고양이 마술사, 헤세드의 구형 연산 코어를 참고한 새 외형과 상태 프레임
+- 소환체: 소형 페로로, 호드 기둥, 고즈 분신, 헤세드 드론
+- 배치물: 상자·드럼통·엄폐물·설비·철도/부두/유적 발판·방벽·원자로 장치·잔해의 정상/손상/파괴 상태
+- 탄환·드롭·총구 화염·피격·폭발·필살기 효과
+- 5개 배경: 키보토스 해안, 아비도스 유적, 산업 철도, 야간 게헨나, 지하 원자로를 참고한 새 환경
 
-5개 스테이지 데이터, 좌우 이동, 점프, 방향 사격, 공중 하향 사격, 웅크리기, 전방 자동 근접 공격, 필살기, 피격·잔기·부활·코인 컨티뉴, 전차 HP, 적 웨이브, 장애물·발판·탄환 충돌, 드롭·점수, 사전 경고 보스 공격, 호드 기둥 방어, 헤세드 4웨이브/코어 개방, 메뉴·일시정지·음량·전체 화면 UI를 작성했습니다.
+PNG 시트 5개에 **272개의 명명된 프레임/영역**, **146개의 애니메이션 매핑**이 있습니다. `ASSET_REQUIREMENTS.csv`에는 43개 디자인 그룹의 적용 상태, `DESIGN_SOURCES.json`에는 제작 방식과 이미지 해시가 있습니다.
 
-원본 Godot의 폴리곤 보스 변형, 고즈의 실제/분신 공략, 모든 오디오 전환과 사용자 키 재설정은 동일하게 이식하지 않았습니다. 현재 고즈는 예고된 폭탄 구역 공격을 사용하는 임시 로직입니다.
+**도트 스타일은 필수 조건이 아닙니다.** 원화 PNG를 리사이즈하거나 색상 수를 줄이지 않고 그대로 포함합니다. Unity 임포터는 Bilinear 필터링과 무압축 텍스처를 사용합니다. 시트 분할은 픽셀 수정이 아닌 프레임 사각형·피벗 메타데이터로 처리합니다.
 
-## Unity로 열기
+## Unity에서 실행
 
-1. Unity Hub에서 **Unity 2022.3.62f1**과 Windows Build Support 또는 WebGL Build Support를 설치하고 Unity 라이선스를 활성화합니다.
-2. **Add project from disk**에서 이 패키지의 `ProjectHINA` 폴더를 선택합니다.
-3. 첫 임포트가 끝나면 `HINA > Open Demo Scene`을 선택합니다. 첫 실행에서는 부트스트랩 씬을 만들도록 구성했습니다.
-4. Play를 누릅니다. `HINA > Reimport Sprite Sheets`로 시트를 다시 분할할 수 있습니다.
-5. Windows/WebGL 출력은 `HINA > Build Windows x64` 또는 `HINA > Build WebGL`. 에디터와 대상 모듈이 실제 설치된 환경에서만 가능합니다.
+1. Unity Hub에 **Unity 2022.3.62f1**을 설치하고 라이선스를 활성화합니다.
+2. 이 ZIP의 `ProjectHINA` 폴더를 프로젝트로 추가합니다.
+3. 임포트가 끝나면 `HINA > Open Demo Scene`으로 부트스트랩 씬을 엽니다. 첫 실행 시 생성하도록 구성되어 있습니다.
+4. Play를 누릅니다.
+5. 시트를 다시 적용하려면 `HINA > Reimport Sprite Sheets`.
+6. 대상 모듈 설치 후 `HINA > Build Windows x64` 또는 `HINA > Build WebGL`로 내보냅니다.
 
-이 클라우드 머신에는 Unity 에디터·활성화 라이선스가 없으므로 위 에디터 절차와 렌더링, 실제 Unity EXE/WebGL 빌드는 실행 검증하지 못했습니다. 포함된 ZIP은 완성 EXE가 아닌 프로젝트 소스입니다.
+이 패키지는 **Unity 프로젝트 소스**입니다. 이 머신에 Unity 에디터와 활성화된 라이선스가 없어 Unity API 컴파일·에디터 실행·렌더링·EXE/WebGL 내보내기를 검증하거나 제공하지 못했습니다. C# 문법/독립 게임 로직/아트 연결 검증과 구분합니다.
 
 조작: A/D 또는 방향키 이동, W/↑ 상단·대각 조준, S/↓ 웅크리기·공중 하단 조준, J 사격·근접, K 점프, L 필살기, 1 코인, Esc 일시정지, Enter 시작.
 
-## 스프라이트 시트와 원본 요구사항
+## 아트와 동작 연결 확인
 
-`ProjectHINA/Assets/Hina/Resources/Hina/Sheets/`에 9개의 PNG 시트가 있으며, `atlas_manifest.json`이 셀 크기·피벗·이름·애니메이션 매핑을 정의합니다. `SheetImporter.cs`가 PNG를 다중 스프라이트로 자동 분할하고 런타임이 상태별 프레임을 선택합니다.
+`ArtReview/stage_1.png`부터 `stage_5.png`까지는 새 아트의 프레임 연결을 확인한 이미지입니다. Unity 실행 화면으로 표시하지 않았습니다.
 
-**현재 모든 그림은 기존 빌드의 생성형 대체 그림입니다. 블루 아카이브 공식 원본 리소스를 적용했다고 주장하지 않습니다.** 게임 내 오브젝트에 필요한 원본 이미지가 첨부 파일에 포함되지 않았습니다. `ASSET_REQUIREMENTS.csv`의 `original_asset_status`가 `MISSING`인 이유입니다. 기존 파일명의 해시만으로 실제 그림을 복원할 수는 없습니다.
+프로젝트 최상위 폴더에서 `python3 -m http.server 8000`을 실행하고 브라우저에서 `/ArtReview/`를 열면 아트·프레임 검토 페이지를 사용할 수 있습니다. 캐릭터/보스/오브젝트 상태를 선택해 볼 수 있습니다. **아트 검토용 페이지이며 Unity 게임 빌드가 아닙니다.**
 
-원본 적용 대상은 히나, 헬멧단·스케반·자동기계·전차, 비나·페로로지라·호드·고즈·헤세드, 소품·발판·잔해·배경·탄환·드롭·효과입니다. 맵에 배치한 모든 대상의 원본 이미지 또는 사용할 공식 참고 이미지/시트가 필요합니다. 스케반 저격병·레일건 전차·소품 세부 디자인의 원본 대응도 확인해야 합니다. 검토용 `SPRITE_REVIEW.png`와 CSV 명세를 함께 제공합니다.
+## 게임 코드
 
-원본 시트 교체 방식:
+C# 엔진 독립 시뮬레이션과 Unity SpriteRenderer/TextureImporter/Resources/AudioSource로 구성되어 있습니다. Godot 실행은 필요 없습니다.
 
-- 현재 시트와 같은 크기·셀 순서의 PNG를 `player.png`, `enemies.png`, `bosses.png`, `props.png`, `backgrounds.png`, `ground.png`, `title.png`, `effects.png`, `items.png`로 준비합니다.
-- 에디터의 Resources/Hina/Sheets에서 PNG를 교체하고 `HINA > Reimport Sprite Sheets`를 선택합니다.
-- 크기·프레임 수가 다르면 먼저 `atlas_manifest.json`의 해당 셀 정의와 애니메이션 프레임명을 수정해야 합니다. 원본 이미지에서 새 시트를 제작하는 작업은 실제 원본을 받은 후 진행해야 합니다.
-- 이 저장소 안에서 재생성하려면 `Tools/prepare_unity_assets.py --original-dir /path/to/sheets`를 사용합니다. 단독 ZIP에서는 기존 시트를 교체할 수 있습니다. 대체 그림을 처음부터 다시 생성하는 모드는 이전 프로젝트의 Godot 대체 리소스를 입력으로 사용합니다. `original_sources.json`에 각 atlas ID의 `source` 출처를 기록해야 교체를 허용합니다. 도구는 제공된 리소스를 공식 원본으로 자동 인증하지 않습니다.
+5개 스테이지, 방향 사격·점프·웅크리기·근접·필살기, 잔기·부활·코인 컨티뉴, 적 웨이브, 전차 HP, 장애물·지형 충돌, 드롭·점수, 사전 경고 보스 공격, 호드 기둥, 고즈 위치 변경·분신, 헤세드 4웨이브/코어 개방, 메뉴·일시정지·음량·전체 화면을 구현했습니다. 보스와 몹의 공격·피격 상태, 소품의 손상·잔해 상태가 새 아트에 연결됩니다.
 
-폰트는 Noto Sans CJK이며 OFL 라이선스를 포함했습니다. 음악·효과음은 직접 합성한 대체 음원입니다.
+기존 Godot 버전의 폴리곤 보스 변형과 모든 세부 연출/키 재설정을 동일하게 이식한 것은 아닙니다. 보스 공략은 이 Unity 프로젝트용으로 단순화·재구성한 부분이 있습니다.
 
-## 검증
+## 검증 및 재생성
 
-`Tools/run_core_tests.py`는 Unity에 의존하지 않는 **실제 게임 로직**을 .NET 8로 컴파일하고 테스트합니다. 57개 검사 통과. 결과: `core_test_results.json`. Unity API 컴파일·스프라이트 임포트·렌더링 검증과는 별개입니다.
+- `core_test_results.json`: 실제 독립 C# 게임 로직 **61개 검사 통과**
+- `syntax_test_results.json`: Unity C# 파일 6개를 C# 9 문법으로 파싱, 문법 오류 0개. Unity API 컴파일과 다릅니다.
+- `art_review_results.json`: Chromium에서 5개 스테이지와 38개 검토 카드 표시, 브라우저 스크립트 오류 0개
+- `VALIDATION.json`: 시트/프레임/매핑 검사와 미실행 Unity 검증 상태
 
 ```sh
 python3 Tools/run_core_tests.py
-# 또는 일반 개발 머신에서
-cd Tests && dotnet run
+python3 Tools/check_unity_syntax.py
+python3 Tools/prepare_unity_assets.py
 ```
 
-`DOTNET_ROOT` 또는 PATH의 .NET 8 SDK를 사용합니다. 이 머신에서만 사용하는 기본 SDK 경로도 실행 스크립트에 fallback으로 있습니다. .NET은 게임 로직 검사용이며 Unity 게임 실행을 대신하지 않습니다.
+앞의 두 검증 도구에는 .NET 8 SDK가 필요합니다. PATH 또는 DOTNET_ROOT로 지정합니다. 일반 개발 머신에서는 `cd Tests && dotnet run`도 가능합니다. 이미지 메타데이터 도구는 Pillow가 필요합니다. 마지막 명령은 포함된 PNG의 픽셀을 변경하지 않고 프레임·매핑 명세를 다시 만듭니다.
 
-Unity Test Runner용 `Assets/Hina/Tests/Editor/CoreTests.cs`도 포함했습니다. 해당 NUnit 4개 검사는 Unity 에디터가 없어 미실행 상태입니다. 실행 결과를 만들어 넣지 않았습니다.
+Unity Test Runner용 `ProjectHINA/Assets/Hina/Tests/Editor/CoreTests.cs`의 4개 NUnit 검사는 Unity 에디터가 없어 미실행입니다.
 
-## 핵심 파일
-
-- `Scripts/Core/GameModel.cs`: 엔진 독립 게임 시뮬레이션
-- `Scripts/Runtime/HinaGame.cs`: Unity 입력·월드 렌더링·UI·음향
-- `Scripts/Runtime/AtlasLibrary.cs`: 시트/상태 애니메이션 조회
-- `Editor/SheetImporter.cs`: 시트 자동 분할
-- `Editor/ProjectSetup.cs`: 씬 생성·빌드 메뉴
-- `Resources/Hina/stages.json`: 5개 스테이지
-- `Resources/Hina/atlas_manifest.json`: 시트·애니메이션 매핑/출처 상태
+폰트는 Noto Sans CJK(OFL 라이선스 포함), 음악·효과음은 직접 합성한 대체 음원을 유지합니다.

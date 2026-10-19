@@ -43,6 +43,9 @@ for(int wave=0;wave<4;wave++){
 Check(g.Boss.CoreTime>0&&g.Boss.Wave==4,"chesed_core_opens_after_four_waves");g.HitBoss(10);Check(g.Boss.HP==hp-30,"chesed_open_core_multiplier");
 g=New();g.StartBoss();g.HitBoss(99999);Check(g.Mode==Mode.Clear&&g.Boss.Dead&&g.Unlocked>=2,"boss_defeat_clear_unlock");Frames(g,300);Check(g.StageIndex==1&&g.Mode==Mode.Playing,"clear_next_stage_transition");
 g=New();g.Load(4);g.StartBoss();g.Boss.CoreTime=5;g.HitBoss(99999);Frames(g,300);Check(g.Mode==Mode.Complete,"final_stage_completion");
+g=New();g.Load(3);g.StartBoss();g.Player.Invulnerable=9999;Frames(g,310);Check(g.Boss.Targets.Count==2&&g.Boss.Targets.TrueForAll(t=>t.Kind=="goz_clone"),"goz_creates_two_redesigned_decoys");
+g=New();g.Enemies.Clear();enemy=g.SpawnEnemy(220,8);enemy.Timer=.001f;Frames(g,1);Check(enemy.Recoil>0,"enemy_fire_triggers_attack_art_state");g.HitEnemy(enemy,1);Check(enemy.Hurt>0&&!enemy.Dead,"tank_hit_triggers_hurt_art_state");
+g=New();prop=g.Props[0];prop.HP=1;g.Bullets.Add(new Bullet{X=prop.Data.x-10,Y=300,VX=850,Friendly=true});Frames(g,3);Check(prop.Dead&&prop.DeathTime>0,"prop_destroyed_state_tracks_debris_age");
 Console.WriteLine($"RESULT {checks} checks, {failures} failures");
 File.WriteAllText(Path.Combine(AppContext.BaseDirectory,"../../../../core_test_results.json"),JsonSerializer.Serialize(new{checks,failures,results},new JsonSerializerOptions{WriteIndented=true}));
 return failures==0?0:1;

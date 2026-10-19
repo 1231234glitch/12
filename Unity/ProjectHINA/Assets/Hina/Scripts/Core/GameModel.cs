@@ -8,17 +8,18 @@ namespace Hina.Core
     [Serializable] public class RectData { public float x, y, width, height; public bool Contains(float px,float py) { return px>=x&&px<=x+width&&py>=y&&py<=y+height; } }
     [Serializable] public class WaveData { public float trigger, spawn_x; public int[] kinds; [NonSerialized] public bool triggered; }
     [Serializable] public class PropData { public float x, width, height; public int style; }
-    [Serializable] public class StageData { public int id; public string name, boss, music; public float length; public int[] opening; public RectData[] platforms; public WaveData[] waves; public PropData[] props; }
+    [Serializable] public class DecorData { public float x,height=42,baseline=302; public int style; }
+    [Serializable] public class StageData { public int id; public string name, boss, music; public float length; public int[] opening; public RectData[] platforms; public WaveData[] waves; public PropData[] props; public DecorData[] decor; }
     [Serializable] public class StageCollection { public StageData[] stages; }
     public class Player { public float X=80,Y=310,VY,Invulnerable,FireTimer,KickTimer,SpecialTimer; public int Facing=1,Stock=3; public bool Grounded=true,Alive=true; public string Animation="idle"; }
-    public class Enemy { public int Id,Kind,HP; public float X,Y=310,Timer,Age,DeathTime; public bool Dead; }
-    public class Bullet { public float X,Y,VX,VY,Life=2.8f; public bool Friendly; public int Damage=1; }
-    public class Prop { public PropData Data; public int HP=3; public bool Dead; }
-    public class Effect { public float X,Y,Life=.4f; public string Kind; }
+    public class Enemy { public int Id,Kind,HP; public float X,Y=310,Timer,Age,DeathTime,Recoil,Hurt; public bool Dead; }
+    public class Bullet { public float X,Y,VX,VY,Life=2.8f; public bool Friendly; public int Damage=1; public string Art; }
+    public class Prop { public PropData Data; public int HP=3; public bool Dead; public float DeathTime; }
+    public class Effect { public float X,Y,Life=.4f; public string Kind; public int Facing=1; }
     public class Pickup { public float X,Y; public bool Special; }
     public class Hazard { public float X,Y,Width,Height,Delay,Life=.4f; }
     public class RaidTarget { public float X,Y; public int HP; public string Kind; public bool Dead; }
-    public class Boss { public float X,HP,MaxHP,Timer=2,CoreTime,LockedX,LockedY; public int Pattern,Wave; public bool Warning,Dead; public string Attack="INTRO"; public readonly List<RaidTarget> Targets=new List<RaidTarget>(); }
+    public class Boss { public float X,HP,MaxHP,Timer=2,CoreTime,LockedX,LockedY,Hurt; public int Pattern,Wave; public bool Warning,Dead; public string Attack="INTRO"; public readonly List<RaidTarget> Targets=new List<RaidTarget>(); }
     public class SoundEvent { public string Name; public SoundEvent(string name) { Name=name; } }
 
     // Engine-independent fixed-step simulation. Pixel units match the source data.
@@ -72,7 +73,7 @@ namespace Hina.Core
         void Revive() { Player.Alive=true;Player.Invulnerable=3;Player.Stock=3;Player.VY=0;Player.KickTimer=0;Player.SpecialTimer=0;RespawnTime=0;Sound("respawn"); }
         public void HitEnemy(Enemy e,int damage)
         {
-            if(e.Dead)return;e.HP-=damage;Sound("hit");if(e.HP>0)return;
+            if(e.Dead)return;e.Hurt=.12f;e.HP-=damage;Effects.Add(new Effect{X=e.X,Y=e.Y-25,Kind="hit",Life=.12f});Sound("hit");if(e.HP>0)return;
             e.Dead=true;Score+=e.Kind>=8?1000:100;Sound(e.Kind>=8?"explosion":"enemy_down");
             Effects.Add(new Effect{X=e.X,Y=e.Y-25,Kind="explosion"});
             if(e.Id%6==0)Pickups.Add(new Pickup{X=e.X,Y=e.Y-24,Special=e.Id%12==0});
@@ -82,7 +83,7 @@ namespace Hina.Core
             if(Boss==null||Boss.Dead)return;
             if(StageIndex==2&&Boss.Targets.Exists(t=>!t.Dead&&t.Kind=="pillar"))return;
             if(StageIndex==4&&Boss.CoreTime<=0)return;
-            Boss.HP-=damage*(StageIndex==4?3:1);Sound("armor_hit");
+            Boss.Hurt=.12f;Boss.HP-=damage*(StageIndex==4?3:1);Sound("armor_hit");
             if(Boss.HP<=0){Boss.Dead=true;Hazards.Clear();Boss.Targets.Clear();Score+=10000;Mode=Mode.Clear;ClearTime=4.8f;Sound("clear");Unlocked=Math.Max(Unlocked,StageIndex+2);}
         }
         public void StartBoss()
@@ -101,6 +102,7 @@ namespace Hina.Core
             foreach(var w in Stage.waves??Array.Empty<WaveData>())if(!w.triggered&&Player.X>=w.trigger){w.triggered=true;for(int i=0;i<w.kinds.Length;i++)SpawnEnemy(w.spawn_x+i*70,w.kinds[i]);}
             if(Player.X>Stage.length-620&&Boss==null)StartBoss();
             UpdateEnemies(dt);UpdateBoss(dt);UpdateBullets(dt);UpdateHazards(dt);
+            foreach(var prop in Props)if(prop.Dead)prop.DeathTime+=dt;
             for(int i=Effects.Count-1;i>=0;i--){Effects[i].Life-=dt;if(Effects[i].Life<=0)Effects.RemoveAt(i);}
             for(int i=Pickups.Count-1;i>=0;i--){var p=Pickups[i];if(Abs(p.X-Player.X)<24&&Abs(p.Y-(Player.Y-20))<36){if(p.Special)Player.Stock=Math.Min(9,Player.Stock+1);else Score+=250;Sound("pickup");Pickups.RemoveAt(i);}}
         }
@@ -108,7 +110,7 @@ namespace Hina.Core
         {
             var p=Player;p.Invulnerable=Math.Max(0,p.Invulnerable-dt);p.FireTimer-=dt;p.KickTimer=Math.Max(0,p.KickTimer-dt);
             if(input.Special&&p.Stock>0&&p.SpecialTimer<=0){p.Stock--;p.SpecialTimer=1.7f;p.Invulnerable=1.7f;Sound("charge");}
-            if(p.SpecialTimer>0){float old=p.SpecialTimer;p.SpecialTimer-=dt;if(old>.85f&&p.SpecialTimer<=.85f){foreach(var e in Enemies)if(!e.Dead&&Abs(e.X-p.X)<600)HitEnemy(e,30);HitBoss(30);Effects.Add(new Effect{X=p.X+p.Facing*160,Y=p.Y-40,Life=1,Kind="special"});Sound("special");}}
+            if(p.SpecialTimer>0){float old=p.SpecialTimer;p.SpecialTimer-=dt;if(old>.85f&&p.SpecialTimer<=.85f){foreach(var e in Enemies)if(!e.Dead&&Abs(e.X-p.X)<600)HitEnemy(e,30);HitBoss(30);Effects.Add(new Effect{X=p.X+p.Facing*160,Y=p.Y-40,Life=1,Kind="special"});Effects.Add(new Effect{X=p.X+p.Facing*60,Y=p.Y-30,Life=.3f,Kind="special_bullet",Facing=p.Facing});Sound("special");}}
             if(input.Move!=0&&p.SpecialTimer<=0&&p.KickTimer<=0)p.Facing=input.Move<0?-1:1;
             bool crouch=p.Grounded&&input.Down;
             float move=p.SpecialTimer>0||p.KickTimer>0||crouch?0:input.Move*180*dt;
@@ -128,15 +130,15 @@ namespace Hina.Core
             }
             p.Animation=!p.Alive?"death":p.SpecialTimer>0?"special":p.KickTimer>0?(p.Grounded?"kick":"air_kick"):input.Up?(input.Move!=0?"shoot_diagonal":"shoot_up"):!p.Grounded?(input.Down?"air_down":input.Shoot?"air_shoot":p.VY<0?"jump_rise":"fall"):crouch?(input.Shoot?"crouch_shoot":"crouch"):input.Move!=0?(input.Shoot?"walk_shoot":"walk"):input.Shoot?"shoot":"idle";
         }
-        void Fire(float x,float y,float vx,float vy,bool friendly) { if(Bullets.Count<320)Bullets.Add(new Bullet{X=x,Y=y,VX=vx,VY=vy,Friendly=friendly}); }
+        void Fire(float x,float y,float vx,float vy,bool friendly,string art=null) { if(Bullets.Count<320)Bullets.Add(new Bullet{X=x,Y=y,VX=vx,VY=vy,Friendly=friendly,Art=art??(friendly?"friendly_bullet":"enemy_bullet")});if(friendly)Effects.Add(new Effect{X=x,Y=y,Kind="muzzle",Life=.07f,Facing=vx<0?-1:1}); }
         void UpdateEnemies(float dt)
         {
             for(int i=Enemies.Count-1;i>=0;i--)
             {
                 var e=Enemies[i];if(e.Dead){e.DeathTime+=dt;if(e.DeathTime>.95f)Enemies.RemoveAt(i);continue;}
-                if(Abs(e.X-Player.X)>800)continue;e.Age+=dt;e.Timer-=dt;
+                if(Abs(e.X-Player.X)>800)continue;e.Age+=dt;e.Timer-=dt;e.Recoil=Math.Max(0,e.Recoil-dt);e.Hurt=Math.Max(0,e.Hurt-dt);
                 if(e.Kind<8&&Abs(e.X-Player.X)>130)e.X+=(Player.X<e.X?-1:1)*28*dt;
-                if(e.Timer<=0){e.Timer=e.Kind>=8?1.8f:1.5f+(e.Kind%3)*.4f;float dx=Player.X-e.X,dy=Player.Y-25-(e.Y-32),len=Math.Max(1,Sqrt(dx*dx+dy*dy));Fire(e.X,e.Y-32,dx/len*(e.Kind>=8?240:170),dy/len*170,false);Sound("enemy_shot");}
+                if(e.Timer<=0){e.Recoil=.15f;e.Timer=e.Kind>=8?1.8f:1.5f+(e.Kind%3)*.4f;float dx=Player.X-e.X,dy=Player.Y-25-(e.Y-32),len=Math.Max(1,Sqrt(dx*dx+dy*dy));Fire(e.X,e.Y-32,dx/len*(e.Kind>=8?240:170),dy/len*170,false,e.Kind>=3?"robot_bullet":"enemy_bullet");Sound("enemy_shot");}
                 if(Abs(e.X-Player.X)<(e.Kind>=8?60:22)&&Abs(e.Y-Player.Y)<36)HitPlayer();
             }
         }
@@ -166,7 +168,7 @@ namespace Hina.Core
         }
         void UpdateBoss(float dt)
         {
-            var b=Boss;if(b==null||b.Dead)return;
+            var b=Boss;if(b==null||b.Dead)return;b.Hurt=Math.Max(0,b.Hurt-dt);
             if(b.CoreTime>0){b.CoreTime-=dt;if(b.CoreTime<=0){b.Wave=0;b.Targets.Clear();}}
             if(StageIndex==4&&b.Targets.Count>0&&b.Targets.TrueForAll(t=>t.Dead)){b.Targets.Clear();b.Wave++;if(b.Wave>=4)b.CoreTime=5;}
             b.Timer-=dt;if(b.Timer>0)return;
@@ -178,7 +180,10 @@ namespace Hina.Core
                     case 0:b.Attack=b.Pattern%3==0?"MISSILE LANES":"LOCKED LASER";if(b.Pattern%3==0)for(int n=-1;n<=1;n++)Hazards.Add(new Hazard{X=b.LockedX+n*90-18,Y=100,Width=36,Height=210,Delay=1.1f});else Hazards.Add(new Hazard{X=Stage.length-630,Y=b.LockedY-9,Width=600,Height=18,Delay=1.1f});break;
                     case 1:b.Attack=b.Pattern%2==0?"EYE BEAM":"PERORO ADDS";if(b.Pattern%2==0)Hazards.Add(new Hazard{X=Stage.length-630,Y=b.LockedY-10,Width=610,Height=20,Delay=1.1f});else for(int n=0;n<3;n++)b.Targets.Add(new RaidTarget{X=Stage.length-450+n*90,Y=310,HP=2,Kind="peroro"});break;
                     case 2:b.Attack="DESTROY THE PILLARS";if(!b.Targets.Exists(t=>!t.Dead))for(int n=0;n<2;n++)b.Targets.Add(new RaidTarget{X=Stage.length-440+n*150,Y=310,HP=6,Kind="pillar"});Hazards.Add(new Hazard{X=Stage.length-630,Y=292,Width=600,Height=18,Delay=1.1f});break;
-                    case 3:b.Attack=b.Pattern%2==0?"REAL GOZ / MARKED CORE":"BOMB LANES";for(int n=0;n<3;n++)Hazards.Add(new Hazard{X=Stage.length-550+n*160,Y=140,Width=45,Height=170,Delay=1.1f});break;
+                    case 3:
+                        b.Attack=b.Pattern%2==0?"FIND THE REAL GOZ":"BOMB LANES";
+                        if(b.Pattern%2==0){b.X=Stage.length-540+(b.Pattern%3)*170;b.Targets.Clear();for(int n=0;n<3;n++){float cloneX=Stage.length-540+n*170;if(Abs(cloneX-b.X)>20)b.Targets.Add(new RaidTarget{X=cloneX,Y=310,HP=4,Kind="goz_clone"});}}
+                        else for(int n=0;n<3;n++)Hazards.Add(new Hazard{X=Stage.length-550+n*160,Y=140,Width=45,Height=170,Delay=1.1f});break;
                     case 4:b.Attack=b.CoreTime>0?"CORE OPEN":"CLEAR FOUR WAVES";if(b.CoreTime<=0&&b.Targets.Count==0)for(int n=0;n<3;n++)b.Targets.Add(new RaidTarget{X=Stage.length-500+n*105,Y=310,HP=1,Kind="automata"});break;
                 }
             }

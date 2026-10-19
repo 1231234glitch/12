@@ -1,0 +1,50 @@
+{
+  "reference_method": "Designs based on familiar Blue Archive canonical character/faction/raid settings; newly generated imagery, no official asset extraction. External reference-page fetch was unavailable in this environment.",
+  "sprites": [
+    {
+      "atlas": "player",
+      "file": "Sheets/player.png",
+      "sha256": "9065a6be850b36173c839b43938ff00f15695eebc8bd19ef8b2db1d6e3d7828a",
+      "width": 1254,
+      "height": 1254,
+      "creation": "Newly designed and generated for this project, referencing Blue Archive character/faction/raid concepts. Not official extracted assets.",
+      "modified_pixels": false
+    },
+    {
+      "atlas": "enemies",
+      "file": "Sheets/enemies.png",
+      "sha256": "d6c8f57bf924861106f15ba49e39cef8d50bf491f64956f63ec4ea5c9fd733e2",
+      "width": 1261,
+      "height": 1247,
+      "creation": "Newly designed and generated for this project, referencing Blue Archive character/faction/raid concepts. Not official extracted assets.",
+      "modified_pixels": false
+    },
+    {
+      "atlas": "bosses",
+      "file": "Sheets/bosses.png",
+      "sha256": "ca28654c699a734f0d26cc2b4cc920f048b7caacb77a347240ddb4c6f5c6febf",
+      "width": 1402,
+      "height": 1122,
+      "creation": "Newly designed and generated for this project, referencing Blue Archive character/faction/raid concepts. Not official extracted assets.",
+      "modified_pixels": false
+    },
+    {
+      "atlas": "props",
+      "file": "Sheets/props.png",
+      "sha256": "d27116a740bd4d5b20c35570b53bac8964daa67541ad3b138f9b8231d5862056",
+      "width": 1402,
+      "height": 1122,
+      "creation": "Newly designed and generated for this project, referencing Blue Archive character/faction/raid concepts. Not official extracted assets.",
+      "modified_pixels": false
+    },
+    {
+      "atlas": "backgrounds",
+      "file": "Sheets/backgrounds.png",
+      "sha256": "3dcf90c04e413fff7fd556d254725bea23ec57bac9ae1da09b888050bca42038",
+      "width": 1536,
+      "height": 1024,
+      "creation": "Newly designed and generated for this project, referencing Blue Archive character/faction/raid concepts. Not official extracted assets.",
+      "modified_pixels": false
+    }
+  ]
+}

@@ -1,7 +1,9 @@
 from pathlib import Path
 import hashlib,json,zipfile
-root=Path(__file__).resolve().parents[1];out=root.parent/'downloads/Project_HINA_Unity_Project_Draft.zip';out.parent.mkdir(exist_ok=True)
+root=Path(__file__).resolve().parents[1];out=root.parent/'downloads/Project_HINA_Unity_Redesigned.zip';out.parent.mkdir(exist_ok=True)
 validation=json.loads((root/'VALIDATION.json').read_text());assert validation['core_checks_failed']==0
+assert validation['status']=='NEW_DESIGNS_APPLIED_UNITY_EDITOR_VALIDATION_PENDING'
+assert validation['new_design_groups_applied']>0
 with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
  for p in sorted(root.rglob('*')):
   if not p.is_file():continue

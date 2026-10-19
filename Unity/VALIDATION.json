@@ -1,24 +1,40 @@
 {
-  "status": "UNITY_PROJECT_DRAFT_ORIGINAL_ART_PENDING",
-  "core_checks_passed": 57,
+  "status": "NEW_DESIGNS_APPLIED_UNITY_EDITOR_VALIDATION_PENDING",
+  "core_checks_passed": 61,
   "core_checks_failed": 0,
-  "atlas_and_stage_checks_passed": 63,
-  "atlas_count": 9,
-  "animation_mapping_count": 49,
-  "required_asset_groups": 35,
-  "original_asset_groups_applied": 0,
+  "atlas_count": 5,
+  "validated_frames": 272,
+  "animation_mapping_count": 146,
+  "new_design_groups_applied": 43,
+  "official_extracted_assets_used": false,
+  "pixel_art_required": false,
+  "source_pngs_preserved_without_pixel_changes": true,
   "unity_editor_executed": false,
   "unity_api_compilation_verified": false,
   "unity_runtime_verified": false,
   "unity_executable_built": false,
+  "art_review_is_unity_runtime": false,
   "csharp_syntax": {
     "files": 6,
     "passed": true,
     "parser": "Roslyn C# 9",
     "unity_api_compilation_performed": false
   },
-  "blocking_requirements": [
-    "Original character/enemy/boss/object reference images or source sprite assets",
-    "Unity Editor 2022.3.62f1 with activated license and target build modules for editor validation/export"
-  ]
+  "art_review": {
+    "ready": true,
+    "atlases": 5,
+    "animations": 146,
+    "cards": 38,
+    "stage": 4,
+    "stages_checked": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "browser_errors": [],
+    "passed": true
+  },
+  "remaining_requirement": "Unity Editor 2022.3.62f1 with activated license and target build modules for editor validation/export"
 }

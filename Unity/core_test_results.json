@@ -1,5 +1,5 @@
 {
-  "checks": 57,
+  "checks": 61,
   "failures": 0,
   "results": [
     {
@@ -228,6 +228,22 @@
     },
     {
       "name": "final_stage_completion",
+      "passed": true
+    },
+    {
+      "name": "goz_creates_two_redesigned_decoys",
+      "passed": true
+    },
+    {
+      "name": "enemy_fire_triggers_attack_art_state",
+      "passed": true
+    },
+    {
+      "name": "tank_hit_triggers_hurt_art_state",
+      "passed": true
+    },
+    {
+      "name": "prop_destroyed_state_tracks_debris_age",
       "passed": true
     }
   ]

@@ -20,13 +20,20 @@ namespace Hina.Editor
             var importer=(TextureImporter)assetImporter;
             importer.textureType=TextureImporterType.Sprite;
             importer.spriteImportMode=SpriteImportMode.Multiple;
-            importer.spritePixelsPerUnit=64;importer.filterMode=FilterMode.Point;
+            importer.spritePixelsPerUnit=definition.pixelsPerUnit>0?definition.pixelsPerUnit:64;
+            importer.filterMode=definition.smoothFiltering?FilterMode.Bilinear:FilterMode.Point;
             importer.mipmapEnabled=false;importer.alphaIsTransparency=true;
             importer.textureCompression=TextureImporterCompression.Uncompressed;
             importer.maxTextureSize=8192;importer.npotScale=TextureImporterNPOTScale.None;
             importer.GetSourceTextureWidthAndHeight(out int width,out int height);
             var cells=new SpriteMetaData[definition.frames.Length];
-            for(int i=0;i<cells.Length;i++)cells[i]=new SpriteMetaData{name=definition.frames[i],rect=new Rect(i%definition.columns*definition.cellWidth,height-(i/definition.columns+1)*definition.cellHeight,definition.cellWidth,definition.cellHeight),alignment=(int)SpriteAlignment.Custom,pivot=new Vector2(definition.pivotX,definition.pivotY)};
+            for(int i=0;i<cells.Length;i++)
+            {
+                var f=definition.frameRects!=null&&i<definition.frameRects.Length?definition.frameRects[i]:null;
+                var rect=f!=null?new Rect(f.x,f.y,f.width,f.height):new Rect(i%definition.columns*definition.cellWidth,height-(i/definition.columns+1)*definition.cellHeight,definition.cellWidth,definition.cellHeight);
+                var pivot=f!=null?new Vector2(f.pivotX,f.pivotY):new Vector2(definition.pivotX,definition.pivotY);
+                cells[i]=new SpriteMetaData{name=definition.frames[i],rect=rect,alignment=(int)SpriteAlignment.Custom,pivot=pivot};
+            }
             importer.spritesheet=cells;
         }
     }

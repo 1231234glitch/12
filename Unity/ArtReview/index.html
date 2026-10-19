@@ -1,0 +1,38 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Project HINA · Design & Frame Review</title><link rel="icon" href="data:,">
+<style>*{box-sizing:border-box}body{margin:0;background:#111520;color:#eee6d4;font:15px system-ui,sans-serif}header,main{max-width:1280px;margin:auto;padding:24px}header{border-bottom:1px solid #394156}h1{margin:4px 0;font-size:28px}p{color:#b5b5c5;line-height:1.6}.tag{color:#c6a3ff;font-size:12px;letter-spacing:2px}button,select{background:#292b42;color:#eee6d4;border:1px solid #55506c;padding:9px 13px;border-radius:6px;margin:0 6px 8px 0;cursor:pointer}button.active{background:#594376;border-color:#bc8ee9}canvas{width:100%;background:#171e2c;border:1px solid #424459;border-radius:8px}#gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}.card{padding:14px;background:#1b2030;border:1px solid #383e51;border-radius:8px}.card canvas{height:180px;object-fit:contain;border:0;background:repeating-conic-gradient(#202735 0% 25%,#232a39 0% 50%) 50%/20px 20px}.name{font-weight:650}.state{color:#b9a3d9;font-size:12px}footer{padding:24px;color:#9aa0b6}.notice{color:#dec491}</style>
+<header><div class="tag">PROJECT HINA / VIOLET BREAKWATER</div><h1>새 디자인 · 스프라이트 연결 확인</h1><p>블루 아카이브의 캐릭터·세력·레이드 설정을 참고해 새로 제작한 디자인입니다. 공식 추출 리소스를 사용하지 않았습니다.<br>이 페이지는 시트와 프레임 매핑 확인용이며 <strong>Unity 실행 빌드가 아닙니다.</strong></p></header>
+<main><div id="stages"></div><canvas id="scene" width="1280" height="720"></canvas><p id="caption"></p><h2>캐릭터·몹·보스·오브젝트</h2><div><button id="toggle">애니메이션 일시정지</button><select id="filter"><option value="all">전체 디자인</option><option value="player">주인공</option><option value="enemies">일반 몹·전차</option><option value="bosses">보스·소환체</option><option value="props">맵 오브젝트·아이템·효과</option></select></div><div id="gallery"></div><footer id="summary"></footer></main>
+<script type="module">
+const base='../ProjectHINA/Assets/Hina/Resources/Hina/';
+const manifest=await fetch(base+'atlas_manifest.json').then(r=>r.json());
+const images={},sheets={};await Promise.all(manifest.atlases.map(async a=>{sheets[a.id]=a;const im=new Image();im.src=base+'Sheets/'+a.id+'.png';await im.decode();images[a.id]=im}));
+const animations=new Map(manifest.animations.map(a=>[a.actor+'/'+a.state,a]));
+const bosses=['binah','perorodzilla','hod','goz','chesed'];
+const stages=['COASTAL LANDING','DESERT RELIC','IRON RAILWAY','NIGHT GEHENNA','REACTOR ABYSS'];
+let stage=0,paused=false,clock=0,last=performance.now();
+function frame(atlas,name){const s=sheets[atlas],i=s.frames.indexOf(name);if(i<0)throw Error('Missing '+atlas+'/'+name);return s.frameRects[i]}
+function anim(actor,state,t){const a=animations.get(actor+'/'+state)||animations.get(actor+'/idle');if(!a)throw Error('Missing animation '+actor+'/'+state);let i=Math.max(0,Math.floor(t*a.fps));i=a.loop?i%a.frames.length:Math.min(i,a.frames.length-1);return [a.atlas,a.frames[i]]}
+function sprite(ctx,atlas,name,x,y,mult=1,flip=false){const s=sheets[atlas],r=frame(atlas,name),im=images[atlas],scale=64/s.pixelsPerUnit*mult;ctx.save();ctx.translate(x,y);if(flip)ctx.scale(-1,1);ctx.drawImage(im,r.x,im.height-r.y-r.height,r.width,r.height,-r.pivotX*r.width*scale,-(1-r.pivotY)*r.height*scale,r.width*scale,r.height*scale);ctx.restore()}
+function rect(ctx,atlas,name,x,y,w,h){const r=frame(atlas,name),im=images[atlas];ctx.drawImage(im,r.x,im.height-r.y-r.height,r.width,r.height,x,y,w,h)}
+const scene=document.querySelector('#scene'),ctx=scene.getContext('2d');ctx.scale(2,2);ctx.imageSmoothingEnabled=true;
+for(let i=0;i<5;i++){const b=document.createElement('button');b.textContent=`0${i+1} ${stages[i]}`;b.onclick=()=>{stage=i;updateTabs()};document.querySelector('#stages').append(b)}
+function updateTabs(){document.querySelectorAll('#stages button').forEach((b,i)=>b.classList.toggle('active',i===stage));document.querySelector('#caption').textContent=`${stages[stage]} · ${bosses[stage].toUpperCase()} / 시트 원본 해상도 유지 · 부드러운 필터링 · 프레임·피벗 매핑 확인`};updateTabs();
+const cards=[];const actorNames=[...new Set(manifest.animations.map(a=>a.actor))].filter(a=>a!=='effects');actorNames.push('effects');
+for(const actor of actorNames){const states=manifest.animations.filter(a=>a.actor===actor);const sheet=states[0].atlas;const card=document.createElement('div');card.className='card';const label=document.createElement('div');label.className='name';label.textContent=actor;const cv=document.createElement('canvas');cv.width=460;cv.height=360;const description=document.createElement('div');description.className='state';const select=document.createElement('select');for(const a of states){const o=document.createElement('option');o.value=a.state;o.textContent=a.state;select.append(o)}card.append(label,cv,select,description);document.querySelector('#gallery').append(card);cards.push({actor,sheet,card,cv,select,description});}
+// Pickups/projectiles are mapped directly rather than through character animation.
+for(const name of ['score_pickup','special_pickup','friendly_bullet','enemy_bullet','robot_bullet','special_bullet','muzzle','hit']){const card=document.createElement('div');card.className='card';const label=document.createElement('div');label.className='name';label.textContent=name;const cv=document.createElement('canvas');cv.width=460;cv.height=360;card.append(label,cv);document.querySelector('#gallery').append(card);cards.push({actor:name,sheet:'props',card,cv,direct:true});}
+document.querySelector('#filter').onchange=e=>{for(const c of cards)c.card.style.display=e.target.value==='all'||c.sheet===e.target.value?'':'none'};
+document.querySelector('#toggle').onclick=e=>{paused=!paused;e.target.textContent=paused?'애니메이션 재생':'애니메이션 일시정지'};
+function render(now){const dt=Math.min((now-last)/1000,.05);last=now;if(!paused)clock+=dt;
+ ctx.clearRect(0,0,640,360);rect(ctx,'backgrounds','stage_'+stage,0,0,1000,310);rect(ctx,'backgrounds','ground_'+stage,0,310,640,50);
+ for(let i=0;i<3;i++)rect(ctx,'props','prop_'+String(i*2).padStart(2,'0')+'_'+(Math.floor(clock/2+i)%4),260+i*65,274,46,36);
+ sprite(ctx,...anim('hina',Math.floor(clock/4)%2?'shoot':'walk',clock),125,310);
+ sprite(ctx,...anim('helmet','walk',clock),350,310);
+ sprite(ctx,...anim(stage===2?'railgun':'military','attack',clock),430,310,stage===2?1.3:1);
+ const state=['idle','warn','attack','phase2','hurt','death'][Math.floor(clock/3)%6];sprite(ctx,...anim(bosses[stage],state,clock%3),550,310);
+ ctx.fillStyle='rgba(15,20,33,.85)';ctx.fillRect(12,10,205,48);ctx.fillStyle='#f1dbb5';ctx.font='bold 14px sans-serif';ctx.fillText('PROJECT HINA',22,29);ctx.font='9px sans-serif';ctx.fillText('NEW DESIGN / FRAME REVIEW',22,46);
+ for(const c of cards){const cc=c.cv.getContext('2d');cc.clearRect(0,0,460,360);if(c.direct){sprite(cc,'props',c.actor,230,300,2);continue}const a=anim(c.actor,c.select.value,clock);sprite(cc,...a,230,325,c.sheet==='bosses'?2:3);c.description.textContent=a.join(' / ');}
+ window.artQA={ready:true,atlases:manifest.atlases.length,animations:manifest.animations.length,cards:cards.length,stage};requestAnimationFrame(render)}
+document.querySelector('#summary').textContent=`새 원화 시트 ${manifest.atlases.length}개 · 애니메이션 매핑 ${manifest.animations.length}개 · Unity와 동일한 프레임 사각형·피벗·PPU 사용. Unity 에디터 실행 검증은 별도입니다.`;
+requestAnimationFrame(render);
+</script></html>

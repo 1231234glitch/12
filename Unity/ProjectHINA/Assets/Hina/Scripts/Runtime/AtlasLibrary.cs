@@ -4,7 +4,8 @@ using UnityEngine;
 
 namespace Hina.Unity
 {
-    [Serializable] public class SheetDefinition { public string id; public int cellWidth,cellHeight,columns; public float pivotX=.5f,pivotY; public string[] frames; public string provenance; }
+    [Serializable] public class SheetFrameRect { public int x,y,width,height; public float pivotX=.5f,pivotY; }
+    [Serializable] public class SheetDefinition { public string id; public int cellWidth,cellHeight,columns; public float pivotX=.5f,pivotY; public string[] frames; public string provenance; public int pixelsPerUnit=64; public bool smoothFiltering; public SheetFrameRect[] frameRects; }
     [Serializable] public class AnimationDefinition { public string actor,state,atlas; public string[] frames; public float fps=12; public bool loop=true; }
     [Serializable] public class AtlasManifest { public SheetDefinition[] atlases; public AnimationDefinition[] animations; }
     public sealed class AtlasLibrary

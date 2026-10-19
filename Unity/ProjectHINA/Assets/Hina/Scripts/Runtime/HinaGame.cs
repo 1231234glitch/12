@@ -16,7 +16,8 @@ namespace Hina.Unity
         AudioSource music;
         int drawIndex,soundIndex;
         string musicKey="";
-        float animationTime,masterVolume=.8f,accumulator;
+        float animationTime,playerStateTime,masterVolume=.8f,accumulator;
+        string lastPlayerState="";
         bool shoot,jump,special;
         float movement;bool up,down;
         GUIStyle titleStyle,labelStyle,smallStyle,buttonStyle;
@@ -63,6 +64,9 @@ namespace Hina.Unity
                 jump=false;special=false;accumulator-=1/60f;
             }
             if(Model.Mode==Mode.Playing||Model.Mode==Mode.Title)animationTime+=Time.unscaledDeltaTime;
+            string playerState=Model.Player.Alive?Model.Player.Animation:"death";
+            if(playerState!=lastPlayerState){lastPlayerState=playerState;playerStateTime=0;}
+            else if(Model.Mode==Mode.Playing)playerStateTime+=Time.unscaledDeltaTime;
             while(Model.Sounds.Count>0)
             {
                 string name=Model.Sounds.Dequeue().Name;AudioClip clip;
@@ -97,27 +101,49 @@ namespace Hina.Unity
             cam.transform.position=new Vector3(cameraX/64f,130/64f,-10);
             float screenRatio=(float)Screen.width/Math.Max(1,Screen.height),target=16/9f;
             cam.rect=screenRatio>target?new Rect((1-target/screenRatio)/2,0,target/screenRatio,1):new Rect(0,(1-screenRatio/target)/2,1,screenRatio/target);
-            if(Model.Mode==Mode.Title)ImageRect(atlas.Frame("title","title"),left,0,640,360,-100);
+            if(Model.Mode==Mode.Title)
+            {
+                ImageRect(atlas.Frame("backgrounds","stage_3"),left,0,640,360,-100);
+                Actor(atlas.Animate("hina","idle",animationTime),left+135,300,10,false,Color.white,1.8f);
+                Actor(atlas.Animate("binah","idle",animationTime),left+540,310,8,false,new Color(1,1,1,.7f),.85f);
+            }
             else
             {
                 ImageRect(atlas.Frame("backgrounds","stage_"+Model.StageIndex),left-Math.Min(left*.3f,896),0,1536,310,-100);
-                for(int i=-1;i<3;i++)ImageRect(atlas.Frame("ground","ground_"+Model.StageIndex),(float)Math.Floor(left/768)*768+i*768,310,768,60,-50);
-                foreach(var p in Model.Stage.platforms)ImageRect(atlas.Frame("props","prop_"+(Model.StageIndex==0?"05":"04")),p.x,p.y,p.width,p.height,0);
-                foreach(var prop in Model.Props)if(!prop.Dead)ImageRect(atlas.Frame("props","prop_"+prop.Data.style.ToString("00")),prop.Data.x,310-prop.Data.height,prop.Data.width,prop.Data.height,5);
+                for(int i=-1;i<3;i++)ImageRect(atlas.Frame("backgrounds","ground_"+Model.StageIndex),(float)Math.Floor(left/768)*768+i*768,310,768,60,-50);
+                foreach(var decoration in Model.Stage.decor??Array.Empty<DecorData>())
+                {
+                    float height=decoration.height>0?decoration.height:42;
+                    ImageRect(atlas.Frame("props","prop_"+decoration.style.ToString("00")),decoration.x,decoration.baseline-height,height*1.3f,height,-10,new Color(.65f,.72f,.8f,.9f));
+                }
+                foreach(var platform in Model.Stage.platforms)ImageRect(atlas.Frame("props","prop_"+(Model.StageIndex==0?"05":"04")),platform.x,platform.y,platform.width,platform.height,0);
+                foreach(var prop in Model.Props)
+                {
+                    if(prop.Dead&&prop.DeathTime>1.6f)continue;
+                    string state=prop.Dead?"destroyed":prop.HP<=1?"breaking":prop.HP==2?"damaged":"intact";
+                    ImageRect(atlas.Animate("prop_"+prop.Data.style.ToString("00"),state,prop.DeathTime),prop.Data.x,310-prop.Data.height,prop.Data.width,prop.Data.height,5);
+                }
                 foreach(var e in Model.Enemies)
                 {
-                    string actor=EnemyActor(e.Kind);string state=e.Dead?"death":"walk";var sprite=atlas.Animate(actor,state,e.Dead?e.DeathTime:e.Age);
-                    Actor(sprite,e.X,e.Y,10,Model.Player.X>e.X,new Color(1,1,1,e.Dead?Mathf.Clamp01((.95f-e.DeathTime)/.3f):1));
+                    string actor=EnemyActor(e.Kind);string state=e.Dead?"death":e.Hurt>0?"hurt":e.Recoil>0?"attack":Math.Abs(e.X-Model.Player.X)>130?"walk":"idle";var sprite=atlas.Animate(actor,state,e.Dead?e.DeathTime:e.Age);
+                    Actor(sprite,e.X,e.Y,10,Model.Player.X>e.X,new Color(1,1,1,e.Dead?Mathf.Clamp01((.95f-e.DeathTime)/.3f):1),e.Kind>=8?1.3f:1);
                 }
                 if(Model.Boss!=null)
                 {
-                    var b=Model.Boss;Actor(atlas.Animate(Model.Stage.boss,"idle",animationTime),b.X,310,8,false,b.Dead?new Color(1,1,1,.2f):Color.white);
-                    foreach(var t in b.Targets)if(!t.Dead)Actor(atlas.Animate(t.Kind=="automata"?"military":t.Kind=="peroro"?"perorodzilla":"hod","idle",animationTime),t.X,t.Y,10,false,Color.white,t.Kind=="automata"?1:.4f);
+                    var b=Model.Boss;string bossState=b.Dead?"death":b.Hurt>0?"hurt":b.Warning?"warn":b.Timer>1.4f?"attack":b.HP<b.MaxHP*.5f?"phase2":"idle";
+                    if(Model.StageIndex==4&&b.CoreTime>0)bossState="phase2";
+                    Actor(atlas.Animate(Model.Stage.boss,bossState,b.Dead?4.8f-Model.ClearTime:animationTime),b.X,310,8,false,Color.white);
+                    foreach(var t in b.Targets)if(!t.Dead)Actor(atlas.Animate(t.Kind=="automata"?"chesed_drone":t.Kind,"idle",animationTime),t.X,t.Y,10,false,Color.white,t.Kind=="goz_clone"?.95f:t.Kind=="pillar"?.8f:.5f);
                 }
-                var p=Model.Player;Actor(atlas.Animate("hina",p.Alive?p.Animation:"death",animationTime),p.X,p.Y,15,p.Facing<0,new Color(1,1,1,p.Alive&&p.Invulnerable>0&&((int)(animationTime*14)%2)==0?.4f:1));
-                foreach(var bullet in Model.Bullets)Actor(atlas.Frame("items",bullet.Friendly?"friendly_bullet":"enemy_bullet"),bullet.X,bullet.Y,25);
-                foreach(var item in Model.Pickups)Actor(atlas.Frame("items",item.Special?"special_pickup":"score_pickup"),item.X,item.Y,20);
-                foreach(var fx in Model.Effects)Actor(atlas.Animate("effects","explosion",.4f-fx.Life),fx.X,fx.Y,30,false,Color.white,fx.Kind=="special"?4:1);
+                var p=Model.Player;Actor(atlas.Animate("hina",p.Alive?p.Animation:"death",playerStateTime),p.X,p.Y,15,p.Facing<0,new Color(1,1,1,p.Alive&&p.Invulnerable>0&&((int)(animationTime*14)%2)==0?.4f:1));
+                foreach(var bullet in Model.Bullets)Actor(atlas.Frame("props",bullet.Art??(bullet.Friendly?"friendly_bullet":"enemy_bullet")),bullet.X,bullet.Y,25,false,Color.white,.13f);
+                foreach(var item in Model.Pickups)Actor(atlas.Frame("props",item.Special?"special_pickup":"score_pickup"),item.X,item.Y,20,false,Color.white,.32f);
+                foreach(var fx in Model.Effects)
+                {
+                    bool animated=fx.Kind=="special"||fx.Kind=="explosion";
+                    var sprite=animated?atlas.Animate("effects",fx.Kind,fx.Kind=="special"?1-fx.Life:.4f-fx.Life):atlas.Frame("props",fx.Kind);
+                    Actor(sprite,fx.X,fx.Y,30,fx.Facing<0,Color.white,fx.Kind=="special"?4:fx.Kind=="special_bullet"?.7f:animated?1:.2f);
+                }
             }
             for(int i=drawIndex;i<pool.Count;i++)pool[i].gameObject.SetActive(false);
         }
@@ -141,6 +167,7 @@ namespace Hina.Unity
             GUI.matrix=Matrix4x4.TRS(new Vector3((Screen.width-640*scale)/2,(Screen.height-360*scale)/2),Quaternion.identity,Vector3.one*scale);
             if(Model.Mode==Mode.Title)
             {
+                Panel(new Rect(170,32,360,138));GUI.Label(new Rect(170,42,360,55),"PROJECT HINA",titleStyle);GUI.Label(new Rect(170,95,360,40),"VIOLET BREAKWATER",titleStyle);
                 if(Button(222,"출격 / START"))Model.Start();
                 if(Button(258,"설정 / OPTIONS"))settings=!settings;
                 if(Button(294,"게임 종료 / EXIT"))Application.Quit();
