@@ -11,11 +11,11 @@ namespace Hina.Core
     [Serializable] public class DecorData { public float x,height=42,baseline=302; public int style; }
     [Serializable] public class StageData { public int id; public string name, boss, music; public float length; public int[] opening; public RectData[] platforms; public WaveData[] waves; public PropData[] props; public DecorData[] decor; }
     [Serializable] public class StageCollection { public StageData[] stages; }
-    public class Player { public float X=80,Y=310,VY,Invulnerable,FireTimer,KickTimer,SpecialTimer; public int Facing=1,Stock=3; public bool Grounded=true,Alive=true; public string Animation="idle"; }
+    public class Player { public float X=80,Y=310,VY,Invulnerable,FireTimer,KickTimer,SpecialTimer,Coyote,JumpBuffer; public int Facing=1,Stock=3; public bool Grounded=true,Alive=true; public string Animation="idle"; }
     public class Enemy { public int Id,Kind,HP; public float X,Y=310,Timer,Age,DeathTime,Recoil,Hurt; public bool Dead; }
     public class Bullet { public float X,Y,VX,VY,Life=2.8f; public bool Friendly; public int Damage=1; public string Art; }
     public class Prop { public PropData Data; public int HP=3; public bool Dead; public float DeathTime; }
-    public class Effect { public float X,Y,Life=.4f; public string Kind; public int Facing=1; }
+    public class Effect { public float X,Y,Life=.4f; public string Kind; public int Facing=1; public float Angle; }
     public class Pickup { public float X,Y; public bool Special; }
     public class Hazard { public float X,Y,Width,Height,Delay,Life=.4f; }
     public class RaidTarget { public float X,Y; public int HP; public string Kind; public bool Dead; }
@@ -30,8 +30,8 @@ namespace Hina.Core
         public readonly StageData[] Stages;
         public Player Player=new Player();
         public Boss Boss;
-        public int StageIndex,Lives=3,Score,Coins,NextId,Unlocked=1;
-        public float MissionTime=99,ContinueTime,Clock,RespawnTime,ClearTime;
+        public int StageIndex,Lives=3,Score,Coins,Credits,NextId,Unlocked=1;
+        public float MissionTime=99,ContinueTime,Clock,RespawnTime,ClearTime,StageElapsed;
         public readonly List<Enemy> Enemies=new List<Enemy>();
         public readonly List<Bullet> Bullets=new List<Bullet>();
         public readonly List<Prop> Props=new List<Prop>();
@@ -45,12 +45,12 @@ namespace Hina.Core
         static float Abs(float x) { return Math.Abs(x); }
         static float Sqrt(float x) { return (float)Math.Sqrt(x); }
         void Sound(string name) { Sounds.Enqueue(new SoundEvent(name)); }
-        public void Start(int stage=0) { Score=0;Lives=3;Load(stage); }
+        public void Start(int stage=0) { Score=0;Lives=3+Credits;Credits=0;Load(stage); }
         public void Load(int index)
         {
             StageIndex=(int)Clamp(index,0,Stages.Length-1);Mode=Mode.Playing;Player=new Player();Player.Invulnerable=1.5f;
             Boss=null;Bullets.Clear();Enemies.Clear();Props.Clear();Effects.Clear();Pickups.Clear();Hazards.Clear();Sounds.Clear();
-            MissionTime=99;RespawnTime=0;ClearTime=0;
+            MissionTime=99;RespawnTime=0;ClearTime=0;StageElapsed=0;
             foreach(var w in Stage.waves??Array.Empty<WaveData>())w.triggered=false;
             foreach(var p in Stage.props??Array.Empty<PropData>())Props.Add(new Prop{Data=p});
             var opening=Stage.opening??new[]{0,1,2};for(int i=0;i<opening.Length;i++)SpawnEnemy(430+i*105,opening[i]);
@@ -64,10 +64,11 @@ namespace Hina.Core
             if(Mode==Mode.Continue){Lives++;Mode=Mode.Playing;Revive();}
             else if(Mode==Mode.GameOver){Load(StageIndex);Lives=1;}
             else if(Mode==Mode.Playing||Mode==Mode.Paused)Lives++;
+            else if(Mode==Mode.Title)Credits++;
         }
         public void HitPlayer(bool force=false)
         {
-            if(!Player.Alive||(!force&&Player.Invulnerable>0))return;
+            if(Mode!=Mode.Playing||!Player.Alive||(!force&&Player.Invulnerable>0))return;
             Lives--;Player.Alive=false;RespawnTime=.6f;Sound("death");
         }
         void Revive() { Player.Alive=true;Player.Invulnerable=3;Player.Stock=3;Player.VY=0;Player.KickTimer=0;Player.SpecialTimer=0;RespawnTime=0;Sound("respawn"); }
@@ -78,13 +79,24 @@ namespace Hina.Core
             Effects.Add(new Effect{X=e.X,Y=e.Y-25,Kind="explosion"});
             if(e.Id%6==0)Pickups.Add(new Pickup{X=e.X,Y=e.Y-24,Special=e.Id%12==0});
         }
+        public void HitRaidTarget(RaidTarget target,int damage)
+        {
+            if(target.Dead)return;target.HP-=damage;Effects.Add(new Effect{X=target.X,Y=target.Y-25,Kind="hit",Life=.12f});
+            if(target.HP>0){Sound("armor_hit");return;}
+            target.Dead=true;Score+=100;Sound(target.Kind=="automata"||target.Kind=="pillar"?"robot_down":"enemy_down");Effects.Add(new Effect{X=target.X,Y=target.Y-25,Kind="explosion"});
+        }
+        public void HitProp(Prop prop,int damage)
+        {
+            if(prop.Dead)return;prop.HP-=damage;
+            if(prop.HP>0)return;prop.Dead=true;prop.DeathTime=0;Score+=50;Sound("explosion");Effects.Add(new Effect{X=prop.Data.x+prop.Data.width/2,Y=310-prop.Data.height/2,Kind="explosion"});
+        }
         public void HitBoss(int damage)
         {
             if(Boss==null||Boss.Dead)return;
             if(StageIndex==2&&Boss.Targets.Exists(t=>!t.Dead&&t.Kind=="pillar"))return;
             if(StageIndex==4&&Boss.CoreTime<=0)return;
             Boss.Hurt=.12f;Boss.HP-=damage*(StageIndex==4?3:1);Sound("armor_hit");
-            if(Boss.HP<=0){Boss.Dead=true;Hazards.Clear();Boss.Targets.Clear();Score+=10000;Mode=Mode.Clear;ClearTime=4.8f;Sound("clear");Unlocked=Math.Max(Unlocked,StageIndex+2);}
+            if(Boss.HP<=0){Boss.Dead=true;Hazards.Clear();Boss.Targets.Clear();Score+=10000;Mode=Mode.Clear;ClearTime=4.8f;Sound("stage_clear_"+(StageIndex+1));Unlocked=Math.Max(Unlocked,StageIndex+2);}
         }
         public void StartBoss()
         {
@@ -94,28 +106,58 @@ namespace Hina.Core
         {
             dt=Math.Max(0,Math.Min(dt,.05f));Clock+=dt;
             if(Mode==Mode.Continue){ContinueTime-=dt;if(ContinueTime<=0)Mode=Mode.GameOver;return;}
-            if(Mode==Mode.Clear){ClearTime-=dt;if(ClearTime<=0){if(StageIndex+1<Stages.Length)Load(StageIndex+1);else Mode=Mode.Complete;}return;}
+            if(Mode==Mode.Clear){ClearTime-=dt;UpdateEffects(dt);if(ClearTime<=0){if(StageIndex+1<Stages.Length)Load(StageIndex+1);else Mode=Mode.Complete;}return;}
             if(Mode!=Mode.Playing)return;
             if(!Player.Alive){RespawnTime-=dt;if(RespawnTime<=0){if(Lives>0)Revive();else{Mode=Mode.Continue;ContinueTime=10;}}return;}
-            MissionTime-=dt;if(MissionTime<=0){MissionTime=99;HitPlayer(true);return;}
+            StageElapsed+=dt;MissionTime-=dt;if(MissionTime<=0){MissionTime=99;HitPlayer(true);return;}
             UpdatePlayer(dt,input);
             foreach(var w in Stage.waves??Array.Empty<WaveData>())if(!w.triggered&&Player.X>=w.trigger){w.triggered=true;for(int i=0;i<w.kinds.Length;i++)SpawnEnemy(w.spawn_x+i*70,w.kinds[i]);}
             if(Player.X>Stage.length-620&&Boss==null)StartBoss();
             UpdateEnemies(dt);UpdateBoss(dt);UpdateBullets(dt);UpdateHazards(dt);
             foreach(var prop in Props)if(prop.Dead)prop.DeathTime+=dt;
-            for(int i=Effects.Count-1;i>=0;i--){Effects[i].Life-=dt;if(Effects[i].Life<=0)Effects.RemoveAt(i);}
+            UpdateEffects(dt);
             for(int i=Pickups.Count-1;i>=0;i--){var p=Pickups[i];if(Abs(p.X-Player.X)<24&&Abs(p.Y-(Player.Y-20))<36){if(p.Special)Player.Stock=Math.Min(9,Player.Stock+1);else Score+=250;Sound("pickup");Pickups.RemoveAt(i);}}
+        }
+        void UpdateEffects(float dt)
+        {
+            for(int i=Effects.Count-1;i>=0;i--){Effects[i].Life-=dt;if(Effects[i].Life<=0)Effects.RemoveAt(i);}
+        }
+        bool SolidAt(float x,float y)
+        {
+            foreach(var r in Stage.platforms??Array.Empty<RectData>())if(r.Contains(x,y))return true;
+            foreach(var prop in Props)if(!prop.Dead&&x>=prop.Data.x&&x<=prop.Data.x+prop.Data.width&&y>=310-prop.Data.height&&y<=310)return true;
+            return y>=310;
+        }
+        bool ClearBarrel(float x,float y,float muzzleX,float muzzleY,out Prop blockingProp)
+        {
+            blockingProp=null;
+            int steps=Math.Max(1,(int)Math.Ceiling(Math.Max(Abs(muzzleX-x),Abs(muzzleY-y))/3));
+            for(int i=1;i<=steps;i++)
+            {
+                float px=x+(muzzleX-x)*i/steps,py=y+(muzzleY-y)*i/steps;
+                if(!SolidAt(px,py))continue;
+                blockingProp=Props.Find(prop=>!prop.Dead&&px>=prop.Data.x&&px<=prop.Data.x+prop.Data.width&&py>=310-prop.Data.height&&py<=310);return false;
+            }
+            return true;
         }
         void UpdatePlayer(float dt,Controls input)
         {
             var p=Player;p.Invulnerable=Math.Max(0,p.Invulnerable-dt);p.FireTimer-=dt;p.KickTimer=Math.Max(0,p.KickTimer-dt);
+            p.Coyote=p.Grounded?.08f:Math.Max(0,p.Coyote-dt);p.JumpBuffer=input.Jump?.1f:Math.Max(0,p.JumpBuffer-dt);
             if(input.Special&&p.Stock>0&&p.SpecialTimer<=0){p.Stock--;p.SpecialTimer=1.7f;p.Invulnerable=1.7f;Sound("charge");}
-            if(p.SpecialTimer>0){float old=p.SpecialTimer;p.SpecialTimer-=dt;if(old>.85f&&p.SpecialTimer<=.85f){foreach(var e in Enemies)if(!e.Dead&&Abs(e.X-p.X)<600)HitEnemy(e,30);HitBoss(30);Effects.Add(new Effect{X=p.X+p.Facing*160,Y=p.Y-40,Life=1,Kind="special"});Effects.Add(new Effect{X=p.X+p.Facing*60,Y=p.Y-30,Life=.3f,Kind="special_bullet",Facing=p.Facing});Sound("special");}}
+            if(p.SpecialTimer>0){float old=p.SpecialTimer;p.SpecialTimer-=dt;if(old>.85f&&p.SpecialTimer<=.85f){foreach(var e in Enemies)if(!e.Dead&&Abs(e.X-p.X)<600)HitEnemy(e,30);if(Boss!=null)foreach(var target in Boss.Targets)if(!target.Dead&&Abs(target.X-p.X)<600)HitRaidTarget(target,30);HitBoss(30);Effects.Add(new Effect{X=p.X+p.Facing*160,Y=p.Y-40,Life=1,Kind="special"});Effects.Add(new Effect{X=p.X+p.Facing*60,Y=p.Y-30,Life=.3f,Kind="special_bullet",Facing=p.Facing});Sound("special");}}
             if(input.Move!=0&&p.SpecialTimer<=0&&p.KickTimer<=0)p.Facing=input.Move<0?-1:1;
             bool crouch=p.Grounded&&input.Down;
             float move=p.SpecialTimer>0||p.KickTimer>0||crouch?0:input.Move*180*dt;
-            p.X=Clamp(p.X+move,Boss!=null?Stage.length-630:15,Stage.length-25);
-            if(input.Jump&&p.Grounded&&p.SpecialTimer<=0){p.VY=-390;p.Grounded=false;Sound("jump");}
+            float nextX=Clamp(p.X+move,Boss!=null?Stage.length-630:15,Stage.length-25);
+            foreach(var platform in Stage.platforms??Array.Empty<RectData>())
+            {
+                if(p.Y<=platform.y+1||p.Y-(crouch?22:35)>=platform.y+platform.height)continue;
+                if(move>0&&p.X+8<=platform.x+.01f&&nextX+8>platform.x)nextX=platform.x-8;
+                if(move<0&&p.X-8>=platform.x+platform.width-.01f&&nextX-8<platform.x+platform.width)nextX=platform.x+platform.width+8;
+            }
+            p.X=nextX;
+            if(p.JumpBuffer>0&&p.Coyote>0&&p.SpecialTimer<=0){p.VY=-390;p.Grounded=false;p.Coyote=0;p.JumpBuffer=0;Sound("jump");}
             float oldY=p.Y;p.VY=Math.Min(600,p.VY+1050*dt);p.Y+=p.VY*dt;p.Grounded=false;
             float floor=310;
             foreach(var r in Stage.platforms??Array.Empty<RectData>())if(p.X>r.x-8&&p.X<r.x+r.width+8&&oldY<=r.y+1&&p.Y>=r.y&&p.VY>=0)floor=Math.Min(floor,r.y);
@@ -125,12 +167,16 @@ namespace Hina.Core
             if(input.Shoot&&p.FireTimer<=0&&p.SpecialTimer<=0&&p.KickTimer<=0)
             {
                 var close=Enemies.Find(e=>!e.Dead&&(e.X-p.X)*p.Facing>0&&(e.X-p.X)*p.Facing<55&&Abs(e.Y-p.Y)<45);
-                if(close!=null){p.KickTimer=.44f;p.FireTimer=.44f;HitEnemy(close,3);Sound("kick_hit");}
-                else{p.FireTimer=.09f;Fire(p.X+ax*29,p.Y-(crouch?15:30)+ay*14,ax*850,ay*850,true);Sound("shot");}
+                var closeRaid=Boss==null?null:Boss.Targets.Find(target=>!target.Dead&&(target.X-p.X)*p.Facing>0&&(target.X-p.X)*p.Facing<55&&Abs(target.Y-p.Y)<45);
+                if(close!=null||closeRaid!=null){p.KickTimer=.44f;p.FireTimer=.44f;if(close!=null)HitEnemy(close,3);else HitRaidTarget(closeRaid,3);Sound("kick_hit");}
+                else{p.FireTimer=.09f;float muzzleX=p.X+ax*29,muzzleY=p.Y-(crouch?15:30)+ay*14;
+                    Prop blocking;
+                    if(ClearBarrel(p.X,p.Y-(crouch?12:20),muzzleX,muzzleY,out blocking))Fire(muzzleX,muzzleY,ax*850,ay*850,true);
+                    else {if(blocking!=null)HitProp(blocking,1);Effects.Add(new Effect{X=muzzleX,Y=muzzleY,Kind="hit",Life=.08f});}Sound("shot");}
             }
             p.Animation=!p.Alive?"death":p.SpecialTimer>0?"special":p.KickTimer>0?(p.Grounded?"kick":"air_kick"):input.Up?(input.Move!=0?"shoot_diagonal":"shoot_up"):!p.Grounded?(input.Down?"air_down":input.Shoot?"air_shoot":p.VY<0?"jump_rise":"fall"):crouch?(input.Shoot?"crouch_shoot":"crouch"):input.Move!=0?(input.Shoot?"walk_shoot":"walk"):input.Shoot?"shoot":"idle";
         }
-        void Fire(float x,float y,float vx,float vy,bool friendly,string art=null) { if(Bullets.Count<320)Bullets.Add(new Bullet{X=x,Y=y,VX=vx,VY=vy,Friendly=friendly,Art=art??(friendly?"friendly_bullet":"enemy_bullet")});if(friendly)Effects.Add(new Effect{X=x,Y=y,Kind="muzzle",Life=.07f,Facing=vx<0?-1:1}); }
+        void Fire(float x,float y,float vx,float vy,bool friendly,string art=null) { if(Bullets.Count<320)Bullets.Add(new Bullet{X=x,Y=y,VX=vx,VY=vy,Friendly=friendly,Art=art??(friendly?"friendly_bullet":"enemy_bullet")});if(friendly)Effects.Add(new Effect{X=x,Y=y,Kind="muzzle",Life=.07f,Facing=1,Angle=(float)(Math.Atan2(-vy,vx)*180/Math.PI)}); }
         void UpdateEnemies(float dt)
         {
             for(int i=Enemies.Count-1;i>=0;i--)
@@ -152,11 +198,11 @@ namespace Hina.Core
                     b.X+=b.VX*dt/steps;b.Y+=b.VY*dt/steps;if(b.Y>=310){dead=true;break;}
                     foreach(var r in Stage.platforms??Array.Empty<RectData>())if(r.Contains(b.X,b.Y)){dead=true;break;}
                     if(dead)break;
-                    foreach(var prop in Props)if(!prop.Dead&&b.X>=prop.Data.x&&b.X<=prop.Data.x+prop.Data.width&&b.Y>310-prop.Data.height){dead=true;if(b.Friendly&&--prop.HP<=0){prop.Dead=true;Score+=50;Sound("explosion");Effects.Add(new Effect{X=b.X,Y=b.Y,Kind="explosion"});}break;}
+                    foreach(var prop in Props)if(!prop.Dead&&b.X>=prop.Data.x&&b.X<=prop.Data.x+prop.Data.width&&b.Y>310-prop.Data.height){dead=true;if(b.Friendly)HitProp(prop,b.Damage);break;}
                     if(dead)break;
                     if(b.Friendly)
                     {
-                        if(Boss!=null)foreach(var t in Boss.Targets)if(!t.Dead&&Abs(t.X-b.X)<22&&Abs(t.Y-25-b.Y)<35){t.HP-=b.Damage;if(t.HP<=0){t.Dead=true;Score+=100;}dead=true;break;}
+                        if(Boss!=null)foreach(var t in Boss.Targets)if(!t.Dead&&Abs(t.X-b.X)<22&&Abs(t.Y-25-b.Y)<35){HitRaidTarget(t,b.Damage);dead=true;break;}
                         if(dead)break;
                         foreach(var e in Enemies)if(!e.Dead&&Abs(e.X-b.X)<(e.Kind>=8?54:14)&&b.Y>e.Y-(e.Kind>=8?44:48)&&b.Y<e.Y){HitEnemy(e,b.Damage);dead=true;break;}
                         if(!dead&&Boss!=null&&!Boss.Dead&&Abs(b.X-Boss.X)<70&&b.Y>95&&b.Y<300){HitBoss(b.Damage);dead=true;}

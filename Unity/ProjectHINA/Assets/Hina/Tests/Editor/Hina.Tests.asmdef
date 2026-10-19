@@ -1,1 +1,1 @@
-{"name":"Hina.Tests","references":["Hina.Core"],"includePlatforms":["Editor"],"optionalUnityReferences":["TestAssemblies"]}
+{"name":"Hina.Tests","references":["Hina.Core","Hina.Unity","Hina.Editor"],"includePlatforms":["Editor"],"optionalUnityReferences":["TestAssemblies"]}

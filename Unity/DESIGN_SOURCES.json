@@ -1,49 +1,123 @@
 {
-  "reference_method": "Designs based on familiar Blue Archive canonical character/faction/raid settings; newly generated imagery, no official asset extraction. External reference-page fetch was unavailable in this environment.",
+  "reference_method": "Actual Blue Archive source images and weapon/enemy/boss/background information were retrieved from the public SchaleDB repository and visually inspected. Newly illustrated game poses prioritize original design fidelity. Reference rasters are not included as runtime assets.",
+  "reference_repository": "https://github.com/lonqie/SchaleDB",
+  "reference_repository_head_at_inspection": "70a2c4b8982ca860687898e61848847a60ffe3b8",
   "sprites": [
     {
       "atlas": "player",
       "file": "Sheets/player.png",
-      "sha256": "9065a6be850b36173c839b43938ff00f15695eebc8bd19ef8b2db1d6e3d7828a",
-      "width": 1254,
-      "height": 1254,
-      "creation": "Newly designed and generated for this project, referencing Blue Archive character/faction/raid concepts. Not official extracted assets.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "f34113ad746b9f762e2203dceb204e19980bec8f87f3a9e5a024469efd5b7def",
+      "creation": "Newly illustrated using actual source-image references; default identity, costume, weapon and palette prioritized",
+      "reference_urls": [
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/student/portrait/10004.webp",
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/weapon/weapon_icon_10004.webp"
+      ],
       "modified_pixels": false
     },
     {
       "atlas": "enemies",
       "file": "Sheets/enemies.png",
-      "sha256": "d6c8f57bf924861106f15ba49e39cef8d50bf491f64956f63ec4ea5c9fd733e2",
-      "width": 1261,
-      "height": 1247,
-      "creation": "Newly designed and generated for this project, referencing Blue Archive character/faction/raid concepts. Not official extracted assets.",
+      "width": 1402,
+      "height": 1122,
+      "sha256": "71070f3643066d0c0a993868b52a6a08d292df8d2585c629bcdee1c0251a28ee",
+      "creation": "Newly illustrated using actual source-image references; default identity, costume, weapon and palette prioritized",
+      "reference_urls": [
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/enemy/enemyinfo_soldier_helmet_ar.webp",
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/enemy/enemyinfo_schoolgirl_sukeban_smg.webp",
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/enemy/enemyinfo_schoolgirl_sukeban_sr.webp",
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/enemy/enemyinfo_soldier_kaiserpmc_sg.webp"
+      ],
+      "modified_pixels": false
+    },
+    {
+      "atlas": "vehicles",
+      "file": "Sheets/vehicles.png",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "d5174acca16454f20a239c89b33478ef0ff9944bff30937959aed9b491df8899",
+      "creation": "Newly illustrated using actual source-image references; default identity, costume, weapon and palette prioritized",
+      "reference_urls": [
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/enemy/enemyinfo_droid_kaiserpmc_ar.webp",
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/enemy/enemyinfo_heavytank_kaiserpmc_cannon.webp",
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/enemy/enemyinfo_heavytank_kaiserpmc_railgun.webp"
+      ],
       "modified_pixels": false
     },
     {
       "atlas": "bosses",
       "file": "Sheets/bosses.png",
-      "sha256": "ca28654c699a734f0d26cc2b4cc920f048b7caacb77a347240ddb4c6f5c6febf",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "22c026340692ada8d82a96d9d62cd9a1a3efa7dfcab48a2c2755a1ddc82f8e8b",
+      "creation": "Newly illustrated using actual source-image references; default identity, costume, weapon and palette prioritized",
+      "reference_urls": [
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/raid/Boss_Portrait_Binah_Lobby.png",
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/raid/Boss_Portrait_Perorozilla_Lobby.png",
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/raid/Boss_Portrait_HOD_Lobby.png",
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/raid/Boss_Portrait_Goz_Lobby.png",
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/raid/Boss_Portrait_Chesed_Lobby.png"
+      ],
+      "modified_pixels": false
+    },
+    {
+      "atlas": "support",
+      "file": "Sheets/support.png",
       "width": 1402,
       "height": 1122,
-      "creation": "Newly designed and generated for this project, referencing Blue Archive character/faction/raid concepts. Not official extracted assets.",
+      "sha256": "c97e9d02a8b030268f049fc87c32730ee9ec3f6ca30025ce63cfc6e4597c8fc3",
+      "creation": "Newly illustrated using actual source-image references; default identity, costume, weapon and palette prioritized",
+      "reference_urls": [
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/raid/Boss_Portrait_Perorozilla_Lobby.png",
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/enemy/enemyinfo_hod_colour_temporarytower.webp",
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/raid/Boss_Portrait_Goz_Lobby.png",
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/enemy/enemyinfo_droid_decagram_ar.webp"
+      ],
       "modified_pixels": false
     },
     {
       "atlas": "props",
       "file": "Sheets/props.png",
-      "sha256": "d27116a740bd4d5b20c35570b53bac8964daa67541ad3b138f9b8231d5862056",
-      "width": 1402,
-      "height": 1122,
-      "creation": "Newly designed and generated for this project, referencing Blue Archive character/faction/raid concepts. Not official extracted assets.",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "7eaac8786be70848998c320671966c1dc80048a8b6df7fb998e079a2d2e1c045",
+      "creation": "Newly illustrated using actual source-image references; default identity, costume, weapon and palette prioritized",
+      "reference_urls": [
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/background/BG_FishingVillage2_Collection.jpg",
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/background/BG_Abydos_Collection.jpg",
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/background/BG_Millennium_Collection.jpg",
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/enemy/enemyinfo_droid_kaiserpmc_ar.webp"
+      ],
+      "modified_pixels": false
+    },
+    {
+      "atlas": "effects",
+      "file": "Sheets/effects.png",
+      "width": 1448,
+      "height": 1086,
+      "sha256": "e247d96a61f06d35cd697196f5725c789b2cffd8a7cc51e526fd0e497045cebc",
+      "creation": "Newly illustrated using actual source-image references; default identity, costume, weapon and palette prioritized",
+      "reference_urls": [
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/weapon/weapon_icon_10004.webp",
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/raid/Boss_Portrait_Chesed_Lobby.png",
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/enemy/enemyinfo_droid_kaiserpmc_ar.webp"
+      ],
       "modified_pixels": false
     },
     {
       "atlas": "backgrounds",
       "file": "Sheets/backgrounds.png",
-      "sha256": "3dcf90c04e413fff7fd556d254725bea23ec57bac9ae1da09b888050bca42038",
-      "width": 1536,
-      "height": 1024,
-      "creation": "Newly designed and generated for this project, referencing Blue Archive character/faction/raid concepts. Not official extracted assets.",
+      "width": 2048,
+      "height": 768,
+      "sha256": "4f744b8408a886c487196a374fe2b4f8b5c85ca4a0cf143bfbc666ca4fef2c5c",
+      "creation": "Newly illustrated using actual source-image references; default identity, costume, weapon and palette prioritized",
+      "reference_urls": [
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/background/BG_FishingVillage2_Collection.jpg",
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/background/BG_Abydos_Collection.jpg",
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/background/BG_Millennium_Collection.jpg",
+        "https://raw.githubusercontent.com/lonqie/SchaleDB/main/images/background/BG_Gehenna_Collection.jpg"
+      ],
       "modified_pixels": false
     }
   ]

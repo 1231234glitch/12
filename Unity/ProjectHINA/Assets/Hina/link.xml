@@ -1,0 +1,4 @@
+<linker>
+  <assembly fullname="Hina.Core" preserve="all" />
+  <assembly fullname="Hina.Unity" preserve="all" />
+</linker>

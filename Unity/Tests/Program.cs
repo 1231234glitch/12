@@ -46,6 +46,15 @@ g=New();g.Load(4);g.StartBoss();g.Boss.CoreTime=5;g.HitBoss(99999);Frames(g,300)
 g=New();g.Load(3);g.StartBoss();g.Player.Invulnerable=9999;Frames(g,310);Check(g.Boss.Targets.Count==2&&g.Boss.Targets.TrueForAll(t=>t.Kind=="goz_clone"),"goz_creates_two_redesigned_decoys");
 g=New();g.Enemies.Clear();enemy=g.SpawnEnemy(220,8);enemy.Timer=.001f;Frames(g,1);Check(enemy.Recoil>0,"enemy_fire_triggers_attack_art_state");g.HitEnemy(enemy,1);Check(enemy.Hurt>0&&!enemy.Dead,"tank_hit_triggers_hurt_art_state");
 g=New();prop=g.Props[0];prop.HP=1;g.Bullets.Add(new Bullet{X=prop.Data.x-10,Y=300,VX=850,Friendly=true});Frames(g,3);Check(prop.Dead&&prop.DeathTime>0,"prop_destroyed_state_tracks_debris_age");
+g=New();g.Mode=Mode.Title;g.InsertCoin();g.InsertCoin();g.Start();Check(g.Lives==5&&g.Credits==0,"title_coins_become_starting_lives");
+g=New();g.Player.Grounded=false;g.Player.Y=200;g.Player.VY=50;g.Player.Coyote=.06f;g.Tick(1/60f,new Controls{Jump=true});Check(g.Player.VY<0,"coyote_jump_after_leaving_ledge");
+g=New();g.Player.Grounded=false;g.Player.Y=309;g.Player.VY=100;g.Tick(1/60f,new Controls{Jump=true});g.Tick(1/60f,default);Check(g.Player.VY<0,"jump_buffer_before_landing");
+g=New();platform=g.Stage.platforms[0];g.Player.X=platform.x-10;Frames(g,5,new Controls{Move=1});Check(g.Player.X<=platform.x-8+.01f,"platform_side_blocks_running_through");
+g=New();platform=g.Stage.platforms[0];g.Player.X=platform.x+20;g.Player.Y=platform.y-8;g.Player.VY=150;g.Player.Grounded=false;Frames(g,8);Check(g.Player.Grounded&&g.Player.Y==platform.y,"land_on_platform_top");
+g=New();g.Enemies.Clear();g.Props.Clear();g.Props.Add(new Prop{Data=new PropData{x=g.Player.X+8,width=10,height=45}});g.Tick(1/60f,new Controls{Shoot=true});Check(g.Bullets.Count==0,"near_cover_blocks_muzzle_spawn_through_wall");Check(g.Props[0].HP==2,"point_blank_shot_damages_cover_instead_of_becoming_harmless");
+g=New();g.StartBoss();g.HitBoss(99999);int lives=g.Lives;g.HitPlayer(true);Check(g.Lives==lives&&g.Mode==Mode.Clear,"clear_state_protects_player");g.Effects.Add(new Effect{Kind="explosion",Life=.05f});Frames(g,10);Check(g.Effects.Count==0,"effects_expire_during_clear_transition");
+g=New();g.Enemies.Clear();g.StartBoss();g.Player.X=g.Stage.length-550;var raidTarget=new RaidTarget{X=g.Player.X+25,Y=310,HP=2,Kind="peroro"};g.Boss.Targets.Add(raidTarget);g.Tick(1/60f,new Controls{Shoot=true});Check(raidTarget.Dead&&g.Player.KickTimer>0&&g.Bullets.Count==0,"close_raid_add_uses_melee_instead_of_shooting_past_target");
+g=New();g.Load(2);g.StartBoss();g.Player.X=g.Stage.length-550;raidTarget=new RaidTarget{X=g.Player.X+100,Y=310,HP=6,Kind="pillar"};g.Boss.Targets.Add(raidTarget);hp=g.Boss.HP;g.Tick(1/60f,new Controls{Special=true});Frames(g,60);Check(raidTarget.Dead&&g.Boss.HP<hp,"special_clears_raid_pillar_and_hits_newly_exposed_boss");
 Console.WriteLine($"RESULT {checks} checks, {failures} failures");
 File.WriteAllText(Path.Combine(AppContext.BaseDirectory,"../../../../core_test_results.json"),JsonSerializer.Serialize(new{checks,failures,results},new JsonSerializerOptions{WriteIndented=true}));
 return failures==0?0:1;

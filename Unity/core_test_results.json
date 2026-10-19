@@ -1,5 +1,5 @@
 {
-  "checks": 61,
+  "checks": 72,
   "failures": 0,
   "results": [
     {
@@ -244,6 +244,50 @@
     },
     {
       "name": "prop_destroyed_state_tracks_debris_age",
+      "passed": true
+    },
+    {
+      "name": "title_coins_become_starting_lives",
+      "passed": true
+    },
+    {
+      "name": "coyote_jump_after_leaving_ledge",
+      "passed": true
+    },
+    {
+      "name": "jump_buffer_before_landing",
+      "passed": true
+    },
+    {
+      "name": "platform_side_blocks_running_through",
+      "passed": true
+    },
+    {
+      "name": "land_on_platform_top",
+      "passed": true
+    },
+    {
+      "name": "near_cover_blocks_muzzle_spawn_through_wall",
+      "passed": true
+    },
+    {
+      "name": "point_blank_shot_damages_cover_instead_of_becoming_harmless",
+      "passed": true
+    },
+    {
+      "name": "clear_state_protects_player",
+      "passed": true
+    },
+    {
+      "name": "effects_expire_during_clear_transition",
+      "passed": true
+    },
+    {
+      "name": "close_raid_add_uses_melee_instead_of_shooting_past_target",
+      "passed": true
+    },
+    {
+      "name": "special_clears_raid_pillar_and_hits_newly_exposed_boss",
       "passed": true
     }
   ]

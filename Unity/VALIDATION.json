@@ -1,11 +1,13 @@
 {
-  "status": "NEW_DESIGNS_APPLIED_UNITY_EDITOR_VALIDATION_PENDING",
-  "core_checks_passed": 61,
+  "status": "GAME_IMPLEMENTED_AWAITING_UNITY_BUILD_ENVIRONMENT",
+  "core_checks_passed": 72,
   "core_checks_failed": 0,
-  "atlas_count": 5,
-  "validated_frames": 272,
-  "animation_mapping_count": 146,
+  "atlas_count": 8,
+  "validated_frames": 144,
+  "animation_mapping_count": 150,
   "new_design_groups_applied": 43,
+  "actual_source_references_inspected": true,
+  "canonical_design_fidelity_prioritized": true,
   "official_extracted_assets_used": false,
   "pixel_art_required": false,
   "source_pngs_preserved_without_pixel_changes": true,
@@ -15,15 +17,15 @@
   "unity_executable_built": false,
   "art_review_is_unity_runtime": false,
   "csharp_syntax": {
-    "files": 6,
+    "files": 9,
     "passed": true,
     "parser": "Roslyn C# 9",
     "unity_api_compilation_performed": false
   },
   "art_review": {
     "ready": true,
-    "atlases": 5,
-    "animations": 146,
+    "atlases": 8,
+    "animations": 150,
     "cards": 38,
     "stage": 4,
     "stages_checked": [

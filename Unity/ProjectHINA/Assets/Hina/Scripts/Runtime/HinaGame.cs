@@ -21,9 +21,9 @@ namespace Hina.Unity
         bool shoot,jump,special;
         float movement;bool up,down;
         GUIStyle titleStyle,labelStyle,smallStyle,buttonStyle;
-        Texture2D white;
+        Texture2D white,buttonNormal,buttonHover,buttonPressed;
         Font korean;
-        bool settings;
+        bool settings,selectingStage;
         int highScore;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
@@ -39,14 +39,15 @@ namespace Hina.Unity
             Model=new GameModel(JsonUtility.FromJson<StageCollection>(data.text).stages);
             Model.Unlocked=PlayerPrefs.GetInt("HinaUnlocked",1);highScore=PlayerPrefs.GetInt("HinaHighScore",0);
             atlas=new AtlasLibrary();korean=Resources.Load<Font>("Hina/NotoSansCJKkr-Regular");
-            cam=Camera.main;if(cam==null)cam=new GameObject("Main Camera",typeof(Camera),typeof(AudioListener)).GetComponent<Camera>();
-            cam.orthographic=true;cam.orthographicSize=180/64f;cam.backgroundColor=new Color(.08f,.12f,.2f);cam.clearFlags=CameraClearFlags.SolidColor;
+            cam=Camera.main;
+            if(cam==null){var cameraObject=new GameObject("Main Camera",typeof(Camera),typeof(AudioListener));cameraObject.tag="MainCamera";cameraObject.transform.SetParent(transform,false);cam=cameraObject.GetComponent<Camera>();}
+            cam.orthographic=true;cam.orthographicSize=180/64f;cam.backgroundColor=new Color(.78f,.9f,.98f);cam.clearFlags=CameraClearFlags.SolidColor;
             if(FindObjectOfType<AudioListener>()==null)cam.gameObject.AddComponent<AudioListener>();
             music=gameObject.AddComponent<AudioSource>();music.loop=true;music.volume=.35f;
             for(int i=0;i<16;i++){var source=gameObject.AddComponent<AudioSource>();sfx.Add(source);}
             foreach(var clip in Resources.LoadAll<AudioClip>("Hina/Audio"))audio[clip.name]=clip;
             masterVolume=PlayerPrefs.GetFloat("HinaVolume",.8f);AudioListener.volume=masterVolume;
-            white=new Texture2D(1,1);white.SetPixel(0,0,Color.white);white.Apply();
+            white=SolidTexture(Color.white);buttonNormal=SolidTexture(new Color(.96f,.985f,1));buttonHover=SolidTexture(new Color(.72f,.91f,1));buttonPressed=SolidTexture(new Color(.3f,.72f,.96f));
         }
         void Update()
         {
@@ -55,8 +56,8 @@ namespace Hina.Unity
             up=Input.GetKey(KeyCode.W)||Input.GetKey(KeyCode.UpArrow);down=Input.GetKey(KeyCode.S)||Input.GetKey(KeyCode.DownArrow);
             shoot=Input.GetKey(KeyCode.J);jump|=Input.GetKeyDown(KeyCode.K);special|=Input.GetKeyDown(KeyCode.L);
             if(Input.GetKeyDown(KeyCode.Alpha1)||Input.GetKeyDown(KeyCode.Keypad1))Model.InsertCoin();
-            if(Input.GetKeyDown(KeyCode.Escape)){settings=false;Model.TogglePause();}
-            if(Input.GetKeyDown(KeyCode.Return)&&Model.Mode==Mode.Title)Model.Start();
+            if(Input.GetKeyDown(KeyCode.Escape)){if(settings||selectingStage){settings=false;selectingStage=false;}else Model.TogglePause();}
+            if(Input.GetKeyDown(KeyCode.Return)&&Model.Mode==Mode.Title&&!settings&&!selectingStage)Model.Start();
             accumulator+=Math.Min(Time.unscaledDeltaTime,.15f);
             while(accumulator>=1/60f)
             {
@@ -72,8 +73,8 @@ namespace Hina.Unity
                 string name=Model.Sounds.Dequeue().Name;AudioClip clip;
                 if(audio.TryGetValue(name,out clip)){var source=sfx[soundIndex++%sfx.Count];source.pitch=name=="shot"?UnityEngine.Random.Range(.96f,1.04f):1;source.PlayOneShot(clip,name=="shot"?.4f:.7f);}
             }
-            string track=Model.Mode==Mode.Title?"menu":Model.Boss!=null&&!Model.Boss.Dead?"boss":Model.Stage.music;
-            if(track!=musicKey){musicKey=track;AudioClip clip;if(audio.TryGetValue("bgm_"+track,out clip)){music.clip=clip;music.Play();}}
+            string track=Model.Mode==Mode.Clear||Model.Mode==Mode.Complete?"":Model.Mode==Mode.Title?"menu":Model.Boss!=null&&!Model.Boss.Dead?"boss":Model.Stage.music;
+            if(track!=musicKey){musicKey=track;if(track=="")music.Stop();AudioClip clip;if(audio.TryGetValue("bgm_"+track,out clip)){music.clip=clip;music.Play();}}
             if(Model.Score>highScore){highScore=Model.Score;PlayerPrefs.SetInt("HinaHighScore",highScore);}
             PlayerPrefs.SetInt("HinaUnlocked",Math.Min(5,Model.Unlocked));
             DrawWorld();
@@ -84,9 +85,9 @@ namespace Hina.Unity
             if(drawIndex>=pool.Count){var go=new GameObject("Sprite "+drawIndex);go.transform.SetParent(transform,false);pool.Add(go.AddComponent<SpriteRenderer>());}
             var r=pool[drawIndex++];r.gameObject.SetActive(sprite!=null);r.sprite=sprite;r.sortingOrder=order;r.color=color;r.flipX=false;r.transform.localScale=Vector3.one;r.transform.rotation=Quaternion.identity;return r;
         }
-        void Actor(Sprite sprite,float x,float y,int order=10,bool flip=false,Color? tint=null,float scale=1)
+        void Actor(Sprite sprite,float x,float y,int order=10,bool flip=false,Color? tint=null,float scale=1,float angle=0)
         {
-            var r=Next(sprite,order,tint??Color.white);r.transform.position=Position(x,y);r.flipX=flip;r.transform.localScale=Vector3.one*scale;
+            var r=Next(sprite,order,tint??Color.white);r.transform.position=Position(x,y);r.flipX=flip;r.transform.localScale=Vector3.one*scale;r.transform.rotation=Quaternion.Euler(0,0,angle);
         }
         void ImageRect(Sprite sprite,float x,float y,float w,float h,int order,Color? tint=null)
         {
@@ -103,25 +104,25 @@ namespace Hina.Unity
             cam.rect=screenRatio>target?new Rect((1-target/screenRatio)/2,0,target/screenRatio,1):new Rect(0,(1-screenRatio/target)/2,1,screenRatio/target);
             if(Model.Mode==Mode.Title)
             {
-                ImageRect(atlas.Frame("backgrounds","stage_3"),left,0,640,360,-100);
-                Actor(atlas.Animate("hina","idle",animationTime),left+135,300,10,false,Color.white,1.8f);
-                Actor(atlas.Animate("binah","idle",animationTime),left+540,310,8,false,new Color(1,1,1,.7f),.85f);
+                var titleBackground=atlas.Frame("backgrounds","stage_0");float width=360*titleBackground.bounds.size.x/titleBackground.bounds.size.y;ImageRect(titleBackground,left-(width-640)*.25f,0,width,360,-100);
+                Actor(atlas.Animate("hina","idle",animationTime),left+120,315,10,false,Color.white,2.4f);
+                Actor(atlas.Animate("binah","idle",animationTime),left+540,310,8,false,new Color(1,1,1,.4f),.85f);
             }
             else
             {
-                ImageRect(atlas.Frame("backgrounds","stage_"+Model.StageIndex),left-Math.Min(left*.3f,896),0,1536,310,-100);
+                var scenery=atlas.Frame("backgrounds","stage_"+Model.StageIndex);float sceneryWidth=310*scenery.bounds.size.x/scenery.bounds.size.y;ImageRect(scenery,left-Math.Min(left*.5f,Math.Max(0,sceneryWidth-640)),0,sceneryWidth,310,-100);
                 for(int i=-1;i<3;i++)ImageRect(atlas.Frame("backgrounds","ground_"+Model.StageIndex),(float)Math.Floor(left/768)*768+i*768,310,768,60,-50);
                 foreach(var decoration in Model.Stage.decor??Array.Empty<DecorData>())
                 {
                     float height=decoration.height>0?decoration.height:42;
-                    ImageRect(atlas.Frame("props","prop_"+decoration.style.ToString("00")),decoration.x,decoration.baseline-height,height*1.3f,height,-10,new Color(.65f,.72f,.8f,.9f));
+                    ImageRect(atlas.Frame("props","prop_"+decoration.style.ToString("00")),decoration.x,(decoration.baseline>0?decoration.baseline:302)-height,height*1.3f,height,-10,new Color(.65f,.72f,.8f,.9f));
                 }
                 foreach(var platform in Model.Stage.platforms)ImageRect(atlas.Frame("props","prop_"+(Model.StageIndex==0?"05":"04")),platform.x,platform.y,platform.width,platform.height,0);
                 foreach(var prop in Model.Props)
                 {
                     if(prop.Dead&&prop.DeathTime>1.6f)continue;
                     string state=prop.Dead?"destroyed":prop.HP<=1?"breaking":prop.HP==2?"damaged":"intact";
-                    ImageRect(atlas.Animate("prop_"+prop.Data.style.ToString("00"),state,prop.DeathTime),prop.Data.x,310-prop.Data.height,prop.Data.width,prop.Data.height,5);
+                    ImageRect(atlas.Animate("prop_"+prop.Data.style.ToString("00"),state,prop.DeathTime),prop.Data.x,310-prop.Data.height,prop.Data.width,prop.Data.height,5,prop.Dead?new Color(1,1,1,Mathf.Clamp01((1.6f-prop.DeathTime)/.5f)):prop.HP==1?new Color(1,.75f,.7f):prop.HP==2?new Color(.9f,.9f,.88f):Color.white);
                 }
                 foreach(var e in Model.Enemies)
                 {
@@ -133,32 +134,35 @@ namespace Hina.Unity
                     var b=Model.Boss;string bossState=b.Dead?"death":b.Hurt>0?"hurt":b.Warning?"warn":b.Timer>1.4f?"attack":b.HP<b.MaxHP*.5f?"phase2":"idle";
                     if(Model.StageIndex==4&&b.CoreTime>0)bossState="phase2";
                     Actor(atlas.Animate(Model.Stage.boss,bossState,b.Dead?4.8f-Model.ClearTime:animationTime),b.X,310,8,false,Color.white);
-                    foreach(var t in b.Targets)if(!t.Dead)Actor(atlas.Animate(t.Kind=="automata"?"chesed_drone":t.Kind,"idle",animationTime),t.X,t.Y,10,false,Color.white,t.Kind=="goz_clone"?.95f:t.Kind=="pillar"?.8f:.5f);
+                    foreach(var t in b.Targets)if(!t.Dead)Actor(atlas.Animate(t.Kind=="automata"?"chesed_drone":t.Kind,"idle",animationTime),t.X,t.Y,10,false,Color.white,t.Kind=="goz_clone"?2:t.Kind=="pillar"?1:.65f);
                 }
                 var p=Model.Player;Actor(atlas.Animate("hina",p.Alive?p.Animation:"death",playerStateTime),p.X,p.Y,15,p.Facing<0,new Color(1,1,1,p.Alive&&p.Invulnerable>0&&((int)(animationTime*14)%2)==0?.4f:1));
-                foreach(var bullet in Model.Bullets)Actor(atlas.Frame("props",bullet.Art??(bullet.Friendly?"friendly_bullet":"enemy_bullet")),bullet.X,bullet.Y,25,false,Color.white,.13f);
-                foreach(var item in Model.Pickups)Actor(atlas.Frame("props",item.Special?"special_pickup":"score_pickup"),item.X,item.Y,20,false,Color.white,.32f);
+                foreach(var bullet in Model.Bullets)Actor(atlas.Frame("effects",bullet.Art??(bullet.Friendly?"friendly_bullet":"enemy_bullet")),bullet.X,bullet.Y,25,false,Color.white,.13f,Mathf.Atan2(-bullet.VY,bullet.VX)*Mathf.Rad2Deg);
+                foreach(var item in Model.Pickups)Actor(atlas.Frame("effects",item.Special?"special_pickup":"score_pickup"),item.X,item.Y,20,false,Color.white,.32f);
                 foreach(var fx in Model.Effects)
                 {
                     bool animated=fx.Kind=="special"||fx.Kind=="explosion";
-                    var sprite=animated?atlas.Animate("effects",fx.Kind,fx.Kind=="special"?1-fx.Life:.4f-fx.Life):atlas.Frame("props",fx.Kind);
-                    Actor(sprite,fx.X,fx.Y,30,fx.Facing<0,Color.white,fx.Kind=="special"?4:fx.Kind=="special_bullet"?.7f:animated?1:.2f);
+                    var sprite=animated?atlas.Animate("effects",fx.Kind,fx.Kind=="special"?1-fx.Life:.4f-fx.Life):atlas.Frame("effects",fx.Kind);
+                    Actor(sprite,fx.X,fx.Y,30,fx.Facing<0,Color.white,fx.Kind=="special"?4:fx.Kind=="special_bullet"?.7f:animated?1:.2f,fx.Angle);
                 }
             }
             for(int i=drawIndex;i<pool.Count;i++)pool[i].gameObject.SetActive(false);
         }
-        static string EnemyActor(int kind) { return new[]{"helmet","sukeban","sniper","shield","military","military","shield","military","tank","railgun"}[Mathf.Clamp(kind,0,9)]; }
+        static readonly string[] EnemyActors={"helmet","sukeban","sniper","shield","military","military","shield","military","tank","railgun"};
+        static string EnemyActor(int kind) { return EnemyActors[Mathf.Clamp(kind,0,9)]; }
         void Style()
         {
             if(labelStyle!=null)return;
-            labelStyle=new GUIStyle(GUI.skin.label){fontSize=13,font=korean,normal={textColor=new Color(.96f,.94f,.8f)}};
+            labelStyle=new GUIStyle(GUI.skin.label){fontSize=13,font=korean,normal={textColor=new Color(.1f,.21f,.31f)}};
             titleStyle=new GUIStyle(labelStyle){fontSize=25,fontStyle=FontStyle.Bold,alignment=TextAnchor.MiddleCenter};
             smallStyle=new GUIStyle(labelStyle){fontSize=10};
-            buttonStyle=new GUIStyle(GUI.skin.button){font=korean,fontSize=14};
+            buttonStyle=new GUIStyle(GUI.skin.button){font=korean,fontSize=14,fontStyle=FontStyle.Bold,alignment=TextAnchor.MiddleCenter};
+            buttonStyle.normal.background=buttonNormal;buttonStyle.hover.background=buttonHover;buttonStyle.focused.background=buttonHover;buttonStyle.active.background=buttonPressed;
+            foreach(var state in new[]{buttonStyle.normal,buttonStyle.hover,buttonStyle.focused,buttonStyle.active})state.textColor=new Color(.08f,.21f,.34f);
         }
         void Panel(Rect rect)
         {
-            GUI.color=new Color(.06f,.12f,.18f,.95f);GUI.DrawTexture(rect,white);GUI.color=new Color(.9f,.8f,.55f);GUI.DrawTexture(new Rect(rect.x,rect.y,rect.width,2),white);GUI.color=Color.white;
+            GUI.color=new Color(.06f,.15f,.25f,.2f);GUI.DrawTexture(new Rect(rect.x+2,rect.y+3,rect.width,rect.height),white);GUI.color=new Color(.96f,.985f,1,.94f);GUI.DrawTexture(rect,white);GUI.color=new Color(.1f,.68f,.94f);GUI.DrawTexture(new Rect(rect.x,rect.y,rect.width,2),white);GUI.color=Color.white;
         }
         bool Button(float y,string text) { return GUI.Button(new Rect(200,y,240,30),text,buttonStyle); }
         void OnGUI()
@@ -167,11 +171,17 @@ namespace Hina.Unity
             GUI.matrix=Matrix4x4.TRS(new Vector3((Screen.width-640*scale)/2,(Screen.height-360*scale)/2),Quaternion.identity,Vector3.one*scale);
             if(Model.Mode==Mode.Title)
             {
-                Panel(new Rect(170,32,360,138));GUI.Label(new Rect(170,42,360,55),"PROJECT HINA",titleStyle);GUI.Label(new Rect(170,95,360,40),"VIOLET BREAKWATER",titleStyle);
-                if(Button(222,"출격 / START"))Model.Start();
-                if(Button(258,"설정 / OPTIONS"))settings=!settings;
-                if(Button(294,"게임 종료 / EXIT"))Application.Quit();
-                if(settings)Settings();GUI.Label(new Rect(20,338,600,18),"A/D MOVE · J FIRE · K JUMP · L SPECIAL · 1 COIN · ESC PAUSE",smallStyle);return;
+                Panel(new Rect(185,30,355,140));GUI.Label(new Rect(185,42,355,52),"PROJECT HINA",titleStyle);GUI.Label(new Rect(185,94,355,34),"OPERATION GEHENNA",titleStyle);
+                GUI.Label(new Rect(205,137,320,24),"선도부장 히나 · CREDIT "+Model.Credits,labelStyle);
+                if(!settings&&!selectingStage)
+                {
+                    if(Button(200,"출격 / START"))Model.Start();
+                    if(Button(236,"작전 선택 / MISSIONS"))selectingStage=true;
+                    if(Button(272,"설정 / OPTIONS"))settings=true;
+                    if(Application.platform!=RuntimePlatform.WebGLPlayer&&Button(308,"게임 종료 / EXIT"))Application.Quit();
+                }
+                if(settings)Settings();if(selectingStage)StageSelection();
+                Panel(new Rect(0,338,640,22));GUI.Label(new Rect(20,339,600,18),"A/D MOVE · J FIRE · K JUMP · L SPECIAL · 1 COIN · ESC PAUSE",smallStyle);return;
             }
             float left=Model.CameraX-320;
 
@@ -181,11 +191,15 @@ namespace Hina.Unity
             Panel(new Rect(10,8,180,46));GUI.Label(new Rect(18,10,170,22),"HINA    "+Model.Score.ToString("0000000"),labelStyle);GUI.Label(new Rect(18,30,170,20),"1UP "+Model.Lives+"    BOMB "+Model.Player.Stock,labelStyle);
             GUI.Label(new Rect(275,8,100,35),Mathf.CeilToInt(Model.MissionTime).ToString("00"),titleStyle);
             GUI.Label(new Rect(455,10,180,40),"HI "+highScore.ToString("0000000")+"\nMISSION "+(Model.StageIndex+1),labelStyle);
-            GUI.Label(new Rect(18,339,610,18),"A/D MOVE   J FIRE/KICK   K JUMP   L SPECIAL   1 COIN   ESC PAUSE",smallStyle);
+            Panel(new Rect(0,336,640,24));GUI.Label(new Rect(18,339,610,18),"A/D MOVE   J FIRE/KICK   K JUMP   L SPECIAL   1 COIN   ESC PAUSE",smallStyle);
             if(Model.Boss!=null&&!Model.Boss.Dead)
             {
-                Panel(new Rect(120,62,400,28));GUI.color=new Color(.8f,.3f,.5f);GUI.DrawTexture(new Rect(125,81,390*Mathf.Clamp01(Model.Boss.HP/Model.Boss.MaxHP),4),white);GUI.color=Color.white;
+                Panel(new Rect(120,62,400,28));GUI.color=new Color(.07f,.61f,.9f);GUI.DrawTexture(new Rect(125,81,390*Mathf.Clamp01(Model.Boss.HP/Model.Boss.MaxHP),4),white);GUI.color=Color.white;
                 GUI.Label(new Rect(125,62,390,22),Model.Stage.boss.ToUpper()+" / "+Model.Boss.Attack,smallStyle);
+            }
+            if(Model.Mode==Mode.Playing&&Model.StageElapsed<2.2f)
+            {
+                Panel(new Rect(185,133,270,68));GUI.Label(new Rect(185,137,270,35),"MISSION "+(Model.StageIndex+1).ToString("00"),titleStyle);GUI.Label(new Rect(205,176,250,22),Model.Stage.name,labelStyle);
             }
             if(Model.Mode==Mode.Paused)
             {
@@ -201,6 +215,19 @@ namespace Hina.Unity
             if(Model.Mode==Mode.Clear||Model.Mode==Mode.Complete){Panel(new Rect(130,125,380,110));GUI.Label(new Rect(130,135,380,80),Model.Mode==Mode.Complete?"ALL MISSIONS COMPLETE":"MISSION COMPLETE",titleStyle);if(Model.Mode==Mode.Complete&&Button(250,"메인 메뉴 / TITLE"))Model.Mode=Mode.Title;}
             if(settings)Settings();
         }
+        void StageSelection()
+        {
+            Panel(new Rect(145,54,350,270));GUI.Label(new Rect(145,62,350,34),"작전 선택",titleStyle);
+            for(int i=0;i<Model.Stages.Length;i++)
+            {
+                GUI.enabled=i<Model.Unlocked;
+                if(GUI.Button(new Rect(165,104+i*32,310,28),(i+1).ToString("00")+"  "+Model.Stages[i].name,buttonStyle)){selectingStage=false;Model.Start(i);}
+            }
+            GUI.enabled=true;if(GUI.Button(new Rect(165,274,310,28),"돌아가기 / BACK",buttonStyle))selectingStage=false;
+        }
+        static Texture2D SolidTexture(Color color) { var texture=new Texture2D(1,1);texture.SetPixel(0,0,color);texture.Apply();return texture; }
+        void OnApplicationFocus(bool focused) { if(!focused&&!Application.isBatchMode&&Model!=null&&Model.Mode==Mode.Playing)Model.TogglePause(); }
+        void OnDestroy() { foreach(var texture in new[]{white,buttonNormal,buttonHover,buttonPressed})if(texture!=null)Destroy(texture); }
         void Settings()
         {
             Panel(new Rect(120,110,400,200));GUI.Label(new Rect(140,125,350,30),"음량 / VOLUME",labelStyle);

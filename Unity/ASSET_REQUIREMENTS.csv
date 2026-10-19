@@ -1,44 +1,44 @@
-﻿id,reference_setting,new_design,atlas,status,official_asset_required
-hina,"Blue Archive / Sorasaki Hina: silver hair, violet eyes, horns, halo, wings, military/gothic silhouette",Violet Breakwater: redesigned armor/clothing/weapon details and newly drawn action frames,player,NEW_DESIGN_APPLIED,NO
-helmet,"Helmet Gang: white safety helmet, delinquent uniform","New faction-specific uniform/chassis, weapon, motion, recoil and damaged states",enemies,NEW_DESIGN_APPLIED,NO
-sukeban,Sukeban: delinquent school-uniform faction,"New faction-specific uniform/chassis, weapon, motion, recoil and damaged states",enemies,NEW_DESIGN_APPLIED,NO
-sniper,Sukeban marksman role,"New faction-specific uniform/chassis, weapon, motion, recoil and damaged states",enemies,NEW_DESIGN_APPLIED,NO
-shield,Kaiser PMC shield automaton,"New faction-specific uniform/chassis, weapon, motion, recoil and damaged states",enemies,NEW_DESIGN_APPLIED,NO
-military,Kaiser PMC infantry automaton,"New faction-specific uniform/chassis, weapon, motion, recoil and damaged states",enemies,NEW_DESIGN_APPLIED,NO
-tank,Kaiser tracked combat vehicle,"New faction-specific uniform/chassis, weapon, motion, recoil and damaged states",enemies,NEW_DESIGN_APPLIED,NO
-railgun,Kaiser heavy electromagnetic gun vehicle,"New faction-specific uniform/chassis, weapon, motion, recoil and damaged states",enemies,NEW_DESIGN_APPLIED,NO
-binah,Binah / gold articulated mechanical serpent,"New silhouette detailing, armor/costume, attack, weak-point and defeat artwork",bosses,NEW_DESIGN_APPLIED,NO
-perorodzilla,Perorodzilla / colossal white Peroro chicken mascot,"New silhouette detailing, armor/costume, attack, weak-point and defeat artwork",bosses,NEW_DESIGN_APPLIED,NO
-hod,HOD / neural machine tower and cable-tentacle roots,"New silhouette detailing, armor/costume, attack, weak-point and defeat artwork",bosses,NEW_DESIGN_APPLIED,NO
-goz,Goz / enormous cat magician in tuxedo and top hat,"New silhouette detailing, armor/costume, attack, weak-point and defeat artwork",bosses,NEW_DESIGN_APPLIED,NO
-chesed,Chesed / spherical computation core with opening armored shell,"New silhouette detailing, armor/costume, attack, weak-point and defeat artwork",bosses,NEW_DESIGN_APPLIED,NO
-peroro,Blue Archive raid-associated support entity,New matching raid summon/clone/pillar/drone design,bosses,NEW_DESIGN_APPLIED,NO
-pillar,Blue Archive raid-associated support entity,New matching raid summon/clone/pillar/drone design,bosses,NEW_DESIGN_APPLIED,NO
-goz_clone,Blue Archive raid-associated support entity,New matching raid summon/clone/pillar/drone design,bosses,NEW_DESIGN_APPLIED,NO
-chesed_drone,Blue Archive raid-associated support entity,New matching raid summon/clone/pillar/drone design,bosses,NEW_DESIGN_APPLIED,NO
-supply_crate,Kivotos / Gehenna / Kaiser facilities and equipment,"New detailed prop with pristine, damaged, breaking and debris states",props,NEW_DESIGN_APPLIED,NO
-fuel_drum,Kivotos / Gehenna / Kaiser facilities and equipment,"New detailed prop with pristine, damaged, breaking and debris states",props,NEW_DESIGN_APPLIED,NO
-cover_barricade,Kivotos / Gehenna / Kaiser facilities and equipment,"New detailed prop with pristine, damaged, breaking and debris states",props,NEW_DESIGN_APPLIED,NO
-machine_crate,Kivotos / Gehenna / Kaiser facilities and equipment,"New detailed prop with pristine, damaged, breaking and debris states",props,NEW_DESIGN_APPLIED,NO
-rail_platform,Kivotos / Gehenna / Kaiser facilities and equipment,"New detailed prop with pristine, damaged, breaking and debris states",props,NEW_DESIGN_APPLIED,NO
-coastal_platform,Kivotos / Gehenna / Kaiser facilities and equipment,"New detailed prop with pristine, damaged, breaking and debris states",props,NEW_DESIGN_APPLIED,NO
-comms_unit,Kivotos / Gehenna / Kaiser facilities and equipment,"New detailed prop with pristine, damaged, breaking and debris states",props,NEW_DESIGN_APPLIED,NO
-ruin_platform,Kivotos / Gehenna / Kaiser facilities and equipment,"New detailed prop with pristine, damaged, breaking and debris states",props,NEW_DESIGN_APPLIED,NO
-facility_panel,Kivotos / Gehenna / Kaiser facilities and equipment,"New detailed prop with pristine, damaged, breaking and debris states",props,NEW_DESIGN_APPLIED,NO
-street_barrier,Kivotos / Gehenna / Kaiser facilities and equipment,"New detailed prop with pristine, damaged, breaking and debris states",props,NEW_DESIGN_APPLIED,NO
-reactor_unit,Kivotos / Gehenna / Kaiser facilities and equipment,"New detailed prop with pristine, damaged, breaking and debris states",props,NEW_DESIGN_APPLIED,NO
-debris,Kivotos / Gehenna / Kaiser facilities and equipment,"New detailed prop with pristine, damaged, breaking and debris states",props,NEW_DESIGN_APPLIED,NO
-score_pickup,"Blue Archive inspired ammunition, supply and energy design language",New matching pickup/projectile/effect art,props,NEW_DESIGN_APPLIED,NO
-special_pickup,"Blue Archive inspired ammunition, supply and energy design language",New matching pickup/projectile/effect art,props,NEW_DESIGN_APPLIED,NO
-friendly_bullet,"Blue Archive inspired ammunition, supply and energy design language",New matching pickup/projectile/effect art,props,NEW_DESIGN_APPLIED,NO
-enemy_bullet,"Blue Archive inspired ammunition, supply and energy design language",New matching pickup/projectile/effect art,props,NEW_DESIGN_APPLIED,NO
-robot_bullet,"Blue Archive inspired ammunition, supply and energy design language",New matching pickup/projectile/effect art,props,NEW_DESIGN_APPLIED,NO
-special_bullet,"Blue Archive inspired ammunition, supply and energy design language",New matching pickup/projectile/effect art,props,NEW_DESIGN_APPLIED,NO
-muzzle,"Blue Archive inspired ammunition, supply and energy design language",New matching pickup/projectile/effect art,props,NEW_DESIGN_APPLIED,NO
-hit,"Blue Archive inspired ammunition, supply and energy design language",New matching pickup/projectile/effect art,props,NEW_DESIGN_APPLIED,NO
-explosion,Military ordnance / violet energy palette,New eight-frame expanding fire-and-smoke animation,props,NEW_DESIGN_APPLIED,NO
-background_1,Kivotos coastal landing,New panoramic environment and terrain strip,backgrounds,NEW_DESIGN_APPLIED,NO
-background_2,Abydos desert ruins,New panoramic environment and terrain strip,backgrounds,NEW_DESIGN_APPLIED,NO
-background_3,Millennium/Kaiser railway,New panoramic environment and terrain strip,backgrounds,NEW_DESIGN_APPLIED,NO
-background_4,Night Gehenna academy district,New panoramic environment and terrain strip,backgrounds,NEW_DESIGN_APPLIED,NO
-background_5,Decagrammaton reactor hall,New panoramic environment and terrain strip,backgrounds,NEW_DESIGN_APPLIED,NO
+﻿id,reference_setting,reference_fidelity,atlas,status,original_files_required
+hina,Sorasaki Hina / default illustration and Destroyer of Denouement,"Dark uniform, white draped coat, gold chain/buttons, red armband, canonical halo/horns/wings and black/violet MG",player,CANONICAL_REFERENCE_APPLIED,NO
+helmet,Helmet Gang: dark skull helmet/red visor,"Source-image silhouette, clothing, hair, halo, weapon and palette closely retained",enemies,CANONICAL_REFERENCE_APPLIED,NO
+sukeban,Sukeban SMG: black ponytail/navy sailor uniform,"Source-image silhouette, clothing, hair, halo, weapon and palette closely retained",enemies,CANONICAL_REFERENCE_APPLIED,NO
+sniper,Sukeban sniper: long black hair/navy long sailor uniform,"Source-image silhouette, clothing, hair, halo, weapon and palette closely retained",enemies,CANONICAL_REFERENCE_APPLIED,NO
+shield,Kaiser PMC human shotgun soldier: tan camouflage,"Source-image silhouette, clothing, hair, halo, weapon and palette closely retained",enemies,CANONICAL_REFERENCE_APPLIED,NO
+military,Kaiser PMC droid: green triangle optic/tan camouflage,"Original camouflage geometry, green systems and characteristic cannon/railgun shapes",vehicles,CANONICAL_REFERENCE_APPLIED,NO
+tank,Kaiser heavy cannon tank: tan camouflage/green optics,"Original camouflage geometry, green systems and characteristic cannon/railgun shapes",vehicles,CANONICAL_REFERENCE_APPLIED,NO
+railgun,Kaiser heavy railgun tank: long green railgun/tan camouflage,"Original camouflage geometry, green systems and characteristic cannon/railgun shapes",vehicles,CANONICAL_REFERENCE_APPLIED,NO
+binah,Blue Archive Binah,"White segmented mechanical serpent, orange seams/eyes, gold halo",bosses,CANONICAL_REFERENCE_APPLIED,NO
+perorodzilla,Blue Archive Perorozilla,"White Peroro mascot, circular eye, yellow beak, long pink tongue, pale cyan dorsal motif",bosses,CANONICAL_REFERENCE_APPLIED,NO
+hod,Blue Archive HOD,"White/gray angular machine, black structure, orange core and heavy articulated limbs",bosses,CANONICAL_REFERENCE_APPLIED,NO
+goz,Blue Archive Goz,"Gray magician cat, green eyes, toothy grin, spade top hat, black bow tie, white fur collar",bosses,CANONICAL_REFERENCE_APPLIED,NO
+chesed,Blue Archive Chesed,"Dark armored sphere, white circular front, orange eye/rings and flanking panels",bosses,CANONICAL_REFERENCE_APPLIED,NO
+peroro,Small Peroro mascot raid add,Reference geometry and palette; newly illustrated idle/attack/hit/defeat states,support,CANONICAL_REFERENCE_APPLIED,NO
+pillar,"HOD color-variant temporary tower, purple segmented cylinder/white eye band",Reference geometry and palette; newly illustrated idle/attack/hit/defeat states,support,CANONICAL_REFERENCE_APPLIED,NO
+goz_clone,Canonical Goz costume with blue illusion outline,Reference geometry and palette; newly illustrated idle/attack/hit/defeat states,support,CANONICAL_REFERENCE_APPLIED,NO
+chesed_drone,Decagrammaton white/orange infantry droid,Reference geometry and palette; newly illustrated idle/attack/hit/defeat states,support,CANONICAL_REFERENCE_APPLIED,NO
+ammo_crate,Kivotos/Kaiser grounded equipment and reference environment materials,Practical colors and utilitarian geometry; no invented ornate fantasy props,props,CANONICAL_REFERENCE_APPLIED,NO
+fuel_drum,Kivotos/Kaiser grounded equipment and reference environment materials,Practical colors and utilitarian geometry; no invented ornate fantasy props,props,CANONICAL_REFERENCE_APPLIED,NO
+concrete_barricade,Kivotos/Kaiser grounded equipment and reference environment materials,Practical colors and utilitarian geometry; no invented ornate fantasy props,props,CANONICAL_REFERENCE_APPLIED,NO
+machine_box,Kivotos/Kaiser grounded equipment and reference environment materials,Practical colors and utilitarian geometry; no invented ornate fantasy props,props,CANONICAL_REFERENCE_APPLIED,NO
+rail_platform,Kivotos/Kaiser grounded equipment and reference environment materials,Practical colors and utilitarian geometry; no invented ornate fantasy props,props,CANONICAL_REFERENCE_APPLIED,NO
+harbor_platform,Kivotos/Kaiser grounded equipment and reference environment materials,Practical colors and utilitarian geometry; no invented ornate fantasy props,props,CANONICAL_REFERENCE_APPLIED,NO
+radio_case,Kivotos/Kaiser grounded equipment and reference environment materials,Practical colors and utilitarian geometry; no invented ornate fantasy props,props,CANONICAL_REFERENCE_APPLIED,NO
+school_foundation,Kivotos/Kaiser grounded equipment and reference environment materials,Practical colors and utilitarian geometry; no invented ornate fantasy props,props,CANONICAL_REFERENCE_APPLIED,NO
+industrial_wall,Kivotos/Kaiser grounded equipment and reference environment materials,Practical colors and utilitarian geometry; no invented ornate fantasy props,props,CANONICAL_REFERENCE_APPLIED,NO
+road_barrier,Kivotos/Kaiser grounded equipment and reference environment materials,Practical colors and utilitarian geometry; no invented ornate fantasy props,props,CANONICAL_REFERENCE_APPLIED,NO
+reactor_control,Kivotos/Kaiser grounded equipment and reference environment materials,Practical colors and utilitarian geometry; no invented ornate fantasy props,props,CANONICAL_REFERENCE_APPLIED,NO
+debris,Kivotos/Kaiser grounded equipment and reference environment materials,Practical colors and utilitarian geometry; no invented ornate fantasy props,props,CANONICAL_REFERENCE_APPLIED,NO
+score_pickup,"Hina violet weapon, Kaiser green electronics, Decagrammaton orange core and credit/ammo motifs",Reference-matched effect color and supply-case style,effects,CANONICAL_REFERENCE_APPLIED,NO
+special_pickup,"Hina violet weapon, Kaiser green electronics, Decagrammaton orange core and credit/ammo motifs",Reference-matched effect color and supply-case style,effects,CANONICAL_REFERENCE_APPLIED,NO
+friendly_bullet,"Hina violet weapon, Kaiser green electronics, Decagrammaton orange core and credit/ammo motifs",Reference-matched effect color and supply-case style,effects,CANONICAL_REFERENCE_APPLIED,NO
+enemy_bullet,"Hina violet weapon, Kaiser green electronics, Decagrammaton orange core and credit/ammo motifs",Reference-matched effect color and supply-case style,effects,CANONICAL_REFERENCE_APPLIED,NO
+robot_bullet,"Hina violet weapon, Kaiser green electronics, Decagrammaton orange core and credit/ammo motifs",Reference-matched effect color and supply-case style,effects,CANONICAL_REFERENCE_APPLIED,NO
+special_bullet,"Hina violet weapon, Kaiser green electronics, Decagrammaton orange core and credit/ammo motifs",Reference-matched effect color and supply-case style,effects,CANONICAL_REFERENCE_APPLIED,NO
+muzzle,"Hina violet weapon, Kaiser green electronics, Decagrammaton orange core and credit/ammo motifs",Reference-matched effect color and supply-case style,effects,CANONICAL_REFERENCE_APPLIED,NO
+hit,"Hina violet weapon, Kaiser green electronics, Decagrammaton orange core and credit/ammo motifs",Reference-matched effect color and supply-case style,effects,CANONICAL_REFERENCE_APPLIED,NO
+explosion,Blue Archive-like smooth battle VFX,Illustrated flash/fire/smoke progression,effects,CANONICAL_REFERENCE_APPLIED,NO
+background_1,Kivotos fishing harbor/coastal village,"Reference-style architecture, practical materials and original-like atmosphere",backgrounds,CANONICAL_REFERENCE_APPLIED,NO
+background_2,Abydos modern school and sand,"Reference-style architecture, practical materials and original-like atmosphere",backgrounds,CANONICAL_REFERENCE_APPLIED,NO
+background_3,Millennium industrial railway service facility,"Reference-style architecture, practical materials and original-like atmosphere",backgrounds,CANONICAL_REFERENCE_APPLIED,NO
+background_4,Gehenna night academy plaza,"Reference-style architecture, practical materials and original-like atmosphere",backgrounds,CANONICAL_REFERENCE_APPLIED,NO
+background_5,Decagrammaton white/gray/orange industrial reactor,"Reference-style architecture, practical materials and original-like atmosphere",backgrounds,CANONICAL_REFERENCE_APPLIED,NO
